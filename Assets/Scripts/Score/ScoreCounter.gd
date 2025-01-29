@@ -1,5 +1,6 @@
 extends Node
 
+# Connects to the ScoreCounter script to receive score updates
 signal score_changed(score: float)
 
 const TIME_MULTIPLIER: int = 10
@@ -17,6 +18,7 @@ func _process(delta: float) -> void:
 	#print("Score: ", score)
 
 
+# Use that one to increment the score
 func increment_score(amount: float) -> void:
 	score += amount
 	emit_signal("score_changed", score)
