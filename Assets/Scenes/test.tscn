@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=5 format=3 uid="uid://bh23dubw043qi"]
 
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
+[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_qgpqf"]
+[ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
 
 [node name="Test" type="Node2D"]
 
 [node name="ScoreUi" parent="." instance=ExtResource("2_mq0ck")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(577, 620)
+scale = Vector2(50, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_tku25")
+
+[node name="Player" parent="." instance=ExtResource("2_qgpqf")]
+position = Vector2(508, 359)
+
+[node name="EscherichiaColi" parent="." instance=ExtResource("3_rq4pl")]
+position = Vector2(511, 507)
+score = 10.0

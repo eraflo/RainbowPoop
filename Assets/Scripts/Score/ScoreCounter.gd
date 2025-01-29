@@ -21,5 +21,9 @@ func _process(delta: float) -> void:
 # Use that one to increment the score
 func increment_score(amount: float) -> void:
 	score += amount
-	emit_signal("score_changed", score)
-	
+	score_changed.emit(score)
+
+# Use that one to decrement the score
+func decrement_score(amount: float) -> void:
+	score -= amount
+	score_changed.emit(score)

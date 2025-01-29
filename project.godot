@@ -14,9 +14,17 @@ config/name="RainbowPoop"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Score="*res://Assets/Nodes/Score/Score.tscn"
+
 [dotnet]
 
 project/assembly_name="RainbowPoop"
+
+[global_group]
+
+collectable=""
 
 [rendering]
 
