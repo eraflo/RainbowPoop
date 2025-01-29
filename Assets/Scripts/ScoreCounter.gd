@@ -20,3 +20,4 @@ func _process(delta: float) -> void:
 func increment_score(amount: float) -> void:
 	score += amount
 	emit_signal("score_changed", score)
+	
