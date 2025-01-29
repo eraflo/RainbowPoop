@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5j3hrcxj10hs"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/ScoreCounter.gd" id="1_hg1f3"]
-[ext_resource type="Script" path="res://Assets/Scripts/Threshold.gd" id="2_ouws1"]
+[ext_resource type="Script" path="res://Assets/Scripts/Score/ScoreCounter.gd" id="1_hg1f3"]
+[ext_resource type="Script" path="res://Assets/Scripts/Score/Threshold.gd" id="2_ouws1"]
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_hg1f3")

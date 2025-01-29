@@ -5,7 +5,7 @@ signal score_changed(score: float)
 const TIME_MULTIPLIER: int = 10
 const HEALTHY_MULTIPLIER: int = 100
 
-var score: float = 0
+@export var score: float = 0
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	increment_score(TIME_MULTIPLIER * delta)
-	print("Score: ", score)
+	#print("Score: ", score)
 
 
 func increment_score(amount: float) -> void:

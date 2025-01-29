@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=3 format=3 uid="uid://bh23dubw043qi"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/Score/ScoreUI.gd" id="1_h0546"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_h0546")
 
 [node name="ScoreUi" parent="." instance=ExtResource("2_mq0ck")]
