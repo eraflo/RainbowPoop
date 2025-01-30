@@ -29,3 +29,5 @@ score = 10.0
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
 position = Vector2(818, 526)
 scale = Vector2(4, 4)
+knockback_force = 800.0
+distance_ray = 16

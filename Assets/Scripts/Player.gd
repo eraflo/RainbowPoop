@@ -7,6 +7,8 @@ signal get_touchscreen_input(event: InputEventScreenTouch)
 @export var acceleration: float = 800.0
 @export var jump_force: float = -400.0
 
+@export var stun_duration: float = 0.5
+
 @onready var stateManager = $StateManager
 
 

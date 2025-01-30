@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3l3p7hr7nfwx"]
+[gd_scene load_steps=4 format=3 uid="uid://c3l3p7hr7nfwx"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Traps/FoodObstacle.gd" id="1_5xmer"]
+[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_jp3rp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pribj"]
 
@@ -10,3 +11,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pribj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jp3rp")
