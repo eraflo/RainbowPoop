@@ -15,9 +15,18 @@ run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Score="*res://Assets/Nodes/Score/Score.tscn"
+WorldDirection="*res://Assets/Scripts/WorldDirection.gd"
+
 [dotnet]
 
 project/assembly_name="RainbowPoop"
+
+[global_group]
+
+collectable=""
 
 [rendering]
 
