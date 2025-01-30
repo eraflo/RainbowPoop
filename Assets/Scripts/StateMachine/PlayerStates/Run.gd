@@ -14,10 +14,10 @@ func exit(_state_manager: StateManager) -> void:
 	touched_screen = false
 
 func update(_state_manager: StateManager, delta: float) -> void:
-	if player.velocity.x < player.max_speed:
+	if player.velocity.x < player.current_speed:
 		player.velocity.x += player.acceleration * delta
 	else:
-		player.velocity.x = player.max_speed
+		player.velocity.x = player.current_speed
 
 func check_transition():
 	if touched_screen and player.is_on_floor():
