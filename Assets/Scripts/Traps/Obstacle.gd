@@ -8,13 +8,13 @@ var collision_ray = RayCast2D.new()
 
 func _process(_delta: float) -> void:
 	# Draw the ray
-	draw_line(self.position, collision_ray.cast_to, Color(1, 0, 0), 2)
+	draw_line(self.position, collision_ray.target_position, Color(1, 0, 0), 2)
 
 func _physics_process(_delta: float) -> void:
 	direction_raycast = get_direction_raycast()
 
 	# Cast a ray in the direction of the obstacle
-	collision_ray.cast_to = direction_raycast * distance_ray
+	collision_ray.target_position = direction_raycast * distance_ray
 	
 	if collision_ray.is_colliding():
 		collision_ray.force_raycast_update()

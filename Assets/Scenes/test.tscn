@@ -20,7 +20,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_tku25")
 
 [node name="Player" parent="." instance=ExtResource("2_qgpqf")]
-position = Vector2(814, 391)
+position = Vector2(284, 516)
 
 [node name="EscherichiaColi" parent="." instance=ExtResource("3_rq4pl")]
 position = Vector2(511, 507)
