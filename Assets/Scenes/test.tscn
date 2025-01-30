@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=7 format=3 uid="uid://bh23dubw043qi"]
 
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/HealthSystem/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_qgpqf"]
 [ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
@@ -8,6 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
 
 [node name="Test" type="Node2D"]
+
+[node name="HealthBar" parent="." instance=ExtResource("1_akwrr")]
 
 [node name="ScoreUi" parent="." instance=ExtResource("2_mq0ck")]
 

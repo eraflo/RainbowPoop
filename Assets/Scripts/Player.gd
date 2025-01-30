@@ -11,8 +11,11 @@ signal get_touchscreen_input(event: InputEventScreenTouch)
 
 @onready var stateManager = $StateManager
 
+# Current speed, affected by all kinds of factors
+var current_speed: float = 0
 
 func _ready() -> void:
+	current_speed = max_speed
 	stateManager.request_state("Run")
 	
 
