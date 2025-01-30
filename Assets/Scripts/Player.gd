@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal get_touchscreen_input(event: InputEventScreenTouch)
+
 @export var gravity: float = 980
 @export var max_speed: float = 200.0
 @export var acceleration: float = 800.0
@@ -21,3 +23,8 @@ func _process(delta: float) -> void:
 		velocity.y += gravity * delta
 	
 	move_and_slide()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and event.pressed:
+		get_touchscreen_input.emit(event)
