@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3l3p7hr7nfwx"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Traps/FoodObstacle.gd" id="1_5xmer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pribj"]
+
+[node name="FoodObstacle" type="StaticBody2D"]
+script = ExtResource("1_5xmer")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pribj")

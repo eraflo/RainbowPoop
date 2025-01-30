@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Score="*res://Assets/Nodes/Score/Score.tscn"
+WorldDirection="*res://Assets/Scripts/WorldDirection.gd"
 
 [dotnet]
 
