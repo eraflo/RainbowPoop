@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://s82l85h1atd5"]
+[gd_scene load_steps=9 format=3 uid="uid://s82l85h1atd5"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_0hnlo"]
 [ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_ytt4v"]
+[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/StateManager.gd" id="3_6cimm"]
+[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Idle.gd" id="4_408kj"]
+[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Run.gd" id="5_d5hf6"]
+[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Stun.gd" id="6_hruci"]
+[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Jump.gd" id="7_cmy8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20mto"]
 
@@ -15,3 +20,18 @@ shape = SubResource("RectangleShape2D_20mto")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ytt4v")
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("3_6cimm")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("4_408kj")
+
+[node name="Run" type="Node" parent="StateManager"]
+script = ExtResource("5_d5hf6")
+
+[node name="Stun" type="Node" parent="StateManager"]
+script = ExtResource("6_hruci")
+
+[node name="Jump" type="Node" parent="StateManager"]
+script = ExtResource("7_cmy8c")
