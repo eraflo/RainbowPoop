@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhf7xoskahxnl"]
+
+[ext_resource type="Texture2D" uid="uid://bhgmujwv1kr5f" path="res://Assets/background/big-intestine-part.png" id="1_t4tmw"]
+[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_n6f5g"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Lcol" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 592, 0, 592, 8, 392, 16, 296, 32, 216, 56, 160, 88, 120, 120, 80, 176, 48, 256, 24, 376, 8, 576, 8, 904, 16, 1064, 32, 1200, 64, 1296, 96, 1360, 128, 1400, 176, 1440, 248, 1472, 312, 1488, 424, 1504, 584, 1504, 584, 1520, 0, 1520)
+
+[node name="Rcol" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(1168, 8, 1280, 8, 1440, 24, 1576, 72, 1656, 144, 1696, 224, 1728, 344, 1744, 488, 1744, 992, 1728, 1152, 1712, 1232, 1688, 1304, 1640, 1384, 1576, 1440, 1504, 1472, 1440, 1488, 1384, 1496, 1296, 1504, 1160, 1504, 1160, 1520, 1760, 1520, 1760, 0, 1168, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture = ExtResource("1_t4tmw")
+polygon = PackedVector2Array(1758.89, -3.29498, 1758.89, 1516.7, -1.10773, 1516.7, 0, 0)
+uv = PackedVector2Array(3006.89, -3.29498, 3014.89, 2004.7, -1.10773, 2004.7, -1.10773, -3.29498)
+
+[node name="Player" parent="." instance=ExtResource("2_n6f5g")]
+position = Vector2(48, 864)
