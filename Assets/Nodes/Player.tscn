@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_0hnlo"]
 [ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_ytt4v"]
-[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/StateManager.gd" id="3_6cimm"]
-[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Idle.gd" id="4_408kj"]
-[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Run.gd" id="5_d5hf6"]
-[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Stun.gd" id="6_hruci"]
-[ext_resource type="Script" path="res://Assets/Scripts/StateMachine/PlayerStates/Jump.gd" id="7_cmy8c"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/StateManager.gd" id="3_6cimm"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Idle.gd" id="4_408kj"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Run.gd" id="5_d5hf6"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Stun.gd" id="6_hruci"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Jump.gd" id="7_cmy8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20mto"]
 

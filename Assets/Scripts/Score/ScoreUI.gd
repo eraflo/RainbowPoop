@@ -7,3 +7,6 @@ func _ready() -> void:
 
 func _on_score_changed(score: float) -> void:
 	score_label.text = str(score)
+
+
+		
