@@ -1,25 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhf7xoskahxnl"]
+[gd_scene load_steps=3 format=3 uid="uid://co5jv1us78p52"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/utility/colDeform.gd" id="1_4jk6l"]
-[ext_resource type="Texture2D" uid="uid://bhgmujwv1kr5f" path="res://Assets/background/big-intestine-part.png" id="1_t4tmw"]
-[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_n6f5g"]
+[ext_resource type="Script" path="res://Assets/Scripts/utility/colDeform.gd" id="1_hrcpq"]
+[ext_resource type="Texture2D" uid="uid://bhgmujwv1kr5f" path="res://Assets/background/big-intestine-part.png" id="2_rromw"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="stomachPart" type="StaticBody2D" parent="."]
+[node name="stomachPart" type="StaticBody2D"]
 scale = Vector2(1000, 1000)
-script = ExtResource("1_4jk6l")
+script = ExtResource("1_hrcpq")
 
-[node name="Lcol" type="CollisionPolygon2D" parent="stomachPart"]
+[node name="Lcol" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0.336, 0, 0.336, 0.008, 0.264, 0.008, 0.192, 0.016, 0.16, 0.024, 0.136, 0.032, 0.12, 0.04, 0.104, 0.048, 0.064, 0.088, 0.048, 0.112, 0.04, 0.136, 0.024, 0.184, 0.016, 0.232, 0.008, 0.312, 0.008, 0.68, 0.016, 0.768, 0.024, 0.816, 0.04, 0.864, 0.064, 0.912, 0.104, 0.952, 0.136, 0.968, 0.192, 0.984, 0.264, 0.992, 0.336, 0.992, 0.336, 1, 0, 1, 0, 0)
 
-[node name="Rcol" type="CollisionPolygon2D" parent="stomachPart"]
+[node name="Rcol" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0.664, 0, 0.664, 0.008, 0.744, 0.008, 0.808, 0.016, 0.84, 0.024, 0.864, 0.032, 0.88, 0.04, 0.904, 0.056, 0.928, 0.08, 0.944, 0.104, 0.96, 0.136, 0.968, 0.16, 0.976, 0.192, 0.984, 0.248, 0.992, 0.344, 0.992, 0.624, 0.984, 0.744, 0.976, 0.792, 0.968, 0.832, 0.96, 0.856, 0.936, 0.904, 0.92, 0.928, 0.912, 0.936, 0.888, 0.952, 0.84, 0.976, 0.8, 0.984, 0.728, 0.992, 0.664, 0.992, 0.664, 1, 1, 1, 1.008, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="stomachPart"]
-texture = ExtResource("1_t4tmw")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("2_rromw")
 polygon = PackedVector2Array(1, 0, 1, 1, 0, 1, 0, 0)
 uv = PackedVector2Array(3006.89, -3.29498, 3014.89, 2004.7, -1.10773, 2004.7, -1.10773, -3.29498)
-
-[node name="Player" parent="." instance=ExtResource("2_n6f5g")]
-position = Vector2(416, 208)
