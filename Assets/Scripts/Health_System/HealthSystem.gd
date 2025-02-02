@@ -96,5 +96,5 @@ func _calculate_health_status() -> void:
 			health_status_changed.emit(health_status)
 			break
 
-func change_weight(amount: float) -> void:
+func add_weight(amount: float) -> void:
 	weight += amount

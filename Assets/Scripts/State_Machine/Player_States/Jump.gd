@@ -12,7 +12,7 @@ func enter(_stateManager: StateManager) -> void:
 
 	max_height = player.position.y
 
-	player.velocity.y -= player.jump_force
+	player.velocity.y -= player.jump_force.value
 
 func exit(_stateManager: StateManager) -> void:
 	pass
