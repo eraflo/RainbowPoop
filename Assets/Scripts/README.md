@@ -30,3 +30,9 @@ Collectibles can be picked up by the player to manage health, but there is also 
 func _on_body_entered(_body: Node) -> void
 ```
 
+## TouchscreenCamera
+
+Camera that detect touch on a mobile screen.
+Linked to the player where you can listen to `touchscreen_input` signal to know when touch on screen happen.
+
+Need to be in the scene at the same level in the hierarchy as the `Player` Node
