@@ -13,6 +13,7 @@ enum HealthStatus
 signal health_status_changed(status: HealthStatus)
 signal imc_changed(imc: float)
 
+# Thresholds for each health status (IMC values)
 const health_thresholds: Dictionary = {
 	HealthStatus.SEVERELY_UNDERWEIGHT: 16.5,
 	HealthStatus.UNDERWEIGHT: 18.5,
@@ -21,7 +22,7 @@ const health_thresholds: Dictionary = {
 	HealthStatus.OBESE: 35.0
 }
 
-# TODO: Decide on the weight change values
+# TODO: Decide on the weight change values (change weight over time)
 const health_weight_change: Dictionary = {
 	HealthStatus.SEVERELY_UNDERWEIGHT: 0.2,
 	HealthStatus.UNDERWEIGHT: 0.1,
@@ -29,6 +30,25 @@ const health_weight_change: Dictionary = {
 	HealthStatus.OVERWEIGHT: -0.1,
 	HealthStatus.OBESE: -0.2
 }
+
+# Multiplier for the score based on the health status
+const health_status_score_multiplier: Dictionary = {
+	HealthStatus.SEVERELY_UNDERWEIGHT: 0.5,
+	HealthStatus.UNDERWEIGHT: 0.75,
+	HealthStatus.NORMAL: 2.0,
+	HealthStatus.OVERWEIGHT: 0.75,
+	HealthStatus.OBESE: 0.5
+}
+
+# Addition to the score based on the health status
+const health_status_score_addition: Dictionary = {
+	HealthStatus.SEVERELY_UNDERWEIGHT: -100,
+	HealthStatus.UNDERWEIGHT: 50,
+	HealthStatus.NORMAL: 100,
+	HealthStatus.OVERWEIGHT: 50,
+	HealthStatus.OBESE: -100
+}
+
 
 const MIN_IMC = 0.0
 const MAX_IMC = 50.0
@@ -53,6 +73,7 @@ func _process(_delta: float) -> void:
 
 	_calculate_imc()
 
+# Calculate the IMC and health status based on the weight and height
 func _calculate_imc() -> void:
 	# Calculate the IMC
 	imc = weight / (height * height)
@@ -67,9 +88,13 @@ func _calculate_imc() -> void:
 	imc_changed.emit(imc)
 	_calculate_health_status()
 
+# Calculate the health status based on the IMC
 func _calculate_health_status() -> void:
 	for status in health_thresholds.keys():
 		if imc < health_thresholds[status]:
 			health_status = status
 			health_status_changed.emit(health_status)
 			break
+
+func change_weight(amount: float) -> void:
+	weight += amount
