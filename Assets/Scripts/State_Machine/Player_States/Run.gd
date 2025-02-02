@@ -5,11 +5,11 @@ const Player = preload("res://Assets/Scripts/Player.gd")
 var player: Player = null
 var touched_screen: bool = false
 
-func enter(state_manager: StateManager) -> void:
-	player = state_manager.get_parent() as Player
+func enter(_stateManager: StateManager) -> void:
+	player = _stateManager.get_parent() as Player
 	player.touchscreen_input.connect(_on_touchscreen_input)
 
-func exit(_state_manager: StateManager) -> void:
+func exit(_stateManager: StateManager) -> void:
 	player.touchscreen_input.disconnect(_on_touchscreen_input)
 	touched_screen = false
 

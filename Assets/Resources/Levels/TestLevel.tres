@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelData.gd" id="1_dpnxj"]
+
+[resource]
+script = ExtResource("1_dpnxj")
+level_name = "Test"
+score = 773.5
+level_timer_countdown = 20.0
+completed = true

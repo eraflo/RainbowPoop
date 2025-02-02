@@ -39,7 +39,7 @@ func _ready() -> void:
 
 	# Set the initial values for the State Manager
 	current_speed = max_speed
-	stateManager.request_state("Run")
+	start()
 	
 
 func _process(delta: float) -> void:
@@ -54,3 +54,9 @@ func _process(delta: float) -> void:
 func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
 	print("Player: Touchscreen input")
 	touchscreen_input.emit(event)
+
+func stop() -> void:
+	stateManager.request_state("Idle")
+
+func start() -> void:
+	stateManager.request_state("Run")
