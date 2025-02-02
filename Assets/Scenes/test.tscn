@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=8 format=3 uid="uid://bh23dubw043qi"]
 
-[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/HealthSystem/HealthBar.tscn" id="1_akwrr"]
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_qgpqf"]
 [ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="4_gobn6"]
+[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
 
@@ -24,6 +25,7 @@ shape = SubResource("RectangleShape2D_tku25")
 
 [node name="Player" parent="." instance=ExtResource("2_qgpqf")]
 position = Vector2(284, 516)
+height = 1.85
 
 [node name="EscherichiaColi" parent="." instance=ExtResource("3_rq4pl")]
 position = Vector2(511, 507)
@@ -32,5 +34,8 @@ score = 10.0
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
 position = Vector2(818, 526)
 scale = Vector2(4, 4)
-knockback_force = 800.0
+knockback_force = 500.0
 distance_ray = 16
+
+[node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
+position = Vector2(580, 326)

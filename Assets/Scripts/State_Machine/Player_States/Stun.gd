@@ -8,9 +8,14 @@ var timer: Timer = null
 func enter(_stateManager: StateManager):
 	print("Entering Stun State")
 	player = _stateManager.get_parent() as Player
-	timer = Timer.new()
-	timer.set_wait_time(player.stun_duration)
-	timer.start()
+	if(timer == null):
+		timer = Timer.new()
+
+		add_child(timer)
+
+		timer.set_wait_time(player.stun_duration)
+		timer.set_one_shot(true)
+		timer.start()
 
 	
 func exit(_stateManager: StateManager):
@@ -21,6 +26,7 @@ func update(_stateManager: StateManager, _delta):
 
 func check_transition():
 	if timer.is_stopped():
+		timer.queue_free()
 		return "Run"
 	return null
 	

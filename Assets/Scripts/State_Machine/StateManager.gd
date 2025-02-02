@@ -30,3 +30,6 @@ func _transition_to(new_state_name):
 		
 func request_state(state_name):
 	_transition_to(state_name)
+
+func check_current_state(state_name) -> bool:
+	return current_state.get_class() == state_name

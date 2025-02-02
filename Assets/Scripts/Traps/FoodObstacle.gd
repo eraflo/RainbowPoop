@@ -14,3 +14,6 @@ func _on_collision_entered(_body: Node) -> void:
 
 		# Stun the player
 		_body.stateManager.request_state("Stun")
+
+func _on_collision_exited(_body: Node) -> void:
+	pass

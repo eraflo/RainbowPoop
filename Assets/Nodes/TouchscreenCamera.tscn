@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r4xkqnyygx5j"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/TouchscreenCamera.gd" id="1_34c1j"]
+
+[node name="TouchscreenCamera" type="Camera2D"]
+position = Vector2(574, 324)
+script = ExtResource("1_34c1j")
