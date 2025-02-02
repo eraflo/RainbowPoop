@@ -13,7 +13,7 @@ func enter(_stateManager: StateManager):
 
 		add_child(timer)
 
-		timer.set_wait_time(player.stun_duration)
+		timer.set_wait_time(player.stun_duration.value)
 		timer.set_one_shot(true)
 		timer.start()
 

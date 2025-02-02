@@ -3,8 +3,6 @@ class_name LevelNode
 
 @export var level_data: LevelData
 
-var _current_score: float = 0
-
 func _ready() -> void:
 	Score.reset()
 	Score.current_countdown = level_data.level_timer_countdown

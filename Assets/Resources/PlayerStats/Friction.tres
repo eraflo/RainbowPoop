@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerStat" load_steps=2 format=3 uid="uid://buqu3ke8iipxd"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Stats/PlayerStat.gd" id="1_su1ke"]
+
+[resource]
+script = ExtResource("1_su1ke")
+base_value = 100.0
