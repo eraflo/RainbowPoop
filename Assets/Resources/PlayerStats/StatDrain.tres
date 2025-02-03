@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_wliml")
-base_value = 10.0
+base_value = 2.0

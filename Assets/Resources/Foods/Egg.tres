@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://fy1rh2b7nf8d"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_i7oao"]
+
+[resource]
+script = ExtResource("1_i7oao")
+name = "Egg"
+sugar = 0.0
+protein = 90.0
+fat = 10.0
+water = 0.0
+fiber = 0.0
+vitamin = 0.0
+weight = 61.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://bhhfck5vpgwqc"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_3iu7k"]
+
+[resource]
+script = ExtResource("1_3iu7k")
+name = "Pizza"
+sugar = 20.0
+protein = 20.0
+fat = 60.0
+water = 0.0
+fiber = 0.0
+vitamin = 0.0
+weight = 89.0

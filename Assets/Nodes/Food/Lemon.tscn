@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4uiup1njdgf3"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_adidf"]
+[ext_resource type="Resource" uid="uid://ckvs7fakbipxs" path="res://Assets/Resources/Foods/Lemon.tres" id="2_qnuo6"]
+[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_ey0k0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 20.025
+
+[node name="Lemon" type="Area2D"]
+script = ExtResource("1_adidf")
+food = ExtResource("2_qnuo6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ey0k0")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://d1wnbkv302hos"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_lxw52"]
+
+[resource]
+script = ExtResource("1_lxw52")
+name = "Chicken Leg"
+sugar = 0.0
+protein = 20.0
+fat = 80.0
+water = 0.0
+fiber = 0.0
+vitamin = 0.0
+weight = 92.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://becdnuooglsvi"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_1a0jj"]
+[ext_resource type="Resource" uid="uid://duxxssl6yfhs2" path="res://Assets/Resources/Foods/Strawberry.tres" id="2_2qoln"]
+[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_4j81s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 20.025
+
+[node name="Strawberry" type="Area2D"]
+script = ExtResource("1_1a0jj")
+food = ExtResource("2_2qoln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_4j81s")
