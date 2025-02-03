@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh3fbm0wqtt31"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_feily"]
+[ext_resource type="Resource" uid="uid://du4tsts0nohb8" path="res://Assets/Resources/Foods/Watermelon.tres" id="2_hrt1l"]
+[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_txyog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 20.025
+
+[node name="Watermelon" type="Area2D"]
+script = ExtResource("1_feily")
+food = ExtResource("2_hrt1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_txyog")

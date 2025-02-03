@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://bd2dh12oeaom2"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_23055"]
+
+[resource]
+script = ExtResource("1_23055")
+name = "Apple"
+sugar = 0.0
+protein = 0.0
+fat = 0.0
+water = 10.0
+fiber = 80.0
+vitamin = 10.0
+weight = 23.0
