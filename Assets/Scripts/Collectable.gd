@@ -6,11 +6,7 @@ Objects that can be collected.
 A base class for collectible items in the game.
 Handles basic collection behavior and scoring.
 
-Properties:
-	score (float): The score value awarded when collected
 """
-
-@export var score: float = 0
 
 var trigger_area: Area2D
 

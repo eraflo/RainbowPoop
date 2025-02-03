@@ -15,5 +15,5 @@ func _on_health_status_changed(_healthStatus: Health.HealthStatus):
 	pass
 
 func _on_imc_changed(_imc: float):
-	print("IMC changed to: ", _imc)
+	# print("IMC changed to: ", _imc)
 	value = _imc

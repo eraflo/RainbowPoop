@@ -2,6 +2,7 @@ extends Collectable
 
 const Player = preload("res://Assets/Scripts/Player.gd")
 
+@export var score: float = 0
 @export var decrease_speed: float = 100
 
 @onready var sprite = $Sprite
