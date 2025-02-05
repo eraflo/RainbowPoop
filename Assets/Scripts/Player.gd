@@ -34,13 +34,42 @@ var current_speed: float = 0
 
 func _ready() -> void:
 
-	# Set the initial values for the Health System
-	Health.weight = weight
-	Health.height = height
-
 	# Camera
 	camera = get_parent().get_node("TouchscreenCamera") as TouchscreenCamera
 	camera.get_touchscreen_input.connect(_on_touchscreen_input)
+
+	_reset()
+	
+	start()
+	
+
+func _process(delta: float) -> void:
+	
+	# TODO: Calculate Max height based on speed and jump force
+	
+	velocity.y += gravity * delta
+
+	# print("Max Speed: ", max_speed.value)
+	# print("Jump Force: ", jump_force.value)
+	# print("Friction: ", friction.value)
+	# print("Falling Speed: ", falling_speed.value)
+	# print("Bounce Factor: ", bounce_factor.value)
+	# print("Stun Duration: ", stun_duration.value)
+	# print("Stat Drain: ", stat_drain.value)
+	# print("Vision Fog: ", vision_fog.value)
+	# print("--------------------")
+		
+	move_and_slide()
+
+func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
+	print("Player: Touchscreen input")
+	touchscreen_input.emit(event)
+
+## Reset the player stats
+func _reset():
+	# Set the initial values for the Health System
+	Health.weight = weight
+	Health.height = height
 
 	# Add stat drain modifier to each stat
 	max_speed.add_modifier(StatModifier.new(
@@ -73,30 +102,6 @@ func _ready() -> void:
 		StatModifier.StatModType.Flat
 	))
 
-	start()
-	
-
-func _process(delta: float) -> void:
-	
-	# TODO: Calculate Max height based on speed and jump force
-	
-	velocity.y += gravity * delta
-
-	# print("Max Speed: ", max_speed.value)
-	# print("Jump Force: ", jump_force.value)
-	# print("Friction: ", friction.value)
-	# print("Falling Speed: ", falling_speed.value)
-	# print("Bounce Factor: ", bounce_factor.value)
-	# print("Stun Duration: ", stun_duration.value)
-	# print("Stat Drain: ", stat_drain.value)
-	# print("Vision Fog: ", vision_fog.value)
-	# print("--------------------")
-		
-	move_and_slide()
-
-func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
-	print("Player: Touchscreen input")
-	touchscreen_input.emit(event)
 
 func stop() -> void:
 	stateManager.request_state("Idle")
