@@ -9,7 +9,7 @@ func _on_collision_entered(_body: Node) -> void:
 		# Decrement the score
 		Score.decrement_score(score_decrease)
 
-        
+		
 		# TODO: Play animation
 
 		# TODO: Play sound
