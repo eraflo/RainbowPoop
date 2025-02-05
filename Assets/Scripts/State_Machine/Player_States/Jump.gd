@@ -24,4 +24,3 @@ func check_transition():
 	if player.is_on_floor():
 		return "Run"
 	return null
-

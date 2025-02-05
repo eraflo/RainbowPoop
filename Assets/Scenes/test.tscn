@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://dvs3m23s5npj3" path="res://Assets/Resources/PlayerStats/MaxSpeed.tres" id="6_nfh8d"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
 [ext_resource type="Resource" uid="uid://d3l6f20i6jrjm" path="res://Assets/Resources/PlayerStats/JumpForce.tres" id="7_kpl78"]
-[ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="7_v8ccs"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="7_v8ccs"]
 [ext_resource type="Resource" uid="uid://buqu3ke8iipxd" path="res://Assets/Resources/PlayerStats/Friction.tres" id="8_0eyel"]
 [ext_resource type="Resource" uid="uid://bt5ipljtmsy14" path="res://Assets/Resources/PlayerStats/FallingSpeed.tres" id="9_ely31"]
 [ext_resource type="Resource" uid="uid://c2o5c22qkbkix" path="res://Assets/Resources/PlayerStats/BounceFactor.tres" id="10_3r2dt"]
@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://c8oqa6pp6xm8j" path="res://Assets/Resources/PlayerStats/VisionFog.tres" id="12_ldlp5"]
 [ext_resource type="Resource" uid="uid://dc3p4v78vg7if" path="res://Assets/Resources/PlayerStats/StunDuration.tres" id="13_v30hm"]
 [ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="18_j0ynx"]
-[ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
 
@@ -53,12 +53,12 @@ stun_duration = ExtResource("13_v30hm")
 position = Vector2(582, 515)
 decrease_speed = 300.0
 
+[node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
+
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
-position = Vector2(818, 526)
+position = Vector2(818, 580)
 scale = Vector2(4, 4)
 distance_ray = 16
-
-[node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
 
 [node name="EndOfLevelArea" parent="." instance=ExtResource("7_v8ccs")]
 position = Vector2(727, 218)
