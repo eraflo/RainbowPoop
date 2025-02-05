@@ -1,58 +1,81 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=24 format=3 uid="uid://bh23dubw043qi"]
 
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_h1tc2"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_qgpqf"]
 [ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_rvxwt"]
+[ext_resource type="PackedScene" uid="uid://kckb82np1l02" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_gfrd2"]
 [ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="4_gobn6"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
 [ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="7_v8ccs"]
 [ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="18_j0ynx"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
+[ext_resource type="Texture2D" uid="uid://bfn5fvm15e8sg" path="res://Assets/Sprites/bone.png" id="21_8on7e"]
+[ext_resource type="Script" path="res://Assets/Scripts/Traps/Obstacle.gd" id="21_oiggm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekny"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_h1tc2")
 level_data = ExtResource("2_rvxwt")
 
+[node name="LongerIntestineBar" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(696, 40)
+scale = Vector2(0.764622, 0.54637)
+
 [node name="HealthBar" parent="." instance=ExtResource("1_akwrr")]
 
 [node name="ScoreUi" parent="." instance=ExtResource("2_mq0ck")]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(577, 620)
-scale = Vector2(50, 5)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_tku25")
-
 [node name="Player" parent="." instance=ExtResource("2_qgpqf")]
-position = Vector2(134, 525)
-gravity = 98.0
+position = Vector2(136, 432)
+max_speed = ExtResource("6_nfh8d")
+jump_force = ExtResource("7_kpl78")
+friction = ExtResource("8_0eyel")
+falling_speed = ExtResource("9_ely31")
+bounce_factor = ExtResource("10_3r2dt")
+stat_drain = ExtResource("11_nvnbi")
+vision_fog = ExtResource("12_ldlp5")
+stun_duration = ExtResource("13_v30hm")
 
 [node name="EscherichiaColi" parent="." instance=ExtResource("3_rq4pl")]
-position = Vector2(582, 515)
+position = Vector2(624, 752)
 decrease_speed = 300.0
 
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
-position = Vector2(818, 526)
+position = Vector2(968, 768)
 scale = Vector2(4, 4)
 
 [node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
 
 [node name="EndOfLevelArea" parent="." instance=ExtResource("7_v8ccs")]
-position = Vector2(685, 463)
+position = Vector2(4088, 336)
 scale = Vector2(4, 10)
 level_name = "Test"
 
 [node name="Water" parent="." instance=ExtResource("18_j0ynx")]
-position = Vector2(431, 505)
+position = Vector2(824, 736)
 
 [node name="Hemorrhoid" parent="." instance=ExtResource("19_m4qoo")]
-position = Vector2(307, 545)
+position = Vector2(-72, 272)
 scale = Vector2(2, 2)
 score_decrease = 1000.0
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(704, 536)
+scale = Vector2(0.764622, 0.54637)
+script = ExtResource("21_oiggm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-94.1642, 58.5684)
+rotation = -0.705314
+scale = Vector2(26.6025, 2.82714)
+shape = SubResource("RectangleShape2D_7ekny")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-62.7761, 0)
+rotation = 1.67049
+scale = Vector2(0.823423, 0.55556)
+texture = ExtResource("21_8on7e")

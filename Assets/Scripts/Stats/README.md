@@ -4,7 +4,7 @@
 
 A stat modifier is something that come to apply a modification on a stat.
 
-That way, we don't lose the originale stat (the base stat) and we keep track of all the modifications that affect a stat at any time.
+That way, we don't lose the original stat (the base stat) and we keep track of all the modifications that affect a stat at any time.
 We can also remove a specific modifier at any time easily.
 
 3 types of modifier :
@@ -14,8 +14,8 @@ We can also remove a specific modifier at any time easily.
 
 ## Player Stat
 
-It correspond to a stat of the player.
-Each stat caracterize a physical phenomena that affect the player character (_e.g. the speed, the jump force, etc._).
+It corresponds to a stat of the player.
+Each stat characterize a physical phenomena that affect the player character (_e.g. the speed, the jump force, etc._).
 
 To access the value of a stat, you can do `stat_name.value`. This is the calculated value. 
 

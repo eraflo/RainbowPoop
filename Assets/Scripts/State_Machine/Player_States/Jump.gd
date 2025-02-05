@@ -45,3 +45,4 @@ func _jump():
 	# var f_tot = f_average + player.gravity * player.weight.value
 	# player.velocity.y -= f_tot
 	player.velocity.y -= player.jump_force.value
+
