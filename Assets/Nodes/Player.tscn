@@ -1,14 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://s82l85h1atd5"]
+[gd_scene load_steps=13 format=3 uid="uid://s82l85h1atd5"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_0hnlo"]
+[ext_resource type="Shader" path="res://Assets/Materials/Shaders/player.gdshader" id="2_f8x0e"]
 [ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_ytt4v"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/StateManager.gd" id="3_6cimm"]
+[ext_resource type="Texture2D" uid="uid://cgg4s4a0446a5" path="res://Assets/Materials/Shaders/ShaderAssets/bubbles.png" id="3_owfon"]
+[ext_resource type="Texture2D" uid="uid://oqokjkog07vn" path="res://Assets/Materials/Shaders/ShaderAssets/lines.png" id="4_5igo6"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Idle.gd" id="4_408kj"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Run.gd" id="5_d5hf6"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Stun.gd" id="6_hruci"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Jump.gd" id="7_cmy8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20mto"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4yrc"]
+shader = ExtResource("2_f8x0e")
+shader_parameter/sticksOverlay = ExtResource("4_5igo6")
+shader_parameter/ballOverlay = ExtResource("3_owfon")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0hnlo")
@@ -18,6 +26,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_20mto")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a4yrc")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ytt4v")
 
