@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256px" height="256px" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="gradient-18" bx:pinned="true">
+      <title>black to nothing</title>
+      <stop offset="0" style=""/>
+      <stop offset="1" style="stop-color: rgba(255, 255, 255, 0);"/>
+    </linearGradient>
+    <radialGradient id="gradient-18-0" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="105.674" cy="109.004" r="18.223"/>
+    <radialGradient id="gradient-18-1" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="185.96" cy="158.655" r="11.092"/>
+    <radialGradient id="gradient-18-2" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="195.864" cy="55.26" r="22.58"/>
+    <radialGradient id="gradient-18-3" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="46.78" cy="236.828" r="9.508"/>
+    <radialGradient id="gradient-18-4" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="104.486" cy="178.066" r="17.034"/>
+    <radialGradient id="gradient-18-5" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="23.539" cy="44.828" r="11.62"/>
+    <radialGradient id="gradient-18-6" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="93.658" cy="29.114" r="19.411"/>
+    <radialGradient id="gradient-18-7" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="221.745" cy="234.847" r="11.224"/>
+    <radialGradient id="gradient-18-8" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="139.479" cy="232.603" r="11.884"/>
+    <radialGradient id="gradient-18-9" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="199.033" cy="120.757" r="19.675"/>
+    <radialGradient id="gradient-18-10" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="46.384" cy="149.279" r="20.996"/>
+    <radialGradient id="gradient-18-11" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="161.795" cy="29.378" r="16.506"/>
+    <radialGradient id="gradient-18-12" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="250.4" cy="19.739" r="11.62"/>
+    <radialGradient id="gradient-18-13" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="58.929" cy="89.461" r="17.166"/>
+    <radialGradient id="gradient-18-14" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="241.421" cy="172.916" r="27.466"/>
+    <radialGradient id="gradient-18-15" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="97.619" cy="240.129" r="15.714"/>
+    <radialGradient id="gradient-18-16" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="227.292" cy="8.515" r="7.791"/>
+    <radialGradient id="gradient-18-17" href="#gradient-18" gradientUnits="userSpaceOnUse" cx="171.435" cy="205.929" r="17.959"/>
+    <bx:export>
+      <bx:file format="png" path="bubbles.png" dpi="400"/>
+    </bx:export>
+  </defs>
+  <ellipse style="fill: url(&quot;#gradient-18-0&quot;);" cx="105.674" cy="109.004" rx="18.223" ry="18.223"/>
+  <ellipse style="fill: url(&quot;#gradient-18-1&quot;);" cx="185.96" cy="158.655" rx="11.092" ry="11.092"/>
+  <ellipse style="fill: url(&quot;#gradient-18-2&quot;);" cx="195.864" cy="55.26" rx="22.58" ry="22.58"/>
+  <ellipse style="fill: url(&quot;#gradient-18-3&quot;);" cx="46.78" cy="236.828" rx="9.508" ry="9.508"/>
+  <ellipse style="fill: url(&quot;#gradient-18-4&quot;);" cx="104.486" cy="178.066" rx="17.034" ry="17.034"/>
+  <ellipse style="fill: url(&quot;#gradient-18-5&quot;);" cx="23.539" cy="44.828" rx="11.62" ry="11.62"/>
+  <ellipse style="fill: url(&quot;#gradient-18-6&quot;);" cx="93.658" cy="29.114" rx="19.411" ry="19.411"/>
+  <ellipse style="fill: url(&quot;#gradient-18-7&quot;);" cx="221.745" cy="234.847" rx="11.224" ry="11.224"/>
+  <ellipse style="fill: url(&quot;#gradient-18-8&quot;);" cx="139.479" cy="232.603" rx="11.884" ry="11.884"/>
+  <ellipse style="fill: url(&quot;#gradient-18-9&quot;);" cx="199.033" cy="120.757" rx="19.675" ry="19.675"/>
+  <ellipse style="fill: url(&quot;#gradient-18-10&quot;);" cx="46.384" cy="149.279" rx="20.996" ry="20.996"/>
+  <ellipse style="fill: url(&quot;#gradient-18-11&quot;);" cx="161.795" cy="29.378" rx="16.506" ry="16.506"/>
+  <ellipse style="fill: url(&quot;#gradient-18-12&quot;);" cx="250.4" cy="19.739" rx="11.62" ry="11.62"/>
+  <ellipse style="fill: url(&quot;#gradient-18-13&quot;);" cx="58.929" cy="89.461" rx="17.166" ry="17.166"/>
+  <ellipse style="fill: url(&quot;#gradient-18-14&quot;);" cx="241.421" cy="172.916" rx="27.466" ry="27.466"/>
+  <ellipse style="fill: url(&quot;#gradient-18-15&quot;);" cx="97.619" cy="240.129" rx="15.714" ry="15.714"/>
+  <ellipse style="fill: url(&quot;#gradient-18-16&quot;);" cx="227.292" cy="8.515" rx="7.791" ry="7.791"/>
+  <ellipse style="fill: url(&quot;#gradient-18-17&quot;);" cx="171.435" cy="205.929" rx="17.959" ry="17.959"/>
+</svg>

@@ -25,7 +25,11 @@ func exit(_stateManager: StateManager) -> void:
 	pass
 
 func update(_stateManager: StateManager, _delta: float) -> void:
-	pass
+	
+	if player.velocity.x < player.max_speed.value:
+		player.velocity.x += player.acceleration * _delta
+	else:
+		player.velocity.x = player.max_speed.value
 
 func check_transition():
 	if player.is_on_floor():
