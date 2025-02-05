@@ -11,7 +11,7 @@ Needs to have android sdk and java downloaded.
 - Java : https://www.java.com
 
 Then, in godot, you need to go in `Editor -> Manage Export Template` and download it from the `Official Github Release`.
-After that, you need to go in `Editor -> Editor Parameters -> General -> Export -> Android` and copy the the path for android sdk and java jdk.
+After that, you need to go in `Editor -> Editor Parameters -> General -> Export -> Android` and copy the the path for android sdk and java jdk (the one you downloaded just above).
 Also, you need to execute as admin the following command inside the `jdk/bin` folder :
 ```cmd
 keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "C=US, O=Android, CN=Android Debug"
