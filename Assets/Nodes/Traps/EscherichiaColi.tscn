@@ -1,18 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1evcp8w8kdu3"]
+[gd_scene load_steps=3 format=3 uid="uid://d1evcp8w8kdu3"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Traps/EscherichiaColi.gd" id="1_qxl6m"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_4ctec"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
-radius = 20.025
+[ext_resource type="Texture2D" uid="uid://bg4igqkhv4g5t" path="res://Assets/Sprites/bacteria.svg" id="2_sl42p"]
 
 [node name="EscherichiaColi" type="Area2D"]
 script = ExtResource("1_qxl6m")
 score = -10.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nblj6")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_4ctec")
+texture = ExtResource("2_sl42p")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -9, -11, -14, -5, -15, 0, -13, 3, -8, 5, -3, 11, 1, 14, 4, 15, 8, 11, 14, 4, 14, 1, 10, -2, 5, -7, 3, -12, 0, -14, -4)

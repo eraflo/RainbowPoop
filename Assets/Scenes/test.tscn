@@ -56,7 +56,6 @@ decrease_speed = 300.0
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
 position = Vector2(818, 526)
 scale = Vector2(4, 4)
-knockback_force = 500.0
 distance_ray = 16
 
 [node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
