@@ -82,15 +82,15 @@ func _process(delta: float) -> void:
 	
 	velocity.y += gravity * delta
 
-	print("Max Speed: ", max_speed.value)
-	print("Jump Force: ", jump_force.value)
-	print("Friction: ", friction.value)
-	print("Falling Speed: ", falling_speed.value)
-	print("Bounce Factor: ", bounce_factor.value)
-	print("Stun Duration: ", stun_duration.value)
-	print("Stat Drain: ", stat_drain.value)
-	print("Vision Fog: ", vision_fog.value)
-	print("--------------------")
+	# print("Max Speed: ", max_speed.value)
+	# print("Jump Force: ", jump_force.value)
+	# print("Friction: ", friction.value)
+	# print("Falling Speed: ", falling_speed.value)
+	# print("Bounce Factor: ", bounce_factor.value)
+	# print("Stun Duration: ", stun_duration.value)
+	# print("Stat Drain: ", stat_drain.value)
+	# print("Vision Fog: ", vision_fog.value)
+	# print("--------------------")
 		
 	move_and_slide()
 

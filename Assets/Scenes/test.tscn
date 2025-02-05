@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=21 format=3 uid="uid://bh23dubw043qi"]
 
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_h1tc2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://c8oqa6pp6xm8j" path="res://Assets/Resources/PlayerStats/VisionFog.tres" id="12_ldlp5"]
 [ext_resource type="Resource" uid="uid://dc3p4v78vg7if" path="res://Assets/Resources/PlayerStats/StunDuration.tres" id="13_v30hm"]
 [ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="18_j0ynx"]
+[ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
 
@@ -67,3 +68,8 @@ level_name = "Test"
 
 [node name="Water" parent="." instance=ExtResource("18_j0ynx")]
 position = Vector2(431, 505)
+
+[node name="Hemorrhoid" parent="." instance=ExtResource("19_m4qoo")]
+position = Vector2(307, 545)
+scale = Vector2(2, 2)
+score_decrease = 1000.0
