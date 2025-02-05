@@ -7,6 +7,8 @@ Note: The .txt files present in some folders are placeholder files that exist so
 ## Export to Android
 
 Needs to have android sdk and java downloaded.
+- Android (with Android studio) : https://developer.android.com/studio/install?hl=fr
+- Java : https://www.java.com
 
 Then, in godot, you need to go in `Editor -> Manage Export Template` and download it from the `Official Github Release`.
 After that, you need to go in `Editor -> Editor Parameters -> General -> Export -> Android` and copy the the path for android sdk and java jdk.
