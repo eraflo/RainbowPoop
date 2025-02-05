@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal touchscreen_input(event: InputEventScreenTouch)
+signal got_collision(collision: KinematicCollision2D)
 
 const TouchscreenCamera = preload("res://Assets/Scripts/TouchscreenCamera.gd")
 
@@ -34,11 +35,15 @@ var _vitamin: PlayerStat
 @onready var stateManager = $StateManager
 
 var camera: TouchscreenCamera = null
+var decay_timer: Timer = null
 
 # Current speed, affected by all kinds of factors
 var current_speed: float = 0
 
 func _ready() -> void:
+
+	# Reference to obstacle manager so that every obstacle can access the player
+	ObstacleManager.player = self
 
 	# Camera
 	camera = get_parent().get_node("TouchscreenCamera") as TouchscreenCamera
@@ -47,25 +52,40 @@ func _ready() -> void:
 	reset()
 	
 	start()
+
+	# Decay timer
+	decay_timer = Timer.new()
+	add_child(decay_timer)
+
+	decay_timer.set_wait_time(1)
+	decay_timer.set_one_shot(false)
+	decay_timer.timeout.connect(_on_decay_timer_timeout)
+
+	decay_timer.start()
 	
 
 func _process(delta: float) -> void:
 	
-	# TODO: Calculate Max height based on speed and jump force
-	
-	velocity.y += gravity * delta
+	# Apply gravity
+	velocity.y += gravity * delta * falling_speed.value
 
-	# print("Max Speed: ", max_speed.value)
-	# print("Jump Force: ", jump_force.value)
+	# print("Max speed: ", max_speed.value)
+	# print("Jump force: ", jump_force.value)
+	# print("Jump delay: ", jump_delay.value)
 	# print("Friction: ", friction.value)
-	# print("Falling Speed: ", falling_speed.value)
-	# print("Bounce Factor: ", bounce_factor.value)
-	# print("Stun Duration: ", stun_duration.value)
-	# print("Stat Drain: ", stat_drain.value)
-	# print("Vision Fog: ", vision_fog.value)
-	# print("--------------------")
+	# print("Falling speed: ", falling_speed.value)
+	# print("Bounce factor: ", bounce_factor.value)
+	# print("Stun duration: ", stun_duration.value)
+	# print("Weight: ", weight.value)
+	# print(("--------------------"))
 		
 	move_and_slide()
+
+	## Emit the collision signal
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		got_collision.emit(collision)
+
 
 ## Make the player began behaving as a player
 func start() -> void:
@@ -89,6 +109,8 @@ func eat_food(food: Food) -> void:
 	_add_modifier(_water, food.water, StatModifier.StatModType.Flat)
 	_add_modifier(_fiber, food.fiber, StatModifier.StatModType.Flat)
 	_add_modifier(_vitamin, food.vitamin, StatModifier.StatModType.Flat)
+	
+
 
 ## Handle the touchscreen input
 func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
@@ -125,12 +147,26 @@ func _setup_stats() -> void:
 	# Set the stats based on the food eaten
 	_add_modifier(max_speed, _sugar.value - _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
 	_add_modifier(jump_force, _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
-	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.Flat)
+
+	# Formula = base jump delay * (1.0 + sugar)
+	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult)
 	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat)
 	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat)
 	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat)
-	_add_modifier(stun_duration, _vitamin.value, StatModifier.StatModType.Flat)
+
+	# Formula = base stun * (1.0 / (1.0 + vitamin))
+	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult)
 
 	# Weight
 	_add_modifier(weight, _sugar.value + _protein.value + _fat.value + _water.value + _fiber.value + _vitamin.value, StatModifier.StatModType.Flat)
 
+## Make the stats decay over time
+func _on_decay_timer_timeout() -> void:
+	_add_modifier(_sugar, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_protein, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fat, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_water, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fiber, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_vitamin, 0.1, StatModifier.StatModType.Flat)
+
+	decay_timer.start()

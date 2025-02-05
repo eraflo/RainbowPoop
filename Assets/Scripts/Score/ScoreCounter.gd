@@ -34,10 +34,16 @@ func stop_counting() -> void:
 # Use that one to increment the score
 func increment_score(amount: float) -> void:
 	_bonus_score += amount
+	score_changed.emit(score)
 
 # Use that one to decrement the score
 func decrement_score(amount: float) -> void:
 	_bonus_score -= amount
+	score_changed.emit(score)
+
+func multiply_score(amount: float) -> void:
+	_bonus_score *= amount
+	score_changed.emit(score)
 
 func calculate_health_score() -> void:
 	# Formula : (IMC * HEALTH_STATUS_MULTIPLIER) + HEALTH_STATUS_ADDITION
@@ -52,4 +58,8 @@ func calculate_time_score() -> void:
 	score += _bonus_score
 	score = max(0, score)
 
+	score_changed.emit(score)
+
+func calculate_fiber(fiber_amount: float) -> void:
+	score *= fiber_amount
 	score_changed.emit(score)

@@ -19,6 +19,9 @@ func _on_body_entered(_body: Node2D) -> void:
 		# Calculate the health score
 		Score.calculate_health_score()
 
+		# Multiply score by the fiber nutrient
+		Score.calculate_fiber(_body._fiber.value)
+
 		# TODO: Calculate final score with the food score
 
 		# TODO: Play the end of level animation
