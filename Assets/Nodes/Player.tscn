@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_0hnlo"]
 [ext_resource type="Shader" path="res://Assets/Materials/Shaders/player.gdshader" id="2_f8x0e"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_ytt4v"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/StateManager.gd" id="3_6cimm"]
 [ext_resource type="Texture2D" uid="uid://cgg4s4a0446a5" path="res://Assets/Materials/Shaders/ShaderAssets/bubbles.png" id="3_owfon"]
 [ext_resource type="Texture2D" uid="uid://oqokjkog07vn" path="res://Assets/Materials/Shaders/ShaderAssets/lines.png" id="4_5igo6"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Idle.gd" id="4_408kj"]
+[ext_resource type="Texture2D" uid="uid://brmi2bj2nr6xb" path="res://Assets/Sprites/player.svg" id="5_8at5c"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Run.gd" id="5_d5hf6"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Stun.gd" id="6_hruci"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Jump.gd" id="7_cmy8c"]
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_20mto")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_a4yrc")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ytt4v")
+texture = ExtResource("5_8at5c")
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_6cimm")
