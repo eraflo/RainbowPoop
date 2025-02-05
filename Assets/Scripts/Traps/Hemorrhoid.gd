@@ -1,10 +1,9 @@
 extends Obstacle
 
-const Player = preload("res://Assets/Scripts/Player.gd")
-
 @export var score_decrease: float = 10
 
 func _on_collision_entered(_body: Node) -> void:
+	print(_body)
 	if _body is Player:
 		# Decrement the score
 		Score.decrement_score(score_decrease)

@@ -8,7 +8,7 @@ var timer: Timer = null
 func enter(_stateManager: StateManager):
 	print("Entering Stun State")
 	player = _stateManager.get_parent() as Player
-	if(timer == null):
+	if(timer == null && player.stun_duration.value > 0):
 		timer = Timer.new()
 
 		add_child(timer)
