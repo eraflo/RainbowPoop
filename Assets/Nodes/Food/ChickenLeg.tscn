@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://f1qsoxfcrfws"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_gncig"]
+[ext_resource type="Resource" uid="uid://d1wnbkv302hos" path="res://Assets/Resources/Foods/ChickenLeg.tres" id="2_ry2b8"]
+[ext_resource type="Texture2D" uid="uid://ce1vpkj1xsh3" path="res://Assets/Sprites/chicken_leg.svg" id="3_ssrk0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 18.0
+
+[node name="ChickenLeg" type="Area2D"]
+script = ExtResource("1_gncig")
+food = ExtResource("2_ry2b8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_ssrk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")

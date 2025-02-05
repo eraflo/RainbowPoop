@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://cu7mxhn1aeip0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_pspod"]
+
+[resource]
+script = ExtResource("1_pspod")
+name = "Hamburger"
+sugar = 0.2
+protein = 0.2
+fat = 0.6
+water = 0.0
+fiber = 0.0
+vitamin = 0.0
+weight = 0.91

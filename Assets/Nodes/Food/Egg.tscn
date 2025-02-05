@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cerd3wn7j8iu4"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_ljnnb"]
+[ext_resource type="Resource" uid="uid://fy1rh2b7nf8d" path="res://Assets/Resources/Foods/Egg.tres" id="2_1gwe7"]
+[ext_resource type="Texture2D" uid="uid://dfccn203eyefb" path="res://Assets/Sprites/egg_1.png" id="3_w41f8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 32.1403
+
+[node name="Egg" type="Area2D"]
+script = ExtResource("1_ljnnb")
+food = ExtResource("2_1gwe7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_w41f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")

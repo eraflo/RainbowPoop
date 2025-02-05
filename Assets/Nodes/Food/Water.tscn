@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://wdurrskpceut"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_htr61"]
+[ext_resource type="Resource" uid="uid://bbemxrns4csiu" path="res://Assets/Resources/Foods/Water.tres" id="2_nk4dy"]
+[ext_resource type="Texture2D" uid="uid://dioaol7x6sw6j" path="res://Assets/Sprites/water_1.png" id="3_g367n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 20.025
+
+[node name="Water" type="Area2D"]
+script = ExtResource("1_htr61")
+food = ExtResource("2_nk4dy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_g367n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")

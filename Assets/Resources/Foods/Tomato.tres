@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://csvg3m7thaqgf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_84kit"]
+
+[resource]
+script = ExtResource("1_84kit")
+name = "Tomato"
+sugar = 0.0
+protein = 0.0
+fat = 0.0
+water = 0.2
+fiber = 0.0
+vitamin = 0.8
+weight = 0.16

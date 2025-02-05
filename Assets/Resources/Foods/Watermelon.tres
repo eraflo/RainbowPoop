@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://du4tsts0nohb8"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_1jd2x"]
+
+[resource]
+script = ExtResource("1_1jd2x")
+name = "Watermelon"
+sugar = 0.2
+protein = 0.0
+fat = 0.0
+water = 0.8
+fiber = 0.0
+vitamin = 0.0
+weight = 0.33

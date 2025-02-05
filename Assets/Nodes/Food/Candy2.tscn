@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6aghve28imm5"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_80gfr"]
+[ext_resource type="Resource" uid="uid://b5qn3425xwyj7" path="res://Assets/Resources/Foods/Candy2.tres" id="2_4e576"]
+[ext_resource type="Texture2D" uid="uid://uk07vbvq60ly" path="res://Assets/Sprites/candy_2.png" id="3_8yj4e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
+radius = 23.0
+
+[node name="Candy2" type="Area2D"]
+script = ExtResource("1_80gfr")
+food = ExtResource("2_4e576")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_8yj4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_nblj6")

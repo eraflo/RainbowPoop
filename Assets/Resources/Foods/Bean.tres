@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://kxxsgjx6gnbg"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodObj.gd" id="1_pdhp0"]
+
+[resource]
+script = ExtResource("1_pdhp0")
+name = "Bean"
+sugar = 0.0
+protein = 0.5
+fat = 0.0
+water = 0.0
+fiber = 0.5
+vitamin = 0.0
+weight = 0.45

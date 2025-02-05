@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://lvrwlbmu2fy0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_05hvu"]
+[ext_resource type="Resource" uid="uid://cjdh16ifyr0uy" path="res://Assets/Resources/Foods/Candy1.tres" id="2_17vd8"]
+[ext_resource type="Texture2D" uid="uid://5exijnbj61qx" path="res://Assets/Sprites/Candy_1.png" id="3_hk2co"]
+
+[node name="Candy1" type="Area2D"]
+script = ExtResource("1_05hvu")
+food = ExtResource("2_17vd8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_hk2co")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-21, -33, -10, -36, 2, -36, 13, -30, 19, -21, 23, -10, 21, 1, 15, 12, 25, 22, 36, 34, 31, 37, 11, 16, 3, 20, -16, 21, -31, 10, -35, -5, -33, -21)

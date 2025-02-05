@@ -7,17 +7,17 @@ var player: Player = null
 var max_height: float = 0
 var current_height: float = 0
 
-func enter(state_manager: StateManager) -> void:
-	player = state_manager.get_parent() as Player
+func enter(_stateManager: StateManager) -> void:
+	player = _stateManager.get_parent() as Player
 
 	max_height = player.position.y
 
-	player.velocity.y -= player.jump_force
+	player.velocity.y -= player.jump_force.value
 
-func exit(_state_manager: StateManager) -> void:
+func exit(_stateManager: StateManager) -> void:
 	pass
 
-func update(_state_manager: StateManager, _delta: float) -> void:
+func update(_stateManager: StateManager, _delta: float) -> void:
 	pass
 
 func check_transition():

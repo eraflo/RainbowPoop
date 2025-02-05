@@ -2,6 +2,7 @@ extends Collectable
 
 const Player = preload("res://Assets/Scripts/Player.gd")
 
+@export var score: float = 0
 @export var decrease_speed: float = 100
 
 @onready var sprite = $Sprite
@@ -10,7 +11,7 @@ const Player = preload("res://Assets/Scripts/Player.gd")
 var _cooldown_before_speed_back: float = 0.5
 var _cooldown_timer: Timer = null
 
-var _collector = null
+var _collector: Player = null
 
 func _ready() -> void:
 	super._ready()
@@ -23,7 +24,12 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		Score.decrement_score(score)
-		body.current_speed -= decrease_speed
+		body.max_speed.add_modifier(StatModifier.new(
+			-decrease_speed,
+			StatModifier.StatModType.Flat,
+			100,
+			self
+		))
 
 		# Save the player to give back the speed after a cooldown
 		_collector = body
@@ -40,7 +46,7 @@ func _on_body_entered(body: Node) -> void:
 func _on_cooldown_timer_timeout() -> void:
 
 	if _collector != null:
-		_collector.current_speed += decrease_speed
+		_collector.max_speed.remove_all_modifiers_from_source(self)
 		_collector = null
 		queue_free()
 	pass
