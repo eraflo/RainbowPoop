@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_306y7"]
 [ext_resource type="Resource" uid="uid://lel7wa1rbacf" path="res://Assets/Resources/Foods/Blueberry.tres" id="2_152mx"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_a1234"]
+[ext_resource type="Texture2D" uid="uid://dblf3l1nglmkp" path="res://Assets/Sprites/blueberry.svg" id="3_psekv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
-radius = 20.025
+radius = 5.0
 
 [node name="Blueberry" type="Area2D"]
 script = ExtResource("1_306y7")
 food = ExtResource("2_152mx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nblj6")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_a1234")
+texture = ExtResource("3_psekv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nblj6")

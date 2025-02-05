@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_tbxym"]
 [ext_resource type="Resource" uid="uid://bhhfck5vpgwqc" path="res://Assets/Resources/Foods/Pizza.tres" id="2_y7kkd"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_sf6ji"]
+[ext_resource type="Texture2D" uid="uid://c7yx0rlawjicw" path="res://Assets/Sprites/Pizza.png" id="3_qjyvy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
 radius = 20.025
@@ -11,9 +11,9 @@ radius = 20.025
 script = ExtResource("1_tbxym")
 food = ExtResource("2_y7kkd")
 
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_qjyvy")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nblj6")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_sf6ji")

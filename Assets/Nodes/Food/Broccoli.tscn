@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_qxgwd"]
 [ext_resource type="Resource" uid="uid://bjrren8c5imhm" path="res://Assets/Resources/Foods/Broccoli.tres" id="2_vknle"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_y8iqx"]
+[ext_resource type="Texture2D" uid="uid://daa33xmjgykbx" path="res://Assets/Sprites/Broccoli.png" id="3_kdn1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
-radius = 20.025
+radius = 40.3113
 
 [node name="Broccoli" type="Area2D"]
 script = ExtResource("1_qxgwd")
 food = ExtResource("2_vknle")
 
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_kdn1t")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nblj6")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_y8iqx")

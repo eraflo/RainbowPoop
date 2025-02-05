@@ -6,9 +6,9 @@
 script = ExtResource("1_i7oao")
 name = "Egg"
 sugar = 0.0
-protein = 90.0
-fat = 10.0
+protein = 0.9
+fat = 0.1
 water = 0.0
 fiber = 0.0
 vitamin = 0.0
-weight = 61.0
+weight = 0.61

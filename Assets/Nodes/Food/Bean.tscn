@@ -1,19 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1evgth1ptw2k"]
+[gd_scene load_steps=4 format=3 uid="uid://b1evgth1ptw2k"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Health_System/FoodCollectable.gd" id="1_bryhk"]
 [ext_resource type="Resource" uid="uid://kxxsgjx6gnbg" path="res://Assets/Resources/Foods/Bean.tres" id="2_cdyto"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="3_dvs28"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
-radius = 20.025
+[ext_resource type="Texture2D" uid="uid://ck8erwkyjmj4q" path="res://Assets/Sprites/bean1.svg" id="3_savu8"]
 
 [node name="Bean" type="Area2D"]
 script = ExtResource("1_bryhk")
 food = ExtResource("2_cdyto")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nblj6")
-
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_dvs28")
+texture = ExtResource("3_savu8")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -8, 14, -18, 16, -17, 13, 1, 7, 12, -4, 17, -11, 18, -17, 16, -14, 8)
