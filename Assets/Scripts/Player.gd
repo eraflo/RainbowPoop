@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 		velocity.y = -(yvel-(yvel/bounce_factor.value))
 		# if bounce factor is normalized between 0 and 1
 		#velocity.y = yvel * -bounce_factor.value
-		print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
+		#print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
 		if velocity.y>-200:
 			velocity.y=0
 

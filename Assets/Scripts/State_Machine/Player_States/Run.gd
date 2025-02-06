@@ -33,6 +33,11 @@ func update(_state_manager: StateManager, delta: float) -> void:
 
 func check_transition():
 	var t = Time.get_unix_time_from_system()
+	if player.is_on_wall_only():
+		if player.velocity.y<0:
+			return "SlideUp"
+		else :
+			return "SlideDown"
 	if (player.jump_requested>0):
 		if (t-player.jump_requested>player.jump_delay.value):
 			player.jump_requested=-1

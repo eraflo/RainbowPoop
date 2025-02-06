@@ -41,10 +41,8 @@ func update(_stateManager: StateManager, _delta: float) -> void:
 func check_transition():
 	if player.is_on_wall():
 		if player.velocity.y<0:
-			print("u")
 			return "SlideUp"
 		else :
-			print("d")
 			return "SlideDown"
 	if player.is_on_floor():
 		return "Run"
