@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_g22dg")
-base_value = 100.0
+base_value = 1.0

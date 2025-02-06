@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_dpnxj")
 level_name = "Test"
-score = 3744.0
+score = 15060.0
 level_timer_countdown = 20.0
 completed = true

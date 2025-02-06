@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 signal touchscreen_input(event: InputEventScreenTouch)
+signal got_collision(collision: KinematicCollision2D)
 
 const TouchscreenCamera = preload("res://Assets/Scripts/TouchscreenCamera.gd")
 
 
-@export var weight: float = 50.0
-@export var height: float = 1.5
+@export var weight: PlayerStat
+@export var height: PlayerStat
 
 # Movement
 @export var gravity: float = 980
@@ -17,129 +18,155 @@ const TouchscreenCamera = preload("res://Assets/Scripts/TouchscreenCamera.gd")
 
 @export var max_speed: PlayerStat
 @export var jump_force: PlayerStat
+@export var jump_delay: PlayerStat 
 @export var friction: PlayerStat
 @export var falling_speed: PlayerStat
 @export var bounce_factor: PlayerStat
-@export var stat_drain: PlayerStat
-@export var vision_fog: PlayerStat
 @export var stun_duration: PlayerStat
+
+var _sugar: PlayerStat
+var _protein: PlayerStat
+var _fat: PlayerStat
+var _water: PlayerStat
+var _fiber: PlayerStat
+var _vitamin: PlayerStat
 
 # State manager
 @onready var stateManager = $StateManager
 
 var camera: TouchscreenCamera = null
+var decay_timer: Timer = null
 
 # Current speed, affected by all kinds of factors
 var current_speed: float = 0
 
 func _ready() -> void:
 
+	# Reference to obstacle manager so that every obstacle can access the player
+	ObstacleManager.player = self
+
 	# Camera
 	camera = get_parent().get_node("TouchscreenCamera") as TouchscreenCamera
 	camera.get_touchscreen_input.connect(_on_touchscreen_input)
 
-	_reset()
+	reset()
 	
 	start()
+
+	# Decay timer
+	decay_timer = Timer.new()
+	add_child(decay_timer)
+
+	decay_timer.set_wait_time(1)
+	decay_timer.set_one_shot(false)
+	decay_timer.timeout.connect(_on_decay_timer_timeout)
+
+	decay_timer.start()
 	
 
 func _process(delta: float) -> void:
 	
-	# TODO: Calculate Max height based on speed and jump force
-	
-	velocity.y += gravity * delta
+	# Apply gravity
+	velocity.y += gravity * delta * falling_speed.value
 
-	# print("Max Speed: ", max_speed.value)
-	# print("Jump Force: ", jump_force.value)
+	# print("Max speed: ", max_speed.value)
+	# print("Jump force: ", jump_force.value)
+	# print("Jump delay: ", jump_delay.value)
 	# print("Friction: ", friction.value)
-	# print("Falling Speed: ", falling_speed.value)
-	# print("Bounce Factor: ", bounce_factor.value)
-	# print("Stun Duration: ", stun_duration.value)
-	# print("Stat Drain: ", stat_drain.value)
-	# print("Vision Fog: ", vision_fog.value)
-	# print("--------------------")
+	# print("Falling speed: ", falling_speed.value)
+	# print("Bounce factor: ", bounce_factor.value)
+	# print("Stun duration: ", stun_duration.value)
+	# print("Weight: ", weight.value)
+	# print(("--------------------"))
 		
 	move_and_slide()
 
+	## Emit the collision signal
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		got_collision.emit(collision)
+
+
+## Make the player began behaving as a player
+func start() -> void:
+	stateManager.request_state("Run")
+
+## Reset the player stats
+func reset():
+	_setup_stats()
+
+## Stop the player from behaving as a player
+func stop() -> void:
+	stateManager.request_state("Idle")
+
+## Eat a food
+func eat_food(food: Food) -> void:
+	food_eaten.append(food)
+
+	_add_modifier(_sugar, food.sugar, StatModifier.StatModType.Flat)
+	_add_modifier(_protein, food.protein, StatModifier.StatModType.Flat)
+	_add_modifier(_fat, food.fat, StatModifier.StatModType.Flat)
+	_add_modifier(_water, food.water, StatModifier.StatModType.Flat)
+	_add_modifier(_fiber, food.fiber, StatModifier.StatModType.Flat)
+	_add_modifier(_vitamin, food.vitamin, StatModifier.StatModType.Flat)
+	
+
+
+## Handle the touchscreen input
 func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
 	print("Player: Touchscreen input")
 	touchscreen_input.emit(event)
 
-## Reset the player stats
-func _reset():
-	# Set the initial values for the Health System
-	Health.weight = weight
-	Health.height = height
 
-	# Add stat drain modifier to each stat
-	max_speed.add_modifier(StatModifier.new(
-		-stat_drain.value,
-		StatModifier.StatModType.Flat
+## Add a modifier to a stat
+func _add_modifier(stat: PlayerStat, value: float, type: StatModifier.StatModType) -> void:
+	stat.add_modifier(StatModifier.new(
+		value,
+		type
 	))
 
-	jump_force.add_modifier(StatModifier.new(
-		-stat_drain.value,
-		StatModifier.StatModType.Flat
-	))
+## Setup the stats based on the food eaten
+func _setup_stats() -> void:
 
-	friction.add_modifier(StatModifier.new(
-		-stat_drain.value,
-		StatModifier.StatModType.Flat
-	))
+	# Setup food stats
+	_sugar = PlayerStat.new()
+	_protein = PlayerStat.new()
+	_fat = PlayerStat.new()
+	_water = PlayerStat.new()
+	_fiber = PlayerStat.new()
+	_vitamin = PlayerStat.new()
 
-	falling_speed.add_modifier(StatModifier.new(
-		stat_drain.value,
-		StatModifier.StatModType.Flat
-	))
+	# Set the base values for the food stats (TODO: Ask Xiaolan for right ratios)
+	_sugar.base_value = 10
+	_protein.base_value = 10
+	_fat.base_value = 10
+	_water.base_value = 10
+	_fiber.base_value = 10
+	_vitamin.base_value = 10
+	
+	# Set the stats based on the food eaten
+	_add_modifier(max_speed, _sugar.value - _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
+	_add_modifier(jump_force, _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
 
-	bounce_factor.add_modifier(StatModifier.new(
-		stat_drain.value,
-		StatModifier.StatModType.Flat
-	))
+	# Formula = base jump delay * (1.0 + sugar)
+	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult)
+	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat)
+	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat)
+	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat)
 
-	stun_duration.add_modifier(StatModifier.new(
-		stat_drain.value,
-		StatModifier.StatModType.Flat
-	))
+	# Formula = base stun * (1.0 / (1.0 + vitamin))
+	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult)
 
+	# Weight
+	_add_modifier(weight, _sugar.value + _protein.value + _fat.value + _water.value + _fiber.value + _vitamin.value, StatModifier.StatModType.Flat)
 
-func stop() -> void:
-	stateManager.request_state("Idle")
+## Make the stats decay over time
+func _on_decay_timer_timeout() -> void:
+	_add_modifier(_sugar, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_protein, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fat, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_water, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fiber, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_vitamin, 0.1, StatModifier.StatModType.Flat)
 
-func start() -> void:
-	stateManager.request_state("Run")
-
-func eat_food(food: Food) -> void:
-	food_eaten.append(food)
-
-	Health.add_weight(food.weight)
-
-	max_speed.add_modifier(StatModifier.new(
-		food.sugar - food.protein - food.fat + food.water,
-		StatModifier.StatModType.Flat
-	))
-
-	jump_force.add_modifier(StatModifier.new(
-		food.protein - food.fat + food.water,
-		StatModifier.StatModType.Flat
-	))
-
-	friction.add_modifier(StatModifier.new(
-		-food.fat,
-		StatModifier.StatModType.Flat
-	))
-
-	falling_speed.add_modifier(StatModifier.new(
-		food.fat,
-		StatModifier.StatModType.Flat
-	))
-
-	bounce_factor.add_modifier(StatModifier.new(
-		food.water,
-		StatModifier.StatModType.Flat
-	))
-
-	stun_duration.add_modifier(StatModifier.new(
-		food.vitamin,
-		StatModifier.StatModType.Flat
-	))
+	decay_timer.start()
