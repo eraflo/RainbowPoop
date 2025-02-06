@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://djc3yoeh05cvf"]
+
+[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="1_o6noo"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_beo2e"]
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="3_iv6xp"]
+
+[node name="Level0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_o6noo")]
+position = Vector2(1904, 929)
+
+[node name="TouchscreenCamera" parent="." instance=ExtResource("2_beo2e")]
+position = Vector2(1778, 957)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_iv6xp")]
+offset_left = 1344.0
+offset_top = 730.0
+offset_right = 1344.0
+offset_bottom = 730.0
