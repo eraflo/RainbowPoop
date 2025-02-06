@@ -1,17 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=25 format=3 uid="uid://bh23dubw043qi"]
 
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_h1tc2"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="2_mq0ck"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="2_qgpqf"]
 [ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_rvxwt"]
-[ext_resource type="PackedScene" uid="uid://kckb82np1l02" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_gfrd2"]
+[ext_resource type="PackedScene" uid="uid://dr1kbtqrh0b8e" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_gfrd2"]
 [ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="4_gobn6"]
 [ext_resource type="Resource" uid="uid://dvs3m23s5npj3" path="res://Assets/Resources/PlayerStats/MaxSpeed.tres" id="6_nfh8d"]
-[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
 [ext_resource type="Resource" uid="uid://d3l6f20i6jrjm" path="res://Assets/Resources/PlayerStats/JumpForce.tres" id="7_kpl78"]
-[ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="7_v8ccs"]
 [ext_resource type="Resource" uid="uid://buqu3ke8iipxd" path="res://Assets/Resources/PlayerStats/Friction.tres" id="8_0eyel"]
 [ext_resource type="Resource" uid="uid://bt5ipljtmsy14" path="res://Assets/Resources/PlayerStats/FallingSpeed.tres" id="9_ely31"]
 [ext_resource type="Resource" uid="uid://c2o5c22qkbkix" path="res://Assets/Resources/PlayerStats/BounceFactor.tres" id="10_3r2dt"]
@@ -19,11 +18,12 @@
 [ext_resource type="Resource" uid="uid://c8oqa6pp6xm8j" path="res://Assets/Resources/PlayerStats/VisionFog.tres" id="12_ldlp5"]
 [ext_resource type="Resource" uid="uid://dc3p4v78vg7if" path="res://Assets/Resources/PlayerStats/StunDuration.tres" id="13_v30hm"]
 [ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="18_j0ynx"]
-[ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
-[ext_resource type="Texture2D" uid="uid://bfn5fvm15e8sg" path="res://Assets/Sprites/bone.png" id="21_8on7e"]
-[ext_resource type="Script" path="res://Assets/Scripts/Traps/Obstacle.gd" id="21_oiggm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekny"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
+[ext_resource type="PackedScene" uid="uid://lvrwlbmu2fy0" path="res://Assets/Nodes/Food/Candy1.tscn" id="21_4u6em"]
+[ext_resource type="PackedScene" uid="uid://cerd3wn7j8iu4" path="res://Assets/Nodes/Food/Egg.tscn" id="21_s2da7"]
+[ext_resource type="PackedScene" uid="uid://d2etdy1x073jk" path="res://Assets/Nodes/Food/Pizza.tscn" id="22_8bn0h"]
+[ext_resource type="PackedScene" uid="uid://b4tfhspk0jq5k" path="res://Assets/Nodes/Food/Apple.tscn" id="23_fmatr"]
+[ext_resource type="PackedScene" uid="uid://b4uiup1njdgf3" path="res://Assets/Nodes/Food/Lemon.tscn" id="24_nvnps"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_h1tc2")
@@ -33,7 +33,31 @@ level_data = ExtResource("2_rvxwt")
 position = Vector2(696, 40)
 scale = Vector2(0.764622, 0.54637)
 
+[node name="LongerIntestineBar2" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(3585, 42)
+scale = Vector2(0.584647, 0.552711)
+
+[node name="LongerIntestineBar3" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(5916, 47)
+scale = Vector2(0.5945, 0.558087)
+
+[node name="LongerIntestineBar4" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(8272, 50)
+
+[node name="LongerIntestineBar5" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(10660, 61)
+
+[node name="LongerIntestineBar6" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(13032, 72)
+
+[node name="LongerIntestineBar7" parent="." instance=ExtResource("3_gfrd2")]
+position = Vector2(15412, 92)
+
 [node name="HealthBar" parent="." instance=ExtResource("1_akwrr")]
+offset_left = -47.0
+offset_top = 11.0
+offset_right = -47.0
+offset_bottom = 11.0
 
 [node name="ScoreUi" parent="." instance=ExtResource("2_mq0ck")]
 
@@ -53,16 +77,11 @@ position = Vector2(624, 752)
 decrease_speed = 300.0
 
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
-position = Vector2(968, 768)
+position = Vector2(871, 1216)
 scale = Vector2(4, 4)
 distance_ray = 16
 
 [node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
-
-[node name="EndOfLevelArea" parent="." instance=ExtResource("7_v8ccs")]
-position = Vector2(4088, 336)
-scale = Vector2(4, 10)
-level_name = "Test"
 
 [node name="Water" parent="." instance=ExtResource("18_j0ynx")]
 position = Vector2(824, 736)
@@ -72,19 +91,86 @@ position = Vector2(-72, 272)
 scale = Vector2(2, 2)
 score_decrease = 1000.0
 
-[node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(704, 536)
-scale = Vector2(0.764622, 0.54637)
-script = ExtResource("21_oiggm")
+[node name="Candy1" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(1822, 605)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-94.1642, 58.5684)
-rotation = -0.705314
-scale = Vector2(26.6025, 2.82714)
-shape = SubResource("RectangleShape2D_7ekny")
+[node name="Candy2" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(2550, 605)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-62.7761, 0)
-rotation = 1.67049
-scale = Vector2(0.823423, 0.55556)
-texture = ExtResource("21_8on7e")
+[node name="Candy3" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(2697, 617)
+
+[node name="Candy4" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(2650, 616)
+
+[node name="Candy5" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(2597, 606)
+
+[node name="Candy6" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(2742, 608)
+
+[node name="Egg" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(3876, 611)
+
+[node name="Egg2" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(5087, 625)
+
+[node name="Egg3" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(5128, 619)
+
+[node name="Egg4" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(5179, 619)
+
+[node name="Egg5" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(5146, 615)
+
+[node name="Egg6" parent="." instance=ExtResource("21_s2da7")]
+position = Vector2(5043, 615)
+
+[node name="Pizza" parent="." instance=ExtResource("22_8bn0h")]
+position = Vector2(6152, 633)
+
+[node name="Water2" parent="." instance=ExtResource("18_j0ynx")]
+position = Vector2(7382, 633)
+
+[node name="Water3" parent="." instance=ExtResource("18_j0ynx")]
+position = Vector2(7406, 635)
+
+[node name="Water4" parent="." instance=ExtResource("18_j0ynx")]
+position = Vector2(7434, 631)
+
+[node name="Water5" parent="." instance=ExtResource("18_j0ynx")]
+position = Vector2(7319, 634)
+
+[node name="Water6" parent="." instance=ExtResource("18_j0ynx")]
+position = Vector2(7352, 634)
+
+[node name="Candy7" parent="." instance=ExtResource("21_4u6em")]
+position = Vector2(8604, 665)
+
+[node name="Apple" parent="." instance=ExtResource("23_fmatr")]
+position = Vector2(9777, 674)
+
+[node name="Lemon" parent="." instance=ExtResource("24_nvnps")]
+position = Vector2(11037, 683)
+
+[node name="FoodObstacle2" parent="." instance=ExtResource("4_gobn6")]
+position = Vector2(10573, 661)
+
+[node name="FoodObstacle3" parent="." instance=ExtResource("4_gobn6")]
+position = Vector2(11785, 668)
+
+[node name="Lemon2" parent="." instance=ExtResource("24_nvnps")]
+position = Vector2(11077, 688)
+
+[node name="Lemon3" parent="." instance=ExtResource("24_nvnps")]
+position = Vector2(10986, 688)
+
+[node name="Pizza2" parent="." instance=ExtResource("22_8bn0h")]
+position = Vector2(6246, 620)
+
+[node name="Pizza3" parent="." instance=ExtResource("22_8bn0h")]
+position = Vector2(6190, 630)
+
+[node name="Pizza4" parent="." instance=ExtResource("22_8bn0h")]
+position = Vector2(6219, 622)
