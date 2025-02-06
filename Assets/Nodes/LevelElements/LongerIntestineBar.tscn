@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kckb82np1l02"]
+[gd_scene load_steps=2 format=3 uid="uid://dr1kbtqrh0b8e"]
 
 [ext_resource type="PackedScene" uid="uid://co5jv1us78p52" path="res://Assets/Nodes/LevelElements/StomachPart.tscn" id="1_vqrng"]
 
 [node name="LongerIntestineBar" type="Node2D"]
+position = Vector2(6, -6)
+scale = Vector2(0.598, 0.598)
 
 [node name="stomachPart" parent="." instance=ExtResource("1_vqrng")]
 position = Vector2(90, 98)
