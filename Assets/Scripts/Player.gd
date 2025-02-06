@@ -81,13 +81,19 @@ func _process(delta: float) -> void:
 	# print("Stun duration: ", stun_duration.value)
 	# print("Weight: ", weight.value)
 	# print(("--------------------"))
-		
+	
+	# retrieve the value of the y velocity before we touch the ground, in case we need to bounce
+	var yvel = velocity.y
+	
+	# move and compute collisions
 	move_and_slide()
 
 	## Emit the collision signal
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		got_collision.emit(collision)
+	if is_on_floor():
+		velocity.y = yvel * -bounce_factor.value
 
 
 ## Make the player began behaving as a player
