@@ -24,6 +24,9 @@ const TouchscreenCamera = preload("res://Assets/Scripts/TouchscreenCamera.gd")
 @export var bounce_factor: PlayerStat
 @export var stun_duration: PlayerStat
 
+# check if the player requested a jump, and when
+var jump_requested: float = -1
+
 var _sugar: PlayerStat
 var _protein: PlayerStat
 var _fat: PlayerStat
@@ -116,6 +119,8 @@ func eat_food(food: Food) -> void:
 func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
 	print("Player: Touchscreen input")
 	touchscreen_input.emit(event)
+	if jump_requested<0:
+		jump_requested= Time.get_unix_time_from_system()
 
 
 ## Add a modifier to a stat

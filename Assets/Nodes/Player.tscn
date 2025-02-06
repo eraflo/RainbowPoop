@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://s82l85h1atd5"]
+[gd_scene load_steps=26 format=3 uid="uid://s82l85h1atd5"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Player.gd" id="1_0hnlo"]
 [ext_resource type="Shader" path="res://Assets/Materials/Shaders/player.gdshader" id="2_f8x0e"]
@@ -11,13 +11,16 @@
 [ext_resource type="Resource" uid="uid://d3l6f20i6jrjm" path="res://Assets/Resources/PlayerStats/JumpForce.tres" id="4_c62lb"]
 [ext_resource type="Texture2D" uid="uid://brmi2bj2nr6xb" path="res://Assets/Sprites/player.svg" id="5_8at5c"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Run.gd" id="5_d5hf6"]
-[ext_resource type="Resource" path="res://Assets/Resources/PlayerStats/JumpDelay.tres" id="5_efrde"]
+[ext_resource type="Resource" uid="uid://ccn6we0qv764b" path="res://Assets/Resources/PlayerStats/JumpDelay.tres" id="5_efrde"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Stun.gd" id="6_hruci"]
 [ext_resource type="Resource" uid="uid://buqu3ke8iipxd" path="res://Assets/Resources/PlayerStats/Friction.tres" id="6_mfuse"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Jump.gd" id="7_cmy8c"]
 [ext_resource type="Resource" uid="uid://bt5ipljtmsy14" path="res://Assets/Resources/PlayerStats/FallingSpeed.tres" id="7_rl0p5"]
 [ext_resource type="Resource" uid="uid://c2o5c22qkbkix" path="res://Assets/Resources/PlayerStats/BounceFactor.tres" id="8_rt18d"]
 [ext_resource type="Resource" uid="uid://dc3p4v78vg7if" path="res://Assets/Resources/PlayerStats/StunDuration.tres" id="9_01a2c"]
+[ext_resource type="Script" path="res://Assets/Scripts/OrientToWorldRotation.gd" id="14_6e3ef"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/SlideUp.gd" id="19_k5wbp"]
+[ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/SlideDown.gd" id="20_sdh7g"]
 
 [sub_resource type="Resource" id="Resource_1tb17"]
 script = ExtResource("2_p4brn")
@@ -54,6 +57,7 @@ shape = SubResource("RectangleShape2D_20mto")
 material = SubResource("ShaderMaterial_a4yrc")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_8at5c")
+script = ExtResource("14_6e3ef")
 
 [node name="StateManager" type="Node" parent="."]
 script = ExtResource("3_6cimm")
@@ -69,3 +73,9 @@ script = ExtResource("6_hruci")
 
 [node name="Jump" type="Node" parent="StateManager"]
 script = ExtResource("7_cmy8c")
+
+[node name="SlideUp" type="Node" parent="StateManager"]
+script = ExtResource("19_k5wbp")
+
+[node name="SlideDown" type="Node" parent="StateManager"]
+script = ExtResource("20_sdh7g")
