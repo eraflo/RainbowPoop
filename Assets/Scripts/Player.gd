@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 		got_collision.emit(collision)
 	if is_on_floor():
 		# if bounce factor is between 0 and infinity
-		velocity.y = -(yvel-(yvel/bounce_factor.value))
+		#velocity.y = -(yvel-(yvel/bounce_factor.value))
 		# if bounce factor is normalized between 0 and 1
 		#velocity.y = yvel * -bounce_factor.value
 		#print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
