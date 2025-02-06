@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://v3dj46kxr16e"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_7mqpg"]
-[ext_resource type="Resource" uid="uid://xh5pxflrmcjb" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_r6m1g"]
+[ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_r6m1g"]
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="3_23ju1"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="4_bfrto"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="5_c5mhy"]

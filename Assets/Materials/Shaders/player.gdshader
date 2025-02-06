@@ -2,13 +2,13 @@ shader_type canvas_item;
 
 uniform sampler2D sticksOverlay;
 uniform sampler2D ballOverlay;
-const float defaultWobbleSpeed = 10.f;
-const float sugar =10.;
-const float protein=10.;
-const float fat= 10.;
-const float water=10.;
-const float fiber = 10.;
-const float vitamin = 10.;
+uniform float defaultWobbleSpeed = 10.f;
+uniform float sugar;
+uniform float protein;
+uniform float fat;
+uniform float water;
+uniform float fiber;
+uniform float vitamin;
 //sugar, protein, fat, water, fiber, vitamin
 
 void vertex() {
