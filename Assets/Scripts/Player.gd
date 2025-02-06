@@ -162,11 +162,11 @@ func _setup_stats() -> void:
 
 ## Make the stats decay over time
 func _on_decay_timer_timeout() -> void:
-	_add_modifier(_sugar, 0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_protein, 0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_fat, 0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_water, 0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_fiber, 0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_vitamin, 0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
 
 	decay_timer.start()
