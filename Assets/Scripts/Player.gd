@@ -24,6 +24,9 @@ const TouchscreenCamera = preload("res://Assets/Scripts/TouchscreenCamera.gd")
 @export var bounce_factor: PlayerStat
 @export var stun_duration: PlayerStat
 
+# check if the player requested a jump, and when
+var jump_requested: float = -1
+
 var _sugar: PlayerStat
 var _protein: PlayerStat
 var _fat: PlayerStat
@@ -78,13 +81,26 @@ func _process(delta: float) -> void:
 	# print("Stun duration: ", stun_duration.value)
 	# print("Weight: ", weight.value)
 	# print(("--------------------"))
-		
+	
+	# retrieve the value of the y velocity before we touch the ground, in case we need to bounce
+	var yvel = velocity.y
+	
+	# move and compute collisions
 	move_and_slide()
 
 	## Emit the collision signal
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		got_collision.emit(collision)
+	
+	if is_on_floor():
+		# if bounce factor is between 0 and infinity
+		#velocity.y = -(yvel-(yvel/bounce_factor.value))
+		# if bounce factor is normalized between 0 and 1
+		#velocity.y = yvel * -bounce_factor.value
+		#print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
+		if velocity.y>-200:
+			velocity.y=0
 	
 	# Update the stats
 	_update_max_speed()
@@ -125,6 +141,8 @@ func eat_food(food: Food) -> void:
 func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
 	print("Player: Touchscreen input")
 	touchscreen_input.emit(event)
+	if jump_requested<0:
+		jump_requested= Time.get_unix_time_from_system()
 
 
 ## Add a modifier to a stat

@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://v3dj46kxr16e"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_7mqpg"]
+[ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_r6m1g"]
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="3_23ju1"]
+[ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="4_bfrto"]
+[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="5_c5mhy"]
+[ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="6_7qcxl"]
+[ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="7_adhmq"]
+[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="8_go33m"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="9_tg0s1"]
+[ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="10_hlyqx"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="11_qchpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tku25"]
+size = Vector2(20, 20.2088)
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_7mqpg")
+level_data = ExtResource("2_r6m1g")
+
+[node name="HealthBar" parent="." instance=ExtResource("3_23ju1")]
+
+[node name="ScoreUi" parent="." instance=ExtResource("4_bfrto")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(577, 620)
+scale = Vector2(49.2, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_tku25")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(577, 336)
+rotation = 1.57079
+scale = Vector2(49.2, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_tku25")
+
+[node name="Player" parent="." instance=ExtResource("5_c5mhy")]
+position = Vector2(134, 525)
+gravity = 98.0
+
+[node name="EscherichiaColi" parent="." instance=ExtResource("6_7qcxl")]
+position = Vector2(582, 515)
+decrease_speed = 300.0
+
+[node name="FoodObstacle" parent="." instance=ExtResource("7_adhmq")]
+position = Vector2(818, 526)
+scale = Vector2(4, 4)
+
+[node name="TouchscreenCamera" parent="." instance=ExtResource("8_go33m")]
+
+[node name="EndOfLevelArea" parent="." instance=ExtResource("9_tg0s1")]
+position = Vector2(685, 463)
+scale = Vector2(4, 10)
+level_name = "Test"
+
+[node name="Water" parent="." instance=ExtResource("10_hlyqx")]
+position = Vector2(431, 505)
+
+[node name="Hemorrhoid" parent="." instance=ExtResource("11_qchpr")]
+position = Vector2(307, 545)
+scale = Vector2(2, 2)
+score_decrease = 1000.0

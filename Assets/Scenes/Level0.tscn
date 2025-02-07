@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://djc3yoeh05cvf"]
+[gd_scene load_steps=4 format=3 uid="uid://e8hj0mywyuox"]
 
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="1_o6noo"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_beo2e"]
+[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_beo2e"]
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="3_iv6xp"]
 
 [node name="Level0" type="Node2D"]
