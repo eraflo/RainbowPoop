@@ -21,6 +21,7 @@ Score="*res://Assets/Nodes/Score/Score.tscn"
 WorldDirection="*res://Assets/Scripts/WorldDirection.gd"
 Health="*res://Assets/Nodes/Health_System/HealthSystem.tscn"
 ObstacleManager="*res://Assets/Scripts/Traps/ObstacleManager.gd"
+GlobalAccess="*res://Assets/Scripts/utility/GlobalAccess.gd"
 
 [dotnet]
 

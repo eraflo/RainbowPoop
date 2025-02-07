@@ -1,8 +1,6 @@
 
 class_name PlayerStat extends Resource
 
-const MIN_FLOAT = -1.79769e308
-
 ## The base value of the stat (value without modifiers ; do not modify directly or use it)
 @export var base_value: float
 
@@ -19,13 +17,20 @@ var value: float:
 var _modifiers: Array = []
 var _is_dirty: bool = true
 var _value: float = 0.0 # Cache the final value
-var _last_base_value: float = MIN_FLOAT # The last base value used
+var _last_base_value: float = GlobalAccess.MIN_FLOAT # The last base value used
 
 ## Add a new modifier
 func add_modifier(modifier: StatModifier):
 	_is_dirty = true
 	_modifiers.append(modifier)
 	_modifiers.sort_custom(_compare_modifier_order)
+
+func update_modifier_from_source(source: Object, new_value: float):
+	for i in range(_modifiers.size()):
+		if(_modifiers[i].source == source):
+			_modifiers[i].value = new_value
+			_is_dirty = true
+			return
 
 ## Remove a specific modifier
 func remove_modifier(modifier: StatModifier) -> bool:
@@ -43,6 +48,10 @@ func remove_all_modifiers_from_source(source: Object):
 		if(_modifiers[i].source == source):
 			_is_dirty = true
 			_modifiers.remove_at(i)
+
+func remove_all_modifiers():
+	_modifiers.clear()
+	_is_dirty = true
 
 ## Calculate the final value
 func _calculate_final_value():

@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnpbn8xoynfxi"]
+[gd_scene load_steps=16 format=3 uid="uid://bjbnrvqoxawdk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_ga2fc"]
 [ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_eprnd"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_3a5sc"]
+[ext_resource type="PackedScene" uid="uid://dr1kbtqrh0b8e" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_3a5sc"]
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="4_ifa23"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="5_k0ig8"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="6_6yv0l"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekny"]
 
-[node name="Test" type="Node2D"]
+[node name="Test2" type="Node2D"]
 script = ExtResource("1_ga2fc")
 level_data = ExtResource("2_eprnd")
 

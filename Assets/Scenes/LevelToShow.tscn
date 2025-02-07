@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh23dubw043qi"]
+[gd_scene load_steps=17 format=3 uid="uid://bh23dubw043qi"]
 
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_akwrr"]
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_h1tc2"]
@@ -8,17 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dr1kbtqrh0b8e" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_gfrd2"]
 [ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="3_rq4pl"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="4_gobn6"]
-[ext_resource type="Resource" uid="uid://dvs3m23s5npj3" path="res://Assets/Resources/PlayerStats/MaxSpeed.tres" id="6_nfh8d"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
-[ext_resource type="Resource" uid="uid://d3l6f20i6jrjm" path="res://Assets/Resources/PlayerStats/JumpForce.tres" id="7_kpl78"]
-[ext_resource type="Resource" uid="uid://buqu3ke8iipxd" path="res://Assets/Resources/PlayerStats/Friction.tres" id="8_0eyel"]
-[ext_resource type="Resource" uid="uid://bt5ipljtmsy14" path="res://Assets/Resources/PlayerStats/FallingSpeed.tres" id="9_ely31"]
-[ext_resource type="Resource" uid="uid://c2o5c22qkbkix" path="res://Assets/Resources/PlayerStats/BounceFactor.tres" id="10_3r2dt"]
-[ext_resource type="Resource" uid="uid://b8uin6rlc6cn3" path="res://Assets/Resources/PlayerStats/StatDrain.tres" id="11_nvnbi"]
-[ext_resource type="Resource" uid="uid://c8oqa6pp6xm8j" path="res://Assets/Resources/PlayerStats/VisionFog.tres" id="12_ldlp5"]
-[ext_resource type="Resource" uid="uid://dc3p4v78vg7if" path="res://Assets/Resources/PlayerStats/StunDuration.tres" id="13_v30hm"]
+[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="6_x0l24"]
 [ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="18_j0ynx"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
+[ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="19_m4qoo"]
 [ext_resource type="PackedScene" uid="uid://lvrwlbmu2fy0" path="res://Assets/Nodes/Food/Candy1.tscn" id="21_4u6em"]
 [ext_resource type="PackedScene" uid="uid://cerd3wn7j8iu4" path="res://Assets/Nodes/Food/Egg.tscn" id="21_s2da7"]
 [ext_resource type="PackedScene" uid="uid://d2etdy1x073jk" path="res://Assets/Nodes/Food/Pizza.tscn" id="22_8bn0h"]
@@ -63,14 +55,6 @@ offset_bottom = 11.0
 
 [node name="Player" parent="." instance=ExtResource("2_qgpqf")]
 position = Vector2(136, 432)
-max_speed = ExtResource("6_nfh8d")
-jump_force = ExtResource("7_kpl78")
-friction = ExtResource("8_0eyel")
-falling_speed = ExtResource("9_ely31")
-bounce_factor = ExtResource("10_3r2dt")
-stat_drain = ExtResource("11_nvnbi")
-vision_fog = ExtResource("12_ldlp5")
-stun_duration = ExtResource("13_v30hm")
 
 [node name="EscherichiaColi" parent="." instance=ExtResource("3_rq4pl")]
 position = Vector2(624, 752)
@@ -79,7 +63,6 @@ decrease_speed = 300.0
 [node name="FoodObstacle" parent="." instance=ExtResource("4_gobn6")]
 position = Vector2(871, 1216)
 scale = Vector2(4, 4)
-distance_ray = 16
 
 [node name="TouchscreenCamera" parent="." instance=ExtResource("6_x0l24")]
 
