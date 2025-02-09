@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnpbn8xoynfxi"]
+[gd_scene load_steps=16 format=3 uid="uid://bjbnrvqoxawdk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_ga2fc"]
 [ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_eprnd"]
@@ -17,7 +17,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekny"]
 
-[node name="Test" type="Node2D"]
+[node name="Test2" type="Node2D"]
 script = ExtResource("1_ga2fc")
 level_data = ExtResource("2_eprnd")
 

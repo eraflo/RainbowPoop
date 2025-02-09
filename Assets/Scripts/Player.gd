@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 	# Apply gravity
 	velocity.y += gravity * delta * falling_speed.value
 
-	# print("Max speed: ", max_speed.value)
+	print("Max speed: ", max_speed.value)
 	# print("Jump force: ", jump_force.value)
 	# print("Jump delay: ", jump_delay.value)
 	# print("Friction: ", friction.value)
@@ -92,6 +92,7 @@ func _process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		got_collision.emit(collision)
+	
 	if is_on_floor():
 		# if bounce factor is between 0 and infinity
 		#velocity.y = -(yvel-(yvel/bounce_factor.value))
@@ -100,6 +101,15 @@ func _process(delta: float) -> void:
 		#print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
 		if velocity.y>-200:
 			velocity.y=0
+	
+	# Update the stats
+	_update_max_speed()
+	_update_jump_force()
+	_update_jump_delay()
+	_update_friction()
+	_update_falling_speed()
+	_update_bounce_factor()
+	_update_stun_duration()
 
 
 ## Make the player began behaving as a player
@@ -136,11 +146,16 @@ func _on_touchscreen_input(event: InputEventScreenTouch) -> void:
 
 
 ## Add a modifier to a stat
-func _add_modifier(stat: PlayerStat, value: float, type: StatModifier.StatModType) -> void:
+func _add_modifier(stat: PlayerStat, value: float, type: StatModifier.StatModType, _order: int = int(type), _source: Object = null) -> void:
 	stat.add_modifier(StatModifier.new(
 		value,
-		type
+		type,
+		_order,
+		_source
 	))
+
+func _update_modifier_from_source(stat: PlayerStat, source: Object, new_value: float) -> void:
+	stat.update_modifier_from_source(source, new_value)
 
 ## Setup the stats based on the food eaten
 func _setup_stats() -> void:
@@ -162,28 +177,88 @@ func _setup_stats() -> void:
 	_vitamin.base_value = 10
 	
 	# Set the stats based on the food eaten
-	_add_modifier(max_speed, _sugar.value - _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
-	_add_modifier(jump_force, _protein.value - _fat.value + _water.value, StatModifier.StatModType.Flat)
-
-	# Formula = base jump delay * (1.0 + sugar)
-	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult)
-	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat)
-	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat)
-	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat)
-
-	# Formula = base stun * (1.0 / (1.0 + vitamin))
-	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult)
-
-	# Weight
-	_add_modifier(weight, _sugar.value + _protein.value + _fat.value + _water.value + _fiber.value + _vitamin.value, StatModifier.StatModType.Flat)
+	_init_max_speed()
+	_init_jump_force()
+	_init_jump_delay()
+	_init_friction()
+	_init_falling_speed()
+	_init_bounce_factor()
+	_init_stun_duration()
 
 ## Make the stats decay over time
 func _on_decay_timer_timeout() -> void:
-	_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+	_add_modifier(_sugar, -10, StatModifier.StatModType.Flat)
 	_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
 	_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
 	_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
 	_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
 	_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
 
+	print("Decay")
+	print("Sugar: ", _sugar.value)
+
 	decay_timer.start()
+
+## Initialize the stats
+
+func _init_max_speed() -> void:
+	_add_modifier(max_speed, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
+	_add_modifier(max_speed, -_protein.value, StatModifier.StatModType.Flat, 100, _protein)
+	_add_modifier(max_speed, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
+	_add_modifier(max_speed, _water.value, StatModifier.StatModType.Flat, 100, _water)
+
+func _init_jump_force() -> void:
+	_add_modifier(jump_force, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
+	_add_modifier(jump_force, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
+	_add_modifier(jump_force, _water.value, StatModifier.StatModType.Flat, 100, _water)
+
+func _init_jump_delay() -> void:
+	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult, 100, _sugar)
+
+func _init_friction() -> void:
+	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
+
+func _init_falling_speed() -> void:
+	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
+
+func _init_bounce_factor() -> void:
+	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat, 100, _water)
+
+func _init_stun_duration() -> void:
+	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult, 100, _vitamin)
+
+func _init_weight() -> void:
+	_add_modifier(weight, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
+	_add_modifier(weight, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
+	_add_modifier(weight, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
+	_add_modifier(weight, _water.value, StatModifier.StatModType.Flat, 100, _water)
+	_add_modifier(weight, _fiber.value, StatModifier.StatModType.Flat, 100, _fiber)
+	_add_modifier(weight, _vitamin.value, StatModifier.StatModType.Flat, 100, _vitamin)
+
+## Update the stats
+
+func _update_max_speed() -> void:
+	_update_modifier_from_source(max_speed, _sugar, _sugar.value)
+	_update_modifier_from_source(max_speed, _protein, -_protein.value)
+	_update_modifier_from_source(max_speed, _fat, -_fat.value)
+	_update_modifier_from_source(max_speed, _water, _water.value)
+
+func _update_jump_force() -> void:
+	_update_modifier_from_source(jump_force, _protein, _protein.value)
+	_update_modifier_from_source(jump_force, _fat, -_fat.value)
+	_update_modifier_from_source(jump_force, _water, _water.value)
+
+func _update_jump_delay() -> void:
+	_update_modifier_from_source(jump_delay, _sugar, _sugar.value)
+
+func _update_friction() -> void:
+	_update_modifier_from_source(friction, _fat, -_fat.value)
+
+func _update_falling_speed() -> void:
+	_update_modifier_from_source(falling_speed, _fat, _fat.value)
+
+func _update_bounce_factor() -> void:
+	_update_modifier_from_source(bounce_factor, _water, _water.value)
+
+func _update_stun_duration() -> void:
+	_update_modifier_from_source(stun_duration, _vitamin, 1 / (1 + _vitamin.value))
