@@ -17,7 +17,7 @@ static var started = false
 func _ready() -> void:
 	print("a")
 	# retrieve the nodes we need
-	poly=get_child(-1)
+	poly=get_parent()
 	lcol=get_child(0)
 	rcol=get_child(1)
 	# store the OG values 
