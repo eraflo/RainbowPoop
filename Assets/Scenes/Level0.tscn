@@ -210,6 +210,24 @@ position = Vector2(7271, -2954)
 position = Vector2(8971, -2760)
 rotation = 0.261799
 
+[node name="FoodObstacle3" parent="." instance=ExtResource("6_qqglk")]
+position = Vector2(8221, -2956)
+
+[node name="Bone24" parent="." instance=ExtResource("5_hg77k")]
+position = Vector2(8834, -875)
+rotation = 0.523598
+
+[node name="Bone25" parent="." instance=ExtResource("5_hg77k")]
+position = Vector2(9571, -763)
+rotation = -0.523598
+
+[node name="Bone26" parent="." instance=ExtResource("5_hg77k")]
+position = Vector2(9244, 599)
+rotation = -0.261799
+
+[node name="Bone27" parent="." instance=ExtResource("5_hg77k")]
+position = Vector2(8068, 1403)
+
 [editable path="StomachPart2"]
 [editable path="StomachPart3"]
 [editable path="StomachPart4"]
