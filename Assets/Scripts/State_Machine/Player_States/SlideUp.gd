@@ -24,8 +24,6 @@ func check_transition():
 	var t = Time.get_unix_time_from_system()
 	if player.is_on_floor():
 		return "Run"
-	if not player.is_on_wall():
-		return "Run"
 	if player.velocity.y>0 :
 		return "SlideDown"
 	if (player.jump_requested>0):

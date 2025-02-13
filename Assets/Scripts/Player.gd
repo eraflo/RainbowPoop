@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 	# Apply gravity
 	velocity.y += gravity * delta * falling_speed.value
 
-	print("Max speed: ", max_speed.value)
+	# print("Max speed: ", max_speed.value)
 	# print("Jump force: ", jump_force.value)
 	# print("Jump delay: ", jump_delay.value)
 	# print("Friction: ", friction.value)
@@ -101,6 +101,10 @@ func _process(delta: float) -> void:
 		#print("vy:"+str(velocity.y)+"\t yvel:"+str(yvel))
 		if velocity.y>-200:
 			velocity.y=0
+	
+	# cancel jump if nothing has been triggering it in more than the jump delay
+	if Time.get_unix_time_from_system()-jump_requested>jump_delay.value+0.1:
+		jump_requested=-1
 	
 	# Update the stats
 	_update_max_speed()
@@ -176,6 +180,7 @@ func _setup_stats() -> void:
 	_fiber.base_value = 10
 	_vitamin.base_value = 10
 	
+	
 	# Set the stats based on the food eaten
 	_init_max_speed()
 	_init_jump_force()
@@ -185,14 +190,25 @@ func _setup_stats() -> void:
 	_init_bounce_factor()
 	_init_stun_duration()
 
-## Make the stats decay over time
+## Make the stats decay over time, unless this is the first level
 func _on_decay_timer_timeout() -> void:
-	_add_modifier(_sugar, -10, StatModifier.StatModType.Flat)
-	_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
-	_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
+	print(">>>>>")
+	print(get_parent().name)
+	print("<<<<<")
+	if get_parent().name == StringName("Level0"):
+		_add_modifier(_sugar, 0, StatModifier.StatModType.Flat)
+		_add_modifier(_protein, 0, StatModifier.StatModType.Flat)
+		_add_modifier(_fat, 0, StatModifier.StatModType.Flat)
+		_add_modifier(_water, 0, StatModifier.StatModType.Flat)
+		_add_modifier(_fiber, 0, StatModifier.StatModType.Flat)
+		_add_modifier(_vitamin, 0, StatModifier.StatModType.Flat)
+	else:
+		_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
 
 	print("Decay")
 	print("Sugar: ", _sugar.value)
