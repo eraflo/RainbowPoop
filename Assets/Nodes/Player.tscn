@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://d3l6f20i6jrjm" path="res://Assets/Resources/PlayerStats/JumpForce.tres" id="4_c62lb"]
 [ext_resource type="Texture2D" uid="uid://brmi2bj2nr6xb" path="res://Assets/Sprites/player.svg" id="5_8at5c"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Run.gd" id="5_d5hf6"]
-[ext_resource type="Resource" uid="uid://ccn6we0qv764b" path="res://Assets/Resources/PlayerStats/JumpDelay.tres" id="5_efrde"]
+[ext_resource type="Resource" uid="uid://2reyc20f768k" path="res://Assets/Resources/PlayerStats/JumpDelay.tres" id="5_efrde"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Stun.gd" id="6_hruci"]
 [ext_resource type="Resource" uid="uid://buqu3ke8iipxd" path="res://Assets/Resources/PlayerStats/Friction.tres" id="6_mfuse"]
 [ext_resource type="Script" path="res://Assets/Scripts/State_Machine/Player_States/Jump.gd" id="7_cmy8c"]
@@ -35,12 +35,12 @@ base_value = 1.8
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a4yrc"]
 shader = ExtResource("2_f8x0e")
 shader_parameter/defaultWobbleSpeed = 10.0
-shader_parameter/sugar = null
-shader_parameter/protein = null
-shader_parameter/fat = null
-shader_parameter/water = null
-shader_parameter/fiber = null
-shader_parameter/vitamin = null
+shader_parameter/sugar = 10.0
+shader_parameter/protein = 10.0
+shader_parameter/fat = 10.0
+shader_parameter/water = 10.0
+shader_parameter/fiber = 10.0
+shader_parameter/vitamin = 10.0
 shader_parameter/sticksOverlay = ExtResource("4_5igo6")
 shader_parameter/ballOverlay = ExtResource("3_owfon")
 
