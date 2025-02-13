@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://ut0xp3pgx668"]
+
+[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/Button.tscn" id="1_lp8cs"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_k24km"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/QuitGameButton.gd" id="3_l6q6d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i772j"]
+bg_color = Color(1, 0.701961, 0.639216, 1)
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i772j")
+
+[node name="Main" type="HBoxContainer" parent="CanvasLayer/Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Main/Left"]
+layout_mode = 2
+text = "Rainbow Poop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Play Button" parent="CanvasLayer/Panel/Main/Right" instance=ExtResource("1_lp8cs")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("2_k24km")
+scene_path = "res://Assets/Scenes/TestScenes/LevelToShow.tscn"
+
+[node name="Levels Button" parent="CanvasLayer/Panel/Main/Right" instance=ExtResource("1_lp8cs")]
+layout_mode = 2
+text = "Levels"
+script = ExtResource("2_k24km")
+scene_path = "res://Assets/Scenes/LevelSelectionMenu.tscn"
+
+[node name="Credits Button" parent="CanvasLayer/Panel/Main/Right" instance=ExtResource("1_lp8cs")]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit Button" parent="CanvasLayer/Panel/Main/Right" instance=ExtResource("1_lp8cs")]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("3_l6q6d")

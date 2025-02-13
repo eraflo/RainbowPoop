@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://l8nvsh18m1r7"]
+
+[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/Button.tscn" id="1_m3vm8"]
+[ext_resource type="Texture2D" uid="uid://cq84x2p1mbj1c" path="res://Assets/Sprites/UI/arrow.png" id="2_1p56i"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_pt6b7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhlgy"]
+bg_color = Color(1, 0.701961, 0.639216, 1)
+
+[node name="LevelSelectionMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qhlgy")
+
+[node name="Main" type="HBoxContainer" parent="CanvasLayer/Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 12
+
+[node name="Button" parent="CanvasLayer/Panel/Main/MarginContainer/Left" instance=ExtResource("1_m3vm8")]
+layout_mode = 2
+icon = ExtResource("2_1p56i")
+script = ExtResource("2_pt6b7")
+scene_path = "res://Assets/Scenes/MainMenu.tscn"
+
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Main/Right"]
+layout_mode = 2
+text = "Rainbow Poop"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RainbowPoop"
-run/main_scene="res://Assets/Scenes/testh.tscn"
+run/main_scene="res://Assets/Scenes/TestScenes/testh.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,12 @@ WorldDirection="*res://Assets/Scripts/WorldDirection.gd"
 Health="*res://Assets/Nodes/Health_System/HealthSystem.tscn"
 ObstacleManager="*res://Assets/Scripts/Traps/ObstacleManager.gd"
 GlobalAccess="*res://Assets/Scripts/utility/GlobalAccess.gd"
+LevelManager="*res://Assets/Scripts/Level/LevelManager.gd"
+
+[display]
+
+window/size/viewport_width=740
+window/size/viewport_height=412
 
 [dotnet]
 

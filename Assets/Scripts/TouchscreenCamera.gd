@@ -13,5 +13,7 @@ func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			get_touchscreen_input.emit(event)
+
 func _process(delta: float) -> void:
-	position = player.position
+	if player != null:
+		position = player.position
