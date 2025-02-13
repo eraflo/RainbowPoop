@@ -23,6 +23,11 @@ Health="*res://Assets/Nodes/Health_System/HealthSystem.tscn"
 ObstacleManager="*res://Assets/Scripts/Traps/ObstacleManager.gd"
 GlobalAccess="*res://Assets/Scripts/utility/GlobalAccess.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="RainbowPoop"

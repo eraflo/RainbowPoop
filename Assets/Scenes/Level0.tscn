@@ -11,6 +11,8 @@
 
 [node name="TouchscreenCamera" parent="." instance=ExtResource("2_beo2e")]
 position = Vector2(1778, 957)
+position_smoothing_enabled = true
+drag_vertical_enabled = true
 
 [node name="HealthBar" parent="." instance=ExtResource("3_iv6xp")]
 offset_left = 1344.0

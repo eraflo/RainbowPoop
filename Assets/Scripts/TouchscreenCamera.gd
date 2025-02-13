@@ -15,3 +15,4 @@ func _input(event):
 			get_touchscreen_input.emit(event)
 func _process(delta: float) -> void:
 	position = player.position
+	print(get_viewport().get_screen_transform())
