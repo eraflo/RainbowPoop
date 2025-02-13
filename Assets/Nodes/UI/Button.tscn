@@ -4,13 +4,13 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xdtn"]
 bg_color = Color(0.839216, 0, 0.435294, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 shadow_color = Color(0, 0, 0, 0.258824)
 shadow_size = 2
-shadow_offset = Vector2(-1, 2)
+shadow_offset = Vector2(0, 2)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(100, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://l8nvsh18m1r7"]
+[gd_scene load_steps=6 format=3 uid="uid://l8nvsh18m1r7"]
 
 [ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/Button.tscn" id="1_m3vm8"]
 [ext_resource type="Texture2D" uid="uid://cq84x2p1mbj1c" path="res://Assets/Sprites/UI/arrow.png" id="2_1p56i"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhlgy"]
 bg_color = Color(1, 0.701961, 0.639216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4quy"]
+bg_color = Color(0.839216, 0, 0.435294, 1)
 
 [node name="LevelSelectionMenu" type="Node2D"]
 
@@ -31,32 +34,57 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/Main"]
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
 theme_override_constants/separation = 12
 
-[node name="Button" parent="CanvasLayer/Panel/Main/MarginContainer/Left" instance=ExtResource("1_m3vm8")]
+[node name="Control" type="Control" parent="CanvasLayer/Panel/Main/Left"]
 layout_mode = 2
+
+[node name="Button" parent="CanvasLayer/Panel/Main/Left/Control" instance=ExtResource("1_m3vm8")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 48.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
 icon = ExtResource("2_1p56i")
+icon_alignment = 1
 script = ExtResource("2_pt6b7")
 scene_path = "res://Assets/Scenes/MainMenu.tscn"
 
-[node name="Right" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+[node name="Map" type="Control" parent="CanvasLayer/Panel/Main/Left"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="Control" parent="CanvasLayer/Panel/Main"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Main/Right"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel/Main/HBoxContainer"]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 412.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4quy")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/Main/HBoxContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Main/HBoxContainer/MarginContainer"]
 layout_mode = 2
-text = "Rainbow Poop"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Placeholder"
