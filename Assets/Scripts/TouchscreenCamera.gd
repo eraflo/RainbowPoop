@@ -24,8 +24,9 @@ func _process(delta: float) -> void:
 	var timeSinceStart = Time.get_unix_time_from_system()-startedAt
 	if (timeSinceStart < 10):
 		var coef=1-(timeSinceStart/10)
-		zoom=Vector2(1-(coef*0.75), 1-(coef*0.75))
 		position = path.sample_baked(((1-coef)*pathLength), true)
+		if (timeSinceStart>9.25):
+			zoom = Vector2(timeSinceStart-9,timeSinceStart-9)
 	else:
 		position = player.position
 	# print(get_viewport().get_screen_transform())
