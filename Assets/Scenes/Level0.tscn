@@ -268,8 +268,8 @@ position = Vector2(7268, -2952)
 position = Vector2(8218, -2954)
 
 [node name="Hemorrhoid" parent="obstacles" instance=ExtResource("9_xwf4j")]
-position = Vector2(7020, 3440)
-rotation = -1.66106
+position = Vector2(7137, 5220)
+rotation = -1.50467
 scale = Vector2(10, 10)
 
 [node name="Hemorrhoid2" parent="obstacles" instance=ExtResource("9_xwf4j")]

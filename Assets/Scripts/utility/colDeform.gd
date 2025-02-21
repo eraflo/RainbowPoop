@@ -1,17 +1,17 @@
 @tool
 extends Node
 
-static var poly
-static var lastPoly
-static var p00
-static var p01
-static var p10
-static var p11
-static var lcol
-static var ogLcol
-static var rcol
-static var ogRcol
-static var started = false
+var poly
+var lastPoly
+var p00
+var p01
+var p10
+var p11
+var lcol
+var ogLcol
+var rcol
+var ogRcol
+var started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
