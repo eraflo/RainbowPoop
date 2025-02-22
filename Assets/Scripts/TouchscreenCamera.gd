@@ -22,11 +22,13 @@ func _input(event):
 			get_touchscreen_input.emit(event)
 func _process(delta: float) -> void:
 	var timeSinceStart = Time.get_unix_time_from_system()-startedAt
-	if (timeSinceStart < 10):
-		var coef=1-(timeSinceStart/10)
+	const ANIMATION_DURATION = 3
+	if (timeSinceStart < ANIMATION_DURATION):
+		var coef=1-(timeSinceStart/ANIMATION_DURATION)
 		position = path.sample_baked(((1-coef)*pathLength), true)
-		if (timeSinceStart>9.25):
-			zoom = Vector2(timeSinceStart-9,timeSinceStart-9)
+	elif (timeSinceStart < ANIMATION_DURATION+0.75):
+		zoom = Vector2(timeSinceStart-ANIMATION_DURATION+0.25,timeSinceStart-ANIMATION_DURATION+0.25)
+			
 	else:
 		position = player.position
 	# print(get_viewport().get_screen_transform())
