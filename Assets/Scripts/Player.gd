@@ -192,9 +192,7 @@ func _setup_stats() -> void:
 
 ## Make the stats decay over time, unless this is the first level
 func _on_decay_timer_timeout() -> void:
-	print(">>>>>")
-	print(get_parent().name)
-	print("<<<<<")
+	# change the decay depending on the level
 	if get_parent().name == StringName("Level0"):
 		_add_modifier(_sugar, 0, StatModifier.StatModType.Flat)
 		_add_modifier(_protein, 0, StatModifier.StatModType.Flat)
@@ -202,6 +200,20 @@ func _on_decay_timer_timeout() -> void:
 		_add_modifier(_water, 0, StatModifier.StatModType.Flat)
 		_add_modifier(_fiber, 0, StatModifier.StatModType.Flat)
 		_add_modifier(_vitamin, 0, StatModifier.StatModType.Flat)
+	elif get_parent().name == StringName("Level1"):
+		_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_water, -0, StatModifier.StatModType.Flat)
+		_add_modifier(_fiber, -0, StatModifier.StatModType.Flat)
+		_add_modifier(_vitamin, -0, StatModifier.StatModType.Flat)
+	elif get_parent().name == StringName("Level2"):
+		_add_modifier(_sugar, -0, StatModifier.StatModType.Flat)
+		_add_modifier(_protein, -0, StatModifier.StatModType.Flat)
+		_add_modifier(_fat, -0, StatModifier.StatModType.Flat)
+		_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
+		_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
 	else:
 		_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
 		_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
