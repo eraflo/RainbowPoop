@@ -44,8 +44,6 @@ offset_bottom = 730.0
 [node name="Player" parent="." instance=ExtResource("1_o6noo")]
 z_index = 10
 position = Vector2(155, 1762)
-floor_stop_on_slope = false
-safe_margin = 0.008
 gravity = 98.0
 
 [node name="Stomach" type="Node2D" parent="."]

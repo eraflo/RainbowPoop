@@ -6,8 +6,7 @@
 [node name="ColliderLine" type="Line2D"]
 texture_filter = 2
 texture_repeat = 3
-position = Vector2(92, 1620)
-points = PackedVector2Array(1537, 100, 1219, -84, -73, -111)
+points = PackedVector2Array(100, 100, -100, -100)
 width = 100.0
 texture = ExtResource("1_71k67")
 texture_mode = 1

@@ -38,12 +38,12 @@ func check_transition():
 				WorldDirection.direction=WorldDirection.Direction.LEFT
 				player.velocity.x = - player.max_speed.value
 			return "Jump"
-	# Little delay befor running again when the player stops coliding with a wall
-	if not player.is_on_wall():
+	# Little delay before running again when the player stops coliding with a wall
+	"""if not player.is_on_wall():
 		if t-lastWall>0.5:
 			return "Run"
 	else:
-			lastWall = t
+		lastWall = t"""
 	return null
 
 func _on_touchscreen_input(_event: InputEventScreenTouch) -> void:

@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_deuor"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="7_vh76b"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="8_l2fu3"]
-[ext_resource type="Texture2D" uid="uid://bccgwtu8o7bop" path="res://Assets/Sprites/levelBuild/insideThingie.png" id="10_802mt"]
-[ext_resource type="Script" path="res://Assets/Scripts/utility/ColLine.gd" id="10_pie4a"]
+[ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="10_bvqg1"]
+[ext_resource type="PackedScene" uid="uid://lvrwlbmu2fy0" path="res://Assets/Nodes/Food/Candy1.tscn" id="11_r5mbr"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -18,7 +18,7 @@ _data = {
 }
 point_count = 6
 
-[node name="Level0" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 visible = false
@@ -54,13 +54,13 @@ position = Vector2(0, -9)
 
 [node name="StomachPart2" parent="Stomach" instance=ExtResource("3_j84xm")]
 position = Vector2(0, -2009)
-polygon = PackedVector2Array(0.978, 0.1365, 1, 1, 0, 1, 0, 0)
+polygon = PackedVector2Array(0.97, 0.17, 1, 1, 0, 1, 0, 0)
 
 [node name="Lcol2" parent="Stomach/StomachPart2/StaticBody2D2" index="0"]
-polygon = PackedVector2Array(0.343392, 0.072408, 0.343333, 0.0798288, 0.269762, 0.0644369, 0.196156, 0.056714, 0.163436, 0.0576525, 0.138896, 0.0603702, 0.122534, 0.0648256, 0.106178, 0.0693362, 0.0652841, 0.100578, 0.0489377, 0.121185, 0.0407603, 0.143448, 0.0244309, 0.18822, 0.0162703, 0.234648, 0.00812109, 0.313186, 0.00805632, 0.680552, 0.0160817, 0.7688, 0.0240972, 0.816952, 0.0401197, 0.865172, 0.0641239, 0.913214, 0.10411, 0.953076, 0.136096, 0.968938, 0.192068, 0.984662, 0.264046, 0.992455, 0.336059, 0.992579, 0.336, 1, 0, 1, 0, 0)
+polygon = PackedVector2Array(0.32592, 0.05712, 0.326001, 0.064663, 0.256143, 0.052521, 0.186332, 0.0481178, 0.155315, 0.0505472, 0.132051, 0.0543802, 0.116544, 0.059584, 0.10103, 0.0648314, 0.062249, 0.0979226, 0.0467213, 0.119246, 0.0389632, 0.141875, 0.0234125, 0.187329, 0.0156314, 0.234089, 0.00783488, 0.312936, 0.0079232, 0.680435, 0.0158886, 0.768631, 0.0238675, 0.816751, 0.0398368, 0.864925, 0.063831, 0.912957, 0.10385, 0.952849, 0.135869, 0.96874, 0.191908, 0.984522, 0.263937, 0.992359, 0.335919, 0.992457, 0.336, 1, 0, 1, 0, 0)
 
 [node name="Rcol2" parent="Stomach/StomachPart2/StaticBody2D2" index="1"]
-polygon = PackedVector2Array(0.678608, 0.143092, 0.678491, 0.149947, 0.760237, 0.167049, 0.825492, 0.187338, 0.858037, 0.200676, 0.8824, 0.212234, 0.898586, 0.222055, 0.922774, 0.239903, 0.946783, 0.263985, 0.962608, 0.286275, 0.978248, 0.314744, 0.985889, 0.335227, 0.993349, 0.361945, 1.00028, 0.407463, 1.00632, 0.484237, 1.00021, 0.70438, 0.989542, 0.798285, 0.980466, 0.835748, 0.971578, 0.867046, 0.963041, 0.885791, 0.937977, 0.923364, 0.921457, 0.942275, 0.913284, 0.948578, 0.888938, 0.961186, 0.840443, 0.980344, 0.800282, 0.986758, 0.728128, 0.993255, 0.664117, 0.993145, 0.664, 1, 1, 1, 1.03018, 0.217224)
+polygon = PackedVector2Array(0.64408, 0.11288, 0.644239, 0.119977, 0.721859, 0.133468, 0.784148, 0.151162, 0.815405, 0.163373, 0.83891, 0.17418, 0.854656, 0.183616, 0.878399, 0.201074, 0.902387, 0.225139, 0.918625, 0.24779, 0.935117, 0.277005, 0.943606, 0.29823, 0.952342, 0.326063, 0.961801, 0.373795, 0.972477, 0.454628, 0.98081, 0.687409, 0.976443, 0.786824, 0.96991, 0.826511, 0.963121, 0.859646, 0.955853, 0.879501, 0.933304, 0.919276, 0.918013, 0.939261, 0.910249, 0.945923, 0.886721, 0.959246, 0.839395, 0.979427, 0.799616, 0.986176, 0.727825, 0.99299, 0.663841, 0.992903, 0.664, 1, 1, 1, 0.97776, 0.17136)
 
 [node name="StomachPart3" parent="Stomach" instance=ExtResource("3_j84xm")]
 position = Vector2(0, -4019)
@@ -143,9 +143,6 @@ polygon = PackedVector2Array(1.10785, 1.49641, 1.12641, 1.8133, 1.1293, 1.93996,
 
 [node name="obstacles" type="Node2D" parent="."]
 
-[node name="FoodObstacle" parent="obstacles" instance=ExtResource("7_vh76b")]
-position = Vector2(3620, -2067)
-
 [node name="FoodObstacle2" parent="obstacles" instance=ExtResource("7_vh76b")]
 position = Vector2(7268, -2952)
 
@@ -172,20 +169,82 @@ scale = Vector2(0.679012, 0.592717)
 position = Vector2(1151, 2024)
 scale = Vector2(0.679012, 0.592717)
 
+[node name="ColliderLine9" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1651, 1498)
+points = PackedVector2Array(120, 94, -342, 5, -960, 2, -1355, 42, -1609, 103)
+
+[node name="ColliderLine2" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1111, 2701)
+points = PackedVector2Array(-826, -1482, -298, -1521, 189, -1530, 873, -1481)
+
+[node name="ColliderLine3" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1111, 2701)
+points = PackedVector2Array(699, -1791, 298, -1809, -404, -1805, -1099, -1767)
+
+[node name="ColliderLine4" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1111, 2701)
+points = PackedVector2Array(-793, -2066, 84, -2075, 285, -2279, 267, -2707)
+
+[node name="ColliderLine5" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(628, 1303)
+points = PackedVector2Array(481, -1002, 325, -996, 297, -1146, 180, -1142, 153, -1273, 26, -1274)
+
+[node name="ColliderLine" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(364, 843)
+points = PackedVector2Array(18, -1408, 208, -1666, 532, -1786, 1156, -1807, 1569, -1747, 1596, -1749)
+
+[node name="ColliderLine6" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(781, -1726)
+points = PackedVector2Array(269, 409, -29, 136, -212, 53, -175, -167)
+
+[node name="ColliderLine7" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1409, -1920)
+points = PackedVector2Array(831, -870, 820, -499, 710, -282, 533, -83, 162, 74, -124, 101)
+
+[node name="ColliderLine10" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(4499, -3219)
+points = PackedVector2Array(-181, 804, -173, 60, -90, -90, 23, -181, 162, -183)
+
+[node name="ColliderLine8" parent="LevelElements" instance=ExtResource("10_bvqg1")]
+position = Vector2(1948, -3210)
+points = PackedVector2Array(-281, 744, -335, 231, -297, 50, -228, -87, -70, -278)
+
 [node name="Guide" type="Path2D" parent="."]
 position = Vector2(0, -9)
 curve = SubResource("Curve2D_4j80l")
 
-[node name="ColliderLine" type="Line2D" parent="."]
-texture_filter = 2
-texture_repeat = 3
-position = Vector2(92, 1620)
-points = PackedVector2Array(1537, 100, 1172, -107, -73, -111)
-width = 100.0
-texture = ExtResource("10_802mt")
-texture_mode = 1
-joint_mode = 2
-script = ExtResource("10_pie4a")
+[node name="Collectables" type="Node2D" parent="."]
+position = Vector2(103, 0)
+
+[node name="Candy1" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4611, -2415)
+
+[node name="Candy2" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4624, -2483)
+
+[node name="Candy3" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4509, -2583)
+
+[node name="Candy4" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4409, -2655)
+
+[node name="Candy5" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4560, -2537)
+
+[node name="Candy6" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4457, -2622)
+
+[node name="Candy7" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4406, -2720)
+
+[node name="Candy8" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4460, -2750)
+
+[node name="Candy9" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4516, -2797)
+
+[node name="Candy10" parent="." instance=ExtResource("11_r5mbr")]
+position = Vector2(4584, -2814)
 
 [editable path="Stomach/StomachPart2"]
 [editable path="Stomach/StomachPart3"]
