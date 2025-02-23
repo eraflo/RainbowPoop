@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="4_ifa23"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="5_k0ig8"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="6_6yv0l"]
-[ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="7_s0q43"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="7_s0q43"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="17_872bw"]
 
 [sub_resource type="Curve2D" id="Curve2D_i363f"]

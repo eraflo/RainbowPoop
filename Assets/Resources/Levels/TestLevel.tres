@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_dpnxj")
 level_name = "Test"
+level_number = 1
+level_scene_path = ""
 score = 15060.0
 level_timer_countdown = 20.0
 completed = true
