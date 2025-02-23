@@ -7,6 +7,7 @@ script = ExtResource("1_7ige1")
 level_name = "Level 1"
 level_number = 1
 level_scene_path = "res://Assets/Scenes/TestScenes/Level0.tscn"
+completion_stars = 0
 score = 0.0
 level_timer_countdown = 20.0
 completed = false
