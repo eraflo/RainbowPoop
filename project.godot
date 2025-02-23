@@ -16,22 +16,25 @@ config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://Assets/Scenes/MainMenu.tscn"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/Audio/AudioBus.tres"
+
 [autoload]
 
-Score="*res://Assets/Nodes/Score/Score.tscn"
+GlobalAccess="*res://Assets/Scripts/utility/GlobalAccess.gd"
+Settings="*res://Assets/Scripts/SettingsManager.gd"
 WorldDirection="*res://Assets/Scripts/WorldDirection.gd"
+AudioManager="*res://Assets/Audio/AudioManager.tscn"
+LevelManager="*res://Assets/Scripts/Level/LevelManager.gd"
+Score="*res://Assets/Nodes/Score/Score.tscn"
 Health="*res://Assets/Nodes/Health_System/HealthSystem.tscn"
 ObstacleManager="*res://Assets/Scripts/Traps/ObstacleManager.gd"
-GlobalAccess="*res://Assets/Scripts/utility/GlobalAccess.gd"
-LevelManager="*res://Assets/Scripts/Level/LevelManager.gd"
 
 [display]
 
 window/size/viewport_width=740
 window/size/viewport_height=412
-
-[display]
-
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

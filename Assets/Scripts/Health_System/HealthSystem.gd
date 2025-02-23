@@ -94,7 +94,25 @@ func _calculate_health_status() -> void:
 		if imc < health_thresholds[status]:
 			health_status = status
 			health_status_changed.emit(health_status)
+
+			_playAudioForHealthStatus()
+
 			break
 
 func add_weight(amount: float) -> void:
 	weight += amount
+
+func _playAudioForHealthStatus() -> void:
+	# Play the audio effect based on the health status
+	match health_status:
+		HealthStatus.SEVERELY_UNDERWEIGHT:
+			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
+		HealthStatus.UNDERWEIGHT:
+			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
+		HealthStatus.OVERWEIGHT:
+			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
+		HealthStatus.OBESE:
+			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
+		HealthStatus.NORMAL:
+			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_HEALTHY_HEALTH_ENTERED)
+

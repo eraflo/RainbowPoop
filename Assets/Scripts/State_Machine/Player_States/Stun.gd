@@ -17,6 +17,8 @@ func enter(_stateManager: StateManager):
 		timer.set_one_shot(true)
 		timer.start()
 
+		AudioManager.createAudioAtLocation(player.global_position, AudioManager.AudioEffectType.STUN)
+
 	
 func exit(_stateManager: StateManager):
 	print("Exiting Stun State")

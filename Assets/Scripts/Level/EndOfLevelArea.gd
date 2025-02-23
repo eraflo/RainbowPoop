@@ -26,6 +26,9 @@ func _on_body_entered(_body: Node2D) -> void:
 
 		# TODO: Play the end of level animation
 
+		# Play the end of level sound
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_LEVEL_FINISHED)
+
 		# Save the score for the level
 		var level_node = get_tree().root.get_node(level_name)
 		level_node.save_level_completed()
