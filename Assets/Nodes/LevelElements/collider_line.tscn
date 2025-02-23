@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl31xmy2runyo"]
+
+[ext_resource type="Texture2D" uid="uid://bccgwtu8o7bop" path="res://Assets/Sprites/levelBuild/insideThingie.png" id="1_71k67"]
+[ext_resource type="Script" path="res://Assets/Scripts/utility/ColLine.gd" id="2_wi4jq"]
+
+[node name="ColliderLine" type="Line2D"]
+texture_filter = 2
+texture_repeat = 3
+points = PackedVector2Array(100, 100, -100, -100)
+width = 100.0
+texture = ExtResource("1_71k67")
+texture_mode = 1
+joint_mode = 2
+script = ExtResource("2_wi4jq")

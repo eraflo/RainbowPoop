@@ -1,29 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjbnrvqoxawdk"]
+[gd_scene load_steps=9 format=3 uid="uid://bjbnrvqoxawdk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_ga2fc"]
 [ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_eprnd"]
-[ext_resource type="PackedScene" uid="uid://dr1kbtqrh0b8e" path="res://Assets/Nodes/LevelElements/LongerIntestineBar.tscn" id="3_3a5sc"]
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="4_ifa23"]
 [ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="5_k0ig8"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="6_6yv0l"]
-[ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="15_53bjv"]
-[ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="16_305pa"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="7_s0q43"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="17_872bw"]
-[ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="18_4brjd"]
-[ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="19_jstvl"]
-[ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="20_gx0ss"]
-[ext_resource type="Script" path="res://Assets/Scripts/Traps/Obstacle.gd" id="21_nmp5h"]
-[ext_resource type="Texture2D" uid="uid://bfn5fvm15e8sg" path="res://Assets/Sprites/bone.png" id="22_2ondt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ekny"]
+[sub_resource type="Curve2D" id="Curve2D_i363f"]
+_data = {
+"points": PackedVector2Array(251.215, 3705.49, -251.215, -3705.49, 6482, 6248, -341.152, 430.048, 341.152, -430.048, 6635, 1930, -278.852, 676.706, 278.852, -676.706, 8997, 150, 608.551, 139.405, -608.551, -139.405, 8925, -3399, 764.985, -722.222, -764.985, 722.222, 1447, -2482, -36.2332, -780.986, 36.2332, 780.986, 983, 1839)
+}
+point_count = 6
 
 [node name="Test2" type="Node2D"]
 script = ExtResource("1_ga2fc")
 level_data = ExtResource("2_eprnd")
-
-[node name="LongerIntestineBar" parent="." instance=ExtResource("3_3a5sc")]
-position = Vector2(696, 40)
-scale = Vector2(0.764622, 0.54637)
 
 [node name="HealthBar" parent="." instance=ExtResource("4_ifa23")]
 
@@ -33,42 +26,12 @@ scale = Vector2(0.764622, 0.54637)
 position = Vector2(136, 432)
 gravity = 98.0
 
-[node name="EscherichiaColi" parent="." instance=ExtResource("15_53bjv")]
-position = Vector2(624, 752)
-decrease_speed = 300.0
-
-[node name="FoodObstacle" parent="." instance=ExtResource("16_305pa")]
-position = Vector2(968, 768)
-scale = Vector2(4, 4)
-
 [node name="TouchscreenCamera" parent="." instance=ExtResource("17_872bw")]
 
-[node name="EndOfLevelArea" parent="." instance=ExtResource("18_4brjd")]
-position = Vector2(4088, 336)
-scale = Vector2(4, 10)
-level_name = "Test"
+[node name="Guide" type="Path2D" parent="."]
+position = Vector2(0, -9)
+curve = SubResource("Curve2D_i363f")
 
-[node name="Water" parent="." instance=ExtResource("19_jstvl")]
-position = Vector2(824, 736)
-
-[node name="Hemorrhoid" parent="." instance=ExtResource("20_gx0ss")]
-position = Vector2(-72, 272)
-scale = Vector2(2, 2)
-score_decrease = 1000.0
-
-[node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(704, 536)
-scale = Vector2(0.764622, 0.54637)
-script = ExtResource("21_nmp5h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-94.1642, 58.5684)
-rotation = -0.705314
-scale = Vector2(26.6025, 2.82714)
-shape = SubResource("RectangleShape2D_7ekny")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-62.7761, 0)
-rotation = 1.67049
-scale = Vector2(0.823423, 0.55556)
-texture = ExtResource("22_2ondt")
+[node name="ColliderLine" parent="." instance=ExtResource("7_s0q43")]
+position = Vector2(901, 674)
+points = PackedVector2Array(278, -768, 293, 20, -1289.77, 3.54309, -1068, -810)

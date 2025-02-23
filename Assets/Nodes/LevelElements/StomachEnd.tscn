@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://qjlrveg8j1u8"]
+
+[ext_resource type="Texture2D" uid="uid://bub85i7m1ixer" path="res://Assets/background/FinalWay.png" id="1_rd5oa"]
+[ext_resource type="Script" path="res://Assets/Scripts/utility/colDeform.gd" id="2_myrg2"]
+
+[node name="StomachPart" type="Polygon2D"]
+scale = Vector2(2000, 2000)
+texture = ExtResource("1_rd5oa")
+polygon = PackedVector2Array(1, 0, 1, 1, 0, 1, 0, 0)
+uv = PackedVector2Array(988.384, -0.285847, 1008.52, 2002.98, -1.49682, 1998.48, -0.670132, 4.57795)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+script = ExtResource("2_myrg2")
+
+[node name="Lcol2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(0.87, 0, 0.9365, 0.064, 0.9275, 0.0665, 0.891, 0.0375, 0.8405, 0.0175, 0.7785, 0.0065, 0.697, 0.003, 0.331, 0.002, 0.2555, 0.0045, 0.192, 0.016, 0.16, 0.024, 0.136, 0.032, 0.12, 0.04, 0.104, 0.048, 0.064, 0.088, 0.048, 0.112, 0.04, 0.136, 0.024, 0.184, 0.016, 0.232, 0.008, 0.312, 0.008, 0.68, 0.016, 0.768, 0.024, 0.816, 0.04, 0.864, 0.064, 0.912, 0.104, 0.952, 0.136, 0.968, 0.192, 0.984, 0.264, 0.992, 0.336, 0.992, 0.336, 1, 0, 1, 0, 0)
+
+[node name="Rcol2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(0.992, 0.624, 0.984, 0.744, 0.976, 0.792, 0.968, 0.832, 0.96, 0.856, 0.936, 0.904, 0.92, 0.928, 0.912, 0.936, 0.888, 0.952, 0.84, 0.976, 0.8, 0.984, 0.728, 0.992, 0.664, 0.992, 0.664, 1, 1, 1, 0.9995, 0.2475, 0.994, 0.2015, 0.984, 0.204, 0.9925, 0.2835, 0.996, 0.3825)

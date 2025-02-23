@@ -73,8 +73,9 @@ func _calculate_final_value():
 
 		elif(mod.type == StatModifier.StatModType.PercentMult):
 			final_value *= 1 + mod.value
-
-	return round(final_value)
+	
+	return floor(final_value*100)/100
+	# return round(final_value)
 
 ## Compare the order of the modifiers
 func _compare_modifier_order(a: StatModifier, b: StatModifier) -> int:

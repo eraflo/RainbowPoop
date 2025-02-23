@@ -28,4 +28,4 @@ func _process(delta: float) -> void:
 	material.set_shader_parameter("water", water)
 	material.set_shader_parameter("fiber", fiber)
 	material.set_shader_parameter("vitamin", vitamin)
-	print(sugar,", ", protein,", ", fat,", ", water,", ", fiber,", ", vitamin)
+	# print(sugar,", ", protein,", ", fat,", ", water,", ", fiber,", ", vitamin)

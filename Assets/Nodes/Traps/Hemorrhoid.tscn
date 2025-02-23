@@ -1,17 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bam6e1sbqyg6w"]
+[gd_scene load_steps=3 format=3 uid="uid://bam6e1sbqyg6w"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Traps/Hemorrhoid.gd" id="1_mn45y"]
-[ext_resource type="Texture2D" uid="uid://d4icp5mm1668o" path="res://icon.svg" id="2_7upym"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nblj6"]
-radius = 20.025
+[ext_resource type="Texture2D" uid="uid://bvqm5evjb2gdj" path="res://Assets/Sprites/hemorroid.png" id="2_borwe"]
 
 [node name="Hemorrhoid" type="StaticBody2D"]
 script = ExtResource("1_mn45y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nblj6")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-77, 19, -73, 15, -61, -4, -53, -13, -45, -18, -38, -19, -25, -18, -10, -14, 14, -1, 29, 8, 41, 13, 58, 18, 58, 19)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_7upym")
+texture = ExtResource("2_borwe")

@@ -35,12 +35,12 @@ base_value = 1.8
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a4yrc"]
 shader = ExtResource("2_f8x0e")
 shader_parameter/defaultWobbleSpeed = 10.0
-shader_parameter/sugar = null
-shader_parameter/protein = null
-shader_parameter/fat = null
-shader_parameter/water = null
-shader_parameter/fiber = null
-shader_parameter/vitamin = null
+shader_parameter/sugar = 10.0
+shader_parameter/protein = 10.0
+shader_parameter/fat = 10.0
+shader_parameter/water = 10.0
+shader_parameter/fiber = 10.0
+shader_parameter/vitamin = 10.0
 shader_parameter/sticksOverlay = ExtResource("4_5igo6")
 shader_parameter/ballOverlay = ExtResource("3_owfon")
 
