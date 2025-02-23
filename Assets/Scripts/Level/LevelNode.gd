@@ -9,7 +9,11 @@ func _ready() -> void:
 
 func save_level_completed() -> void:
 	level_data.completed = true
-	level_data.score = Score.score
+
+	if Score.score > level_data.score:
+		level_data.score = Score.score
+	
+	
 	ResourceSaver.save(level_data, "res://Assets/Resources/Levels/" + level_data.level_name + "Level.tres")
 
 	if not LevelManager.is_level_completed(level_data.level_name):

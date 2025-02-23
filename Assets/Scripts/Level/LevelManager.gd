@@ -1,14 +1,34 @@
-extends Resource
+extends Node2D
 
-@export var levels_completed: Array = []
+var _levelManagerData: LevelManagerData = null
+
+func _ready() -> void:
+    _levelManagerData = ResourceLoader.load("res://Assets/Resources/Levels/LevelManagerData.tres")
+
+    sort_all_levels()
+
 
 
 func is_level_completed(level_name: String) -> bool:
-    for level: LevelData in levels_completed:
+    for level: LevelData in _levelManagerData.levels_completed:
         if level.level_name == level_name:
             return true
     return false
 
+func sort_all_levels() -> void:
+    _levelManagerData.all_levels.sort_custom(func(x, y): return x.level_number < y.level_number)
+
+func get_next_level() -> LevelData:
+    var next_level: LevelData = null
+
+    sort_all_levels()
+
+    for level: LevelData in _levelManagerData.all_levels:
+        if not is_level_completed(level.level_name):
+            next_level = level
+            break
+    return next_level
+
 func complete_new_level(level: LevelData) -> void:
-    levels_completed.append(level)
-    ResourceSaver.save(self, "res://Assets/Resources/Levels/LevelManager.tres")
+    _levelManagerData.levels_completed.append(level)
+    ResourceSaver.save(_levelManagerData, "res://Assets/Resources/Levels/LevelManagerData.tres")

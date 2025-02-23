@@ -1,5 +1,7 @@
 extends Button
 
+class_name ChangeSceneButton
+
 @export var scene_path: String
 
 
@@ -8,7 +10,5 @@ func _ready() -> void:
 
 
 func _on_button_down() -> void:
-	button_down.disconnect(_on_button_down)
-	
 	if scene_path != "":
 		get_tree().change_scene_to_file(scene_path)

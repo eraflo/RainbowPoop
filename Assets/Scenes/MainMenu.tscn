@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://ut0xp3pgx668"]
 
-[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/Button.tscn" id="1_lp8cs"]
-[ext_resource type="Texture2D" uid="uid://4fs4qa17xwfk" path="res://Assets/Sprites/UI/BackgroundAndLogo.png" id="1_ovsx6"]
+[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="1_lp8cs"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_k24km"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/QuitGameButton.gd" id="3_l6q6d"]
-[ext_resource type="FontFile" uid="uid://bx5d7ethvbqo0" path="res://Assets/Fonts/M_PLUS_Rounded_1c,Oswald,Poppins/Poppins/Poppins-ExtraBold.ttf" id="5_0wwug"]
+[ext_resource type="Texture2D" uid="uid://bc5g5c47ennno" path="res://Assets/Sprites/UI/title_design.png" id="4_qomo7"]
+[ext_resource type="Texture2D" uid="uid://ctm7wdn5pa8pp" path="res://Assets/Sprites/UI/PoopLogo.png" id="4_vb7y4"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bd8fh"]
-texture = ExtResource("1_ovsx6")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3e4g"]
+bg_color = Color(0.960784, 0.870588, 0.698039, 1)
 
 [node name="MainMenu" type="Node2D"]
 
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_bd8fh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3e4g")
 
 [node name="Main" type="HBoxContainer" parent="CanvasLayer/Panel"]
 clip_contents = true
@@ -33,47 +33,77 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Left2" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 12
 
-[node name="Play Button" parent="CanvasLayer/Panel/Main/Left2" instance=ExtResource("1_lp8cs")]
+[node name="Play Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
+custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Play"
 script = ExtResource("2_k24km")
 scene_path = "res://Assets/Scenes/TestScenes/LevelToShow.tscn"
 
-[node name="Levels Button" parent="CanvasLayer/Panel/Main/Left2" instance=ExtResource("1_lp8cs")]
+[node name="Levels Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
+custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Levels"
 script = ExtResource("2_k24km")
 scene_path = "res://Assets/Scenes/LevelSelectionMenu.tscn"
 
-[node name="Credits Button" parent="CanvasLayer/Panel/Main/Left2" instance=ExtResource("1_lp8cs")]
+[node name="Credits Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
+custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Credits"
 
-[node name="Quit Button" parent="CanvasLayer/Panel/Main/Left2" instance=ExtResource("1_lp8cs")]
+[node name="Quit Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
+custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Quit"
 script = ExtResource("3_l6q6d")
 
-[node name="Right" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+[node name="Right" type="Control" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/Main/Right"]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
+[node name="PoopLogo" type="TextureRect" parent="CanvasLayer/Panel/Main/Right"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038
+anchor_top = 0.01
+anchor_right = 0.554
+anchor_bottom = 0.471
+offset_left = 0.0159988
+offset_top = -0.12
+offset_right = 0.127991
+offset_bottom = -0.052002
+texture = ExtResource("4_vb7y4")
+expand_mode = 1
+
+[node name="TitleGame" type="TextureRect" parent="CanvasLayer/Panel/Main/Right"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_0wwug")
-theme_override_font_sizes/font_size = 60
-text = "Rainbow Poop"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+anchor_left = -0.255
+anchor_top = 0.289
+anchor_right = 0.967
+anchor_bottom = 0.653
+offset_left = -0.159988
+offset_top = -0.0680008
+offset_right = 0.143982
+offset_bottom = -0.0360107
+size_flags_vertical = 3
+texture = ExtResource("4_qomo7")
+expand_mode = 1
