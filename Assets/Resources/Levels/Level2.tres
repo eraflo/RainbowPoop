@@ -7,6 +7,7 @@ script = ExtResource("1_s32dr")
 level_name = "Level 2"
 level_number = 2
 level_scene_path = "res://Assets/Scenes/TestScenes/LevelToShow.tscn"
+completion_stars = 0
 score = 0.0
 level_timer_countdown = 20.0
 completed = false
