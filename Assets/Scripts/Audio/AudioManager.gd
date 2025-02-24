@@ -13,7 +13,7 @@ func _ready() -> void:
 	loadAudioBusesData()
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
 		saveAudioBusesData()
 
 func createAudioAtLocation(location, type: AudioEffectSettings.AudioEffectType) -> void:
