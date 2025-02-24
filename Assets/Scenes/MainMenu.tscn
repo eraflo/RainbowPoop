@@ -47,7 +47,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Play"
 script = ExtResource("2_k24km")
-scene_path = "res://Assets/Scenes/TestScenes/LevelToShow.tscn"
+scene_path = "res://Assets/Scenes/TestScenes/Level0.tscn"
 
 [node name="Levels Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
 custom_minimum_size = Vector2(120, 48)
