@@ -35,7 +35,7 @@ base_value = 1.8
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a4yrc"]
 shader = ExtResource("2_f8x0e")
 shader_parameter/defaultWobbleSpeed = 10.0
-shader_parameter/sugar = 10.0
+shader_parameter/sugar = 10.41
 shader_parameter/protein = 10.0
 shader_parameter/fat = 10.0
 shader_parameter/water = 10.0
