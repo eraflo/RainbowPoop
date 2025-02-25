@@ -32,8 +32,6 @@ func update(_stateManager: StateManager, _delta: float) -> void:
 			player.velocity.x -= (player.acceleration - player.friction.value) * _delta 
 		else:
 			player.velocity.x = -player.max_speed.value
-			
-	print("up: "+str(player.velocity.x))
 
 func check_transition():
 	var t = Time.get_unix_time_from_system()
