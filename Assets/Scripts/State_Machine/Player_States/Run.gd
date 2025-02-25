@@ -28,6 +28,8 @@ func update(_state_manager: StateManager, delta: float) -> void:
 			player.velocity.x -= (player.acceleration - player.friction.value) * delta 
 		else:
 			player.velocity.x = -player.max_speed.value
+	
+	print("run: "+str(player.velocity.x))
 
 
 

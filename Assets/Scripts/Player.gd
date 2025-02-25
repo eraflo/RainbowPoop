@@ -222,8 +222,8 @@ func _on_decay_timer_timeout() -> void:
 		_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
 		_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
 
-	print("Decay")
-	print("Sugar: ", _sugar.value)
+	# print("Decay")
+	# print("Sugar: ", _sugar.value)
 
 	decay_timer.start()
 
