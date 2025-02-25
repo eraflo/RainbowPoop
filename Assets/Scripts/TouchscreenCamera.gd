@@ -22,6 +22,7 @@ func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			get_touchscreen_input.emit(event)
+
 func _process(delta: float) -> void:
 	var timeSinceStart = Time.get_unix_time_from_system()-startedAt
 	if (timeSinceStart < ANIMATION_DURATION):

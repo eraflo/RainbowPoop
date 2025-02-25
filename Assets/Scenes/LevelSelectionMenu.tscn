@@ -1,0 +1,206 @@
+[gd_scene load_steps=21 format=3 uid="uid://l8nvsh18m1r7"]
+
+[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="1_m3vm8"]
+[ext_resource type="Texture2D" uid="uid://xq3wprrsu58q" path="res://Assets/Sprites/UI/background_level_selection.png" id="1_vdyuy"]
+[ext_resource type="Texture2D" uid="uid://cq84x2p1mbj1c" path="res://Assets/Sprites/UI/arrow.png" id="2_1p56i"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_pt6b7"]
+[ext_resource type="PackedScene" uid="uid://dyf8gjloqdxaq" path="res://Assets/Nodes/UI/ImageCompositeButton.tscn" id="5_xx8o6"]
+[ext_resource type="Texture2D" uid="uid://bfprys5ymp2r8" path="res://Assets/Sprites/UI/poopImage.png" id="6_k405g"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/LevelSelectionButton.gd" id="6_r7p42"]
+[ext_resource type="Resource" uid="uid://bndxa7ba0v1fu" path="res://Assets/Resources/Levels/Level1.tres" id="7_5t6ua"]
+[ext_resource type="Texture2D" uid="uid://bnxux1o0bpql6" path="res://Assets/Sprites/UI/LevelUI/Level1.png" id="7_v4c55"]
+[ext_resource type="Texture2D" uid="uid://43dwii5xykcv" path="res://Assets/Sprites/UI/LevelSelectedIcon.png" id="8_uh53y"]
+[ext_resource type="Texture2D" uid="uid://tqesgo74wust" path="res://Assets/Sprites/UI/LevelUI/Level2.png" id="9_cyhbh"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/LevelTabUI.gd" id="10_gr81u"]
+[ext_resource type="Resource" uid="uid://brlh4sm78rv53" path="res://Assets/Resources/Levels/Level2.tres" id="11_6c7ht"]
+[ext_resource type="FontFile" uid="uid://bi14y70xh8vlt" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="14_wctfg"]
+[ext_resource type="Texture2D" uid="uid://cuwrn66wswgy1" path="res://Assets/Sprites/UI/CompletedStar.png" id="14_y5y24"]
+[ext_resource type="Texture2D" uid="uid://128brqrmgmio" path="res://Assets/Sprites/UI/UncompletedStar.png" id="15_gnunr"]
+[ext_resource type="FontFile" uid="uid://77fg2iv1oegh" path="res://Assets/Fonts/Fredoka/static/Fredoka-SemiBold.ttf" id="17_q2och"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmmgf"]
+texture = ExtResource("1_vdyuy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4quy"]
+bg_color = Color(0.862745, 0.443137, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gcjh"]
+bg_color = Color(0.960784, 0.870588, 0.698039, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="LevelSelectionMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Main" type="HBoxContainer" parent="CanvasLayer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Left" type="Control" parent="CanvasLayer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Main/Left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gmmgf")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/Left"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.995
+offset_right = 5.0
+offset_bottom = 0.059967
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Buttons" type="Control" parent="CanvasLayer/Main/Left/MarginContainer"]
+layout_mode = 2
+
+[node name="Level1" parent="CanvasLayer/Main/Left/MarginContainer/Buttons" instance=ExtResource("5_xx8o6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118
+anchor_top = 0.638
+anchor_right = 0.118
+anchor_bottom = 0.638
+offset_left = -4.894
+offset_top = -4.63
+offset_right = 5.106
+offset_bottom = 5.37
+script = ExtResource("6_r7p42")
+level_data = ExtResource("7_5t6ua")
+images = Array[Resource]([ExtResource("6_k405g"), ExtResource("7_v4c55")])
+imagesSizes = Array[Vector2]([Vector2(50, 50), Vector2(25, 25)])
+selectedImages = Array[Resource]([ExtResource("8_uh53y")])
+selectedImagesSizes = Array[Vector2]([Vector2(50, 50)])
+colorHue = 0.11
+
+[node name="Level2" parent="CanvasLayer/Main/Left/MarginContainer/Buttons" instance=ExtResource("5_xx8o6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121
+anchor_top = 0.15
+anchor_right = 0.121
+anchor_bottom = 0.15
+offset_left = -5.493
+offset_top = -3.75
+offset_right = 4.507
+offset_bottom = 6.25
+script = ExtResource("6_r7p42")
+level_data = ExtResource("11_6c7ht")
+images = Array[Resource]([ExtResource("6_k405g"), ExtResource("9_cyhbh")])
+imagesSizes = Array[Vector2]([Vector2(50, 50), Vector2(25, 25)])
+selectedImages = Array[Resource]([ExtResource("8_uh53y")])
+selectedImagesSizes = Array[Vector2]([Vector2(50, 50)])
+colorHue = 0.11
+
+[node name="Back Button" parent="CanvasLayer/Main/Left/MarginContainer/Buttons" instance=ExtResource("1_m3vm8")]
+custom_minimum_size = Vector2(48, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.067
+anchor_bottom = 0.073
+offset_top = -4.0
+offset_right = -0.307003
+offset_bottom = -0.105003
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+icon = ExtResource("2_1p56i")
+icon_alignment = 1
+script = ExtResource("2_pt6b7")
+scene_path = "res://Assets/Scenes/MainMenu.tscn"
+
+[node name="Right" type="Control" parent="CanvasLayer/Main" node_paths=PackedStringArray("allLevelUI", "titleLabel", "starsContainer", "bestScoreLabel", "startButton")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("10_gr81u")
+allLevelUI = [NodePath("../Left/MarginContainer/Buttons/Level1"), NodePath("../Left/MarginContainer/Buttons/Level2")]
+titleLabel = NodePath("MarginContainer/VBoxContainer/TitleLabel")
+starsContainer = NodePath("MarginContainer/VBoxContainer/StarContainer")
+bestScoreLabel = NodePath("MarginContainer/VBoxContainer/BestScoreLabel")
+startButton = NodePath("MarginContainer/VBoxContainer/Play Button")
+starSprite = ExtResource("14_y5y24")
+emptyStarSprite = ExtResource("15_gnunr")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Main/Right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4quy")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/Right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Right/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Main/Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_wctfg")
+theme_override_font_sizes/font_size = 24
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="StarContainer" type="HFlowContainer" parent="CanvasLayer/Main/Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BestScoreLabel" type="Label" parent="CanvasLayer/Main/Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("17_q2och")
+theme_override_font_sizes/font_size = 18
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="Play Button" parent="CanvasLayer/Main/Right/MarginContainer/VBoxContainer" instance=ExtResource("1_m3vm8")]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.862745, 0.443137, 0.388235, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3gcjh")
+text = "Start"
+script = ExtResource("2_pt6b7")
