@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhtoiy0uil8qs"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_ga2fc"]
+[ext_resource type="Resource" uid="uid://c48tqm1que47a" path="res://Assets/Resources/Levels/TestLevel.tres" id="2_eprnd"]
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="4_ifa23"]
+[ext_resource type="PackedScene" uid="uid://ctrl3nxnt1snr" path="res://Assets/Nodes/Score/ScoreUI.tscn" id="5_k0ig8"]
+[ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="6_6yv0l"]
+[ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="7_s0q43"]
+[ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="17_872bw"]
+
+[sub_resource type="Curve2D" id="Curve2D_i363f"]
+_data = {
+"points": PackedVector2Array(251.215, 3705.49, -251.215, -3705.49, 6482, 6248, -341.152, 430.048, 341.152, -430.048, 6635, 1930, -278.852, 676.706, 278.852, -676.706, 8997, 150, 608.551, 139.405, -608.551, -139.405, 8925, -3399, 764.985, -722.222, -764.985, 722.222, 1447, -2482, -36.2332, -780.986, 36.2332, 780.986, 983, 1839)
+}
+point_count = 6
+
+[node name="Test2" type="Node2D"]
+script = ExtResource("1_ga2fc")
+level_data = ExtResource("2_eprnd")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_ifa23")]
+
+[node name="ScoreUi" parent="." instance=ExtResource("5_k0ig8")]
+
+[node name="Player" parent="." instance=ExtResource("6_6yv0l")]
+position = Vector2(136, 432)
+gravity = 98.0
+
+[node name="TouchscreenCamera" parent="." instance=ExtResource("17_872bw")]
+
+[node name="Guide" type="Path2D" parent="."]
+position = Vector2(0, -9)
+curve = SubResource("Curve2D_i363f")
+
+[node name="ColliderLine" parent="." instance=ExtResource("7_s0q43")]
+position = Vector2(901, 674)
+points = PackedVector2Array(278, -768, 293, 20, -1289.77, 3.54309, -1068, -810)

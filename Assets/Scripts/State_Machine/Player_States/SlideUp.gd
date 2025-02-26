@@ -17,10 +17,21 @@ func exit(_stateManager: StateManager) -> void:
 
 func update(_stateManager: StateManager, _delta: float) -> void:
 	
-	if player.velocity.x < player.max_speed.value:
-		player.velocity.x += player.acceleration * _delta
+	#if player.velocity.x < player.max_speed.value:
+	#	player.velocity.x += player.acceleration * _delta
+	#else:
+	#	player.velocity.x = player.max_speed.value
+	
+	if (WorldDirection.direction == WorldDirection.Direction.RIGHT):
+		if player.velocity.x < player.max_speed.value:
+			player.velocity.x += (player.acceleration - player.friction.value) * _delta 
+		else:
+			player.velocity.x = player.max_speed.value
 	else:
-		player.velocity.x = player.max_speed.value
+		if player.velocity.x > -player.max_speed.value:
+			player.velocity.x -= (player.acceleration - player.friction.value) * _delta 
+		else:
+			player.velocity.x = -player.max_speed.value
 
 func check_transition():
 	var t = Time.get_unix_time_from_system()
@@ -39,11 +50,11 @@ func check_transition():
 				player.velocity.x = - player.max_speed.value
 			return "Jump"
 	# Little delay befor running again when the player stops coliding with a wall
-	"""if not player.is_on_wall():
+	if not player.is_on_wall():
 		if t-lastWall>0.5:
 			return "Run"
 	else:
-		lastWall = t"""
+		lastWall = t
 	return null
 
 func _on_touchscreen_input(_event: InputEventScreenTouch) -> void:

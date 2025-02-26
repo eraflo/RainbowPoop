@@ -22,7 +22,7 @@ const float EFF_RANGE = SAFE_LO;
 void vertex() {
 	float wobbleSpeed = defaultWobbleSpeed;
 	if (sugar>SAFE_HI){
-		wobbleSpeed*=sugar-(SAFE_HI/EFF_RANGE*5.);
+		wobbleSpeed*=((sugar-SAFE_HI+1.)/EFF_RANGE*15.);
 	}else if(sugar<SAFE_LO){
 		wobbleSpeed*=sugar/EFF_RANGE;
 	}
