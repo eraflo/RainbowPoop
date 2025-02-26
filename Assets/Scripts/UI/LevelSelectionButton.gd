@@ -22,6 +22,9 @@ func _ready() -> void:
 	super._ready()
 
 func _on_button_down() -> void:
+
+	AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_BUTTON_CLICK)
+
 	if level_data != null && isVisible && !isSelected:
 		level_selected.emit(level_data)
 	elif level_data != null && isVisible && isSelected:

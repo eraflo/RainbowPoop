@@ -11,6 +11,8 @@ func enter(_stateManager: StateManager) -> void:
 	player = _stateManager.get_parent() as Player
 	player.touchscreen_input.connect(_on_touchscreen_input)
 
+	AudioManager.createAudioAtLocation(player.global_position, AudioEffectSettings.AudioEffectType.ON_RUN)
+
 func exit(_stateManager: StateManager) -> void:
 	player.touchscreen_input.disconnect(_on_touchscreen_input)
 	touched_screen = false

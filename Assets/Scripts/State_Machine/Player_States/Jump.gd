@@ -8,6 +8,9 @@ var _timer: Timer = null
 func enter(_stateManager: StateManager) -> void:
 	print("Player: Jump")
 	player = _stateManager.get_parent() as Player
+
+	AudioManager.createAudioAtLocation(player.global_position, AudioEffectSettings.AudioEffectType.ON_JUMP)
+
 	_jump()
 #	if player.jump_delay.value > 0:
 #		_timer = Timer.new()
