@@ -242,32 +242,40 @@ func _on_decay_timer_timeout() -> void:
 ## Initialize the stats
 
 func _init_max_speed() -> void:
+	max_speed.remove_all_modifiers()
 	_add_modifier(max_speed, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
 	_add_modifier(max_speed, -_protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(max_speed, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 	_add_modifier(max_speed, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_jump_force() -> void:
+	jump_force.remove_all_modifiers()
 	_add_modifier(jump_force, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(jump_force, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 	_add_modifier(jump_force, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_jump_delay() -> void:
+	jump_delay.remove_all_modifiers()
 	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult, 100, _sugar)
 
 func _init_friction() -> void:
+	friction.remove_all_modifiers()
 	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 
 func _init_falling_speed() -> void:
+	falling_speed.remove_all_modifiers()
 	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
 
 func _init_bounce_factor() -> void:
+	bounce_factor.remove_all_modifiers()
 	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_stun_duration() -> void:
+	stun_duration.remove_all_modifiers()
 	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult, 100, _vitamin)
 
 func _init_weight() -> void:
+	weight.remove_all_modifiers()
 	_add_modifier(weight, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
 	_add_modifier(weight, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(weight, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
