@@ -1,6 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://m4vuio42gk88"]
+[gd_scene load_steps=5 format=3 uid="uid://m4vuio42gk88"]
 
 [ext_resource type="FontFile" uid="uid://77fg2iv1oegh" path="res://Assets/Fonts/Fredoka/static/Fredoka-SemiBold.ttf" id="1_whet1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxi5a"]
+bg_color = Color(0.732716, 0.318817, 0.270244, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.258824)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r3lt"]
+bg_color = Color(0.862745, 0.443137, 0.388235, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xdtn"]
 bg_color = Color(0.862745, 0.443137, 0.388235, 1)
@@ -22,4 +39,6 @@ grow_vertical = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_whet1")
 theme_override_font_sizes/font_size = 18
+theme_override_styles/hover = SubResource("StyleBoxFlat_pxi5a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0r3lt")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6xdtn")

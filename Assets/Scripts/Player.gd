@@ -56,6 +56,8 @@ func _ready() -> void:
 	
 	start()
 
+	Health.height = height.value
+
 	# Decay timer
 	decay_timer = Timer.new()
 	add_child(decay_timer)
@@ -114,6 +116,7 @@ func _process(delta: float) -> void:
 	_update_falling_speed()
 	_update_bounce_factor()
 	_update_stun_duration()
+	_update_weight()
 
 
 ## Make the player began behaving as a player
@@ -189,38 +192,47 @@ func _setup_stats() -> void:
 	_init_falling_speed()
 	_init_bounce_factor()
 	_init_stun_duration()
+	_init_weight()
 
 ## Make the stats decay over time, unless this is the first level
 func _on_decay_timer_timeout() -> void:
 	# change the decay depending on the level
-	if get_parent().name == StringName("Level0"):
-		_add_modifier(_sugar, 0, StatModifier.StatModType.Flat)
-		_add_modifier(_protein, 0, StatModifier.StatModType.Flat)
-		_add_modifier(_fat, 0, StatModifier.StatModType.Flat)
-		_add_modifier(_water, 0, StatModifier.StatModType.Flat)
-		_add_modifier(_fiber, 0, StatModifier.StatModType.Flat)
-		_add_modifier(_vitamin, 0, StatModifier.StatModType.Flat)
-	elif get_parent().name == StringName("Level1"):
-		_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_water, -0, StatModifier.StatModType.Flat)
-		_add_modifier(_fiber, -0, StatModifier.StatModType.Flat)
-		_add_modifier(_vitamin, -0, StatModifier.StatModType.Flat)
-	elif get_parent().name == StringName("Level2"):
-		_add_modifier(_sugar, -0, StatModifier.StatModType.Flat)
-		_add_modifier(_protein, -0, StatModifier.StatModType.Flat)
-		_add_modifier(_fat, -0, StatModifier.StatModType.Flat)
-		_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
-	else:
-		_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
-		_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
+	# if get_parent().name == StringName("Level1"):
+	# 	_add_modifier(_sugar, 0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_protein, 0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fat, 0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_water, 0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fiber, 0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_vitamin, 0, StatModifier.StatModType.Flat)
+	# elif get_parent().name == StringName("Level2"):
+	# 	_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_water, -0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fiber, -0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_vitamin, -0, StatModifier.StatModType.Flat)
+	# elif get_parent().name == StringName("Level3"):
+	# 	_add_modifier(_sugar, -0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_protein, -0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fat, -0, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
+	# else:
+	# 	_add_modifier(_sugar, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_protein, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fat, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_water, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_fiber, -0.1, StatModifier.StatModType.Flat)
+	# 	_add_modifier(_vitamin, -0.1, StatModifier.StatModType.Flat)
+
+	var currentLevel = LevelManager.get_current_level()
+	_add_modifier(_sugar, -currentLevel.sugar_decay, StatModifier.StatModType.Flat, 100, self)
+	_add_modifier(_protein, -currentLevel.protein_decay, StatModifier.StatModType.Flat, 100, self)
+	_add_modifier(_fat, -currentLevel.fat_decay, StatModifier.StatModType.Flat, 100, self)
+	_add_modifier(_water, -currentLevel.water_decay, StatModifier.StatModType.Flat, 100, self)
+	_add_modifier(_fiber, -currentLevel.fiber_decay, StatModifier.StatModType.Flat, 100, self)
+	_add_modifier(_vitamin, -currentLevel.vitamin_decay, StatModifier.StatModType.Flat, 100, self)
 
 	print("Decay")
 	print("Sugar: ", _sugar.value)
@@ -230,38 +242,47 @@ func _on_decay_timer_timeout() -> void:
 ## Initialize the stats
 
 func _init_max_speed() -> void:
+	max_speed.remove_all_modifiers()
 	_add_modifier(max_speed, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
 	_add_modifier(max_speed, -_protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(max_speed, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 	_add_modifier(max_speed, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_jump_force() -> void:
+	jump_force.remove_all_modifiers()
 	_add_modifier(jump_force, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(jump_force, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 	_add_modifier(jump_force, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_jump_delay() -> void:
+	jump_delay.remove_all_modifiers()
 	_add_modifier(jump_delay, _sugar.value, StatModifier.StatModType.PercentMult, 100, _sugar)
 
 func _init_friction() -> void:
+	friction.remove_all_modifiers()
 	_add_modifier(friction, -_fat.value, StatModifier.StatModType.Flat, 100, _fat)
 
 func _init_falling_speed() -> void:
+	falling_speed.remove_all_modifiers()
 	_add_modifier(falling_speed, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
 
 func _init_bounce_factor() -> void:
+	bounce_factor.remove_all_modifiers()
 	_add_modifier(bounce_factor, _water.value, StatModifier.StatModType.Flat, 100, _water)
 
 func _init_stun_duration() -> void:
+	stun_duration.remove_all_modifiers()
 	_add_modifier(stun_duration, 1 / (1 + _vitamin.value), StatModifier.StatModType.PercentMult, 100, _vitamin)
 
 func _init_weight() -> void:
+	weight.remove_all_modifiers()
 	_add_modifier(weight, _sugar.value, StatModifier.StatModType.Flat, 100, _sugar)
 	_add_modifier(weight, _protein.value, StatModifier.StatModType.Flat, 100, _protein)
 	_add_modifier(weight, _fat.value, StatModifier.StatModType.Flat, 100, _fat)
 	_add_modifier(weight, _water.value, StatModifier.StatModType.Flat, 100, _water)
 	_add_modifier(weight, _fiber.value, StatModifier.StatModType.Flat, 100, _fiber)
 	_add_modifier(weight, _vitamin.value, StatModifier.StatModType.Flat, 100, _vitamin)
+	Health.weight = weight
 
 ## Update the stats
 
@@ -290,3 +311,12 @@ func _update_bounce_factor() -> void:
 
 func _update_stun_duration() -> void:
 	_update_modifier_from_source(stun_duration, _vitamin, 1 / (1 + _vitamin.value))
+
+func _update_weight() -> void:
+	_update_modifier_from_source(weight, _sugar, _sugar.value)
+	_update_modifier_from_source(weight, _protein, _protein.value)
+	_update_modifier_from_source(weight, _fat, _fat.value)
+	_update_modifier_from_source(weight, _water, _water.value)
+	_update_modifier_from_source(weight, _fiber, _fiber.value)
+	_update_modifier_from_source(weight, _vitamin, _vitamin.value)
+	Health.weight = weight

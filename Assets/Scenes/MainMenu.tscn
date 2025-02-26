@@ -1,5 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbxagt73mrxua"]
-
+[gd_scene load_steps=8 format=3 uid="uid://ut0xp3pgx668"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/MainMenu.gd" id="1_3vxro"]
 [ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="1_lp8cs"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_k24km"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/QuitGameButton.gd" id="3_l6q6d"]
@@ -10,6 +10,8 @@
 bg_color = Color(0.960784, 0.870588, 0.698039, 1)
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3vxro")
+play_button_path = NodePath("CanvasLayer/Panel/Main/Left/Play Button")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -47,7 +49,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Play"
 script = ExtResource("2_k24km")
-scene_path = "res://Assets/Scenes/TestScenes/Level0.tscn"
 
 [node name="Levels Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
 custom_minimum_size = Vector2(120, 48)

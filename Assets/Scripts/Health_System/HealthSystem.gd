@@ -10,6 +10,14 @@ enum HealthStatus
 	OBESE
 }
 
+const healthStatusName: Dictionary = {
+	HealthStatus.SEVERELY_UNDERWEIGHT: "Severely Underweight",
+	HealthStatus.UNDERWEIGHT: "Underweight",
+	HealthStatus.NORMAL: "Normal",
+	HealthStatus.OVERWEIGHT: "Overweight",
+	HealthStatus.OBESE: "Obese"
+}
+
 signal health_status_changed(status: HealthStatus)
 signal imc_changed(imc: float)
 
@@ -24,11 +32,11 @@ const health_thresholds: Dictionary = {
 
 # TODO: Decide on the weight change values (change weight over time)
 const health_weight_change: Dictionary = {
-	HealthStatus.SEVERELY_UNDERWEIGHT: 0.2,
-	HealthStatus.UNDERWEIGHT: 0.1,
+	HealthStatus.SEVERELY_UNDERWEIGHT: 0.002,
+	HealthStatus.UNDERWEIGHT: 0.001,
 	HealthStatus.NORMAL: 0.0,
-	HealthStatus.OVERWEIGHT: -0.1,
-	HealthStatus.OBESE: -0.2
+	HealthStatus.OVERWEIGHT: -0.01,
+	HealthStatus.OBESE: -0.02
 }
 
 # Multiplier for the score based on the health status
@@ -55,7 +63,7 @@ const MAX_IMC = 50.0
 
 var health_status: HealthStatus = HealthStatus.NORMAL
 
-var weight: float = 0.0
+var weight: PlayerStat
 var height: float = 0.0
 
 
@@ -65,18 +73,32 @@ func _ready() -> void:
 	_calculate_imc()
 
 func _process(_delta: float) -> void:
+
+	if weight == null:
+		return
+
 	# Lose weight over time
-	weight -= health_weight_change[health_status] * _delta
-	# print("Weight: ", weight)
+	# weight -= health_weight_change[health_status] * _delta
+
+	# TODO: Discuss if keep
+	weight.add_modifier(StatModifier.new(-health_weight_change[health_status] * _delta, StatModifier.StatModType.Flat, 100, self))
+	print("Weight: ", weight.value)
+	print("Status: ", healthStatusName[health_status])
 	# print("Health Status: ", health_status)
 	# print("Health Weight Change: ", health_weight_change[health_status])
 
 	_calculate_imc()
 
+	# Small delay to prevent multiple health status changes
+	await get_tree().create_timer(1).timeout
+
 # Calculate the IMC and health status based on the weight and height
 func _calculate_imc() -> void:
+	if weight == null or height == 0.0:
+		return
+
 	# Calculate the IMC
-	imc = weight / (height * height)
+	imc = weight.value / (height * height)
 
 	# Round the IMC to 2 decimal places
 	imc = round(imc * 100) / 100
@@ -100,7 +122,7 @@ func _calculate_health_status() -> void:
 			break
 
 func add_weight(amount: float) -> void:
-	weight += amount
+	weight.add_modifier(StatModifier.new(-amount, StatModifier.StatModType.Flat, 100, self))
 
 func _playAudioForHealthStatus() -> void:
 	# Play the audio effect based on the health status
