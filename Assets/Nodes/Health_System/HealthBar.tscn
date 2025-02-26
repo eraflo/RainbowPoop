@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://6in5lgb2og0i"]
+[gd_scene load_steps=6 format=3 uid="uid://6in5lgb2og0i"]
 
+[ext_resource type="Texture2D" uid="uid://b0esgvqvil5l4" path="res://Assets/Sprites/UI/HealthBar.png" id="1_de6wn"]
 [ext_resource type="Script" path="res://Assets/Scripts/Health_System/HealthBarUI.gd" id="1_q732i"]
+[ext_resource type="Texture2D" uid="uid://bcjw8qwacgqgu" path="res://Assets/Sprites/UI/HealthIndicator.png" id="3_28mmp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pj8mm"]
+texture = ExtResource("1_de6wn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csidd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="HealthBar" type="Control"]
 layout_mode = 3
@@ -11,8 +19,33 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 274.0
-offset_right = 638.0
-offset_bottom = 27.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27
+anchor_top = 0.027
+anchor_right = 0.762
+anchor_bottom = 0.092
+offset_left = 0.199997
+offset_top = -0.124001
+offset_right = 0.119995
+offset_bottom = 0.0959969
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_pj8mm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_csidd")
+show_percentage = false
 script = ExtResource("1_q732i")
+
+[node name="Indicator" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.262
+anchor_top = 0.083
+anchor_right = 0.284
+anchor_bottom = 0.121
+offset_left = 0.11998
+offset_top = -0.196003
+offset_right = -0.160004
+offset_bottom = 0.147999
+texture = ExtResource("3_28mmp")
+expand_mode = 1

@@ -2,12 +2,18 @@ extends Node2D
 
 var _levelManagerData: LevelManagerData = null
 
+var _currentLevel: LevelData = null 
+
 func _ready() -> void:
     _levelManagerData = ResourceLoader.load("res://Assets/Resources/Levels/LevelManagerData.tres")
 
     sort_all_levels()
 
+func get_current_level() -> LevelData:
+    return _currentLevel
 
+func set_current_level(level: LevelData) -> void:
+    _currentLevel = level
 
 func is_level_completed(level_name: String) -> bool:
     for level: LevelData in _levelManagerData.levels_completed:

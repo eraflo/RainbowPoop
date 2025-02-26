@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://bppq73omdm7g8"]
+
+[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="1_3oc4s"]
+[ext_resource type="Texture2D" uid="uid://c7gdo3vlix706" path="res://Assets/Sprites/UI/settingsLogo.png" id="2_2wtc2"]
+[ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="2_ve8p7"]
+[ext_resource type="Texture2D" uid="uid://dan43ath3lyib" path="res://Assets/Sprites/UI/SettingsHover.png" id="3_ihx1f"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/SettingsButton.gd" id="4_3mbn6"]
+[ext_resource type="FontFile" uid="uid://bi14y70xh8vlt" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="5_2kh5i"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="6_5foma"]
+[ext_resource type="Texture2D" uid="uid://bfprys5ymp2r8" path="res://Assets/Sprites/UI/poopImage.png" id="7_ob5m0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjore"]
+texture = ExtResource("3_ihx1f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6f18y"]
+texture = ExtResource("2_2wtc2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1pmq"]
+bg_color = Color(0.960784, 0.870588, 0.698039, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="InGameMenu" type="CanvasLayer"]
+
+[node name="HealthBar" parent="." instance=ExtResource("1_3oc4s")]
+
+[node name="SettingsButton" parent="." instance=ExtResource("2_ve8p7")]
+custom_minimum_size = Vector2(0, 0)
+anchors_preset = -1
+anchor_left = 0.922
+anchor_top = 0.022
+anchor_right = 0.969
+anchor_bottom = 0.107
+offset_left = -0.280029
+offset_top = -0.0640011
+offset_right = -0.0600586
+offset_bottom = -0.0840034
+theme_override_styles/hover = SubResource("StyleBoxTexture_wjore")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6f18y")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6f18y")
+script = ExtResource("4_3mbn6")
+elementToToggle = NodePath("../SettingsMenu")
+
+[node name="SettingsMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 185.0
+offset_top = 10.0
+offset_right = -165.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1pmq")
+
+[node name="Label" type="Label" parent="SettingsMenu/Panel"]
+layout_mode = 2
+anchor_left = 0.392
+anchor_top = 0.077
+anchor_right = 0.615
+anchor_bottom = 0.153
+offset_left = 0.119995
+offset_top = -0.107002
+offset_right = 0.149994
+offset_bottom = 0.176994
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_2kh5i")
+theme_override_font_sizes/font_size = 24
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu Button" parent="SettingsMenu/Panel" instance=ExtResource("2_ve8p7")]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.559
+anchor_top = 0.818
+anchor_right = 0.867
+anchor_bottom = 0.941
+offset_left = -0.0100098
+offset_top = 0.161987
+offset_right = -0.130005
+offset_bottom = 0.0689697
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "MENU"
+script = ExtResource("6_5foma")
+scene_path = "res://Assets/Scenes/MainMenu.tscn"
+
+[node name="Back Button" parent="SettingsMenu/Panel" instance=ExtResource("2_ve8p7")]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164
+anchor_top = 0.818
+anchor_right = 0.472
+anchor_bottom = 0.941
+offset_left = 0.0399971
+offset_top = 0.161987
+offset_right = -0.0800171
+offset_bottom = 0.0689697
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "BACK"
+script = ExtResource("4_3mbn6")
+elementToToggle = NodePath("../..")
+
+[node name="PoopImage" type="TextureRect" parent="SettingsMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.309
+anchor_right = 0.662
+anchor_bottom = 0.627
+offset_left = -0.160004
+offset_top = 0.180992
+offset_right = -0.180023
+offset_bottom = -0.157013
+texture = ExtResource("7_ob5m0")

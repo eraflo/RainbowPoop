@@ -19,6 +19,8 @@ func _ready() -> void:
 	for levelUI in allLevelUI:
 		levelUI.level_selected.connect(_on_level_selected)
 		levelUI.level_unselected.connect(_on_level_unselected)
+	
+	startButton.button_down.connect(_on_start_button_down)
 
 func _on_level_selected(level_data: LevelData) -> void:
 	selectedLevel = level_data
@@ -31,6 +33,7 @@ func _on_level_selected(level_data: LevelData) -> void:
 	titleLabel.text = selectedLevel.level_name
 	bestScoreLabel.text = "Best Score : " + str(selectedLevel.score)
 	startButton.scene_path = selectedLevel.level_scene_path
+	startButton.scene_path_to_use = selectedLevel.level_scene_path
 
 	# Remove all the stars, then add the correct amount of stars and empty stars
 	for i in range(starsContainer.get_child_count()):
@@ -56,3 +59,6 @@ func _on_level_selected(level_data: LevelData) -> void:
 
 func _on_level_unselected(level_data: LevelData) -> void:
 	hide()
+
+func _on_start_button_down() -> void:
+	LevelManager.set_current_level(selectedLevel)
