@@ -22,4 +22,3 @@ It is a Resources file (See `Assets/Ressources`).
 This area is the area the player needs to go in to finish the level. Place it at the end of your level.
 
 Also, don't forget to fill the `Level Name` field in the inspector (Needs to be the same as the name of the Level)
-

@@ -24,7 +24,7 @@ func _on_body_entered(_body: Node2D) -> void:
 
 		# TODO: Calculate final score with the food score
 
-		# TODO: Play the end of level animation
+		# Play the end of level animation
 
 		# Save the score for the level
 		var level_node = get_tree().root.get_node(level_name)

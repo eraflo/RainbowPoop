@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmv6vfsesyhuk"]
+[gd_scene load_steps=13 format=3 uid="uid://dmv6vfsesyhuk"]
 
 [ext_resource type="Texture2D" uid="uid://1knwm3qgqabt" path="res://Assets/background/bg.jpg" id="1_8aiys"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="1_o6noo"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://kqhbelslhml6" path="res://Assets/Nodes/LevelElements/bone.tscn" id="5_hg77k"]
 [ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_m2la3"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="6_qqglk"]
+[ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="8_t7mup"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="9_xwf4j"]
+[ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="11_38sqa"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -27,7 +29,7 @@ position = Vector2(-1, 50)
 scale = Vector2(4, 4)
 texture = ExtResource("1_8aiys")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="LevelEnd" type="Polygon2D" parent="."]
 position = Vector2(1982, 3715)
 polygon = PackedVector2Array(3503, 3032, 4233, 2493, 4810, 2497, 5668, 3073, 12411, 29643, -2976, 29583)
 
@@ -254,6 +256,18 @@ position = Vector2(7384, 2292)
 rotation = 0.236728
 scale = Vector2(1.41911, 1.29253)
 
+[node name="ColliderLine" parent="bones" instance=ExtResource("8_t7mup")]
+position = Vector2(6150, 2751)
+points = PackedVector2Array(155, 132, -253, 0, -374, -59, -481, -152, -557, -244, -654, -467, -722, -723, -706, -1189)
+
+[node name="ColliderLine2" parent="bones" instance=ExtResource("8_t7mup")]
+position = Vector2(6220, 3680)
+points = PackedVector2Array(383, 331, 263, 285, 54, 237, -134, 233, -322, 245, -440, 205, -508, 89, -496, -290, -576, -388, -691, -426, -807, -426)
+
+[node name="ColliderLine3" parent="bones" instance=ExtResource("8_t7mup")]
+position = Vector2(6396, 4734)
+points = PackedVector2Array(-87, 721, -74, 655, -5, 585, 426, 402, 469.116, 324.166, 472, 74, 489, 15, 541, -13, 625, -15, 669, -3, 713, 25, 758, 87, 819, 115, 906, 115)
+
 [node name="obstacles" type="Node2D" parent="."]
 
 [node name="FoodObstacle" parent="obstacles" instance=ExtResource("6_qqglk")]
@@ -266,8 +280,8 @@ position = Vector2(7268, -2952)
 position = Vector2(8218, -2954)
 
 [node name="Hemorrhoid" parent="obstacles" instance=ExtResource("9_xwf4j")]
-position = Vector2(7137, 5220)
-rotation = -1.50467
+position = Vector2(7045, 3821)
+rotation = -1.64384
 scale = Vector2(10, 10)
 
 [node name="Hemorrhoid2" parent="obstacles" instance=ExtResource("9_xwf4j")]
@@ -278,6 +292,10 @@ scale = Vector2(10, -10)
 [node name="Guide" type="Path2D" parent="."]
 position = Vector2(0, -9)
 curve = SubResource("Curve2D_4j80l")
+
+[node name="EndOfLevelArea" parent="." instance=ExtResource("11_38sqa")]
+position = Vector2(6495, 6537)
+scale = Vector2(32.065, 32.065)
 
 [editable path="Stomach/StomachPart2"]
 [editable path="Stomach/StomachPart3"]

@@ -29,9 +29,6 @@ LevelManager="*res://Assets/Scripts/Level/LevelManager.gd"
 
 window/size/viewport_width=740
 window/size/viewport_height=412
-
-[display]
-
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
