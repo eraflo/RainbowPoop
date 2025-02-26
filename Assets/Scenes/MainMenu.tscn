@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ut0xp3pgx668"]
+[gd_scene load_steps=7 format=3 uid="uid://bbxagt73mrxua"]
 
 [ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="1_lp8cs"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/ChangeSceneButton.gd" id="2_k24km"]

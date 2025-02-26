@@ -34,3 +34,4 @@ func _on_body_entered(_body: Node2D) -> void:
 		level_node.save_level_completed()
 
 		# TODO: Menu to go to the next level
+		get_tree().change_scene_to_file("res://Assets/Scenes/EndAnimation.tscn")
