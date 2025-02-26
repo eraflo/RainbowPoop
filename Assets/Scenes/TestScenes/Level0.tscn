@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_beo2e"]
 [ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="3_iv6xp"]
 [ext_resource type="PackedScene" uid="uid://co5jv1us78p52" path="res://Assets/Nodes/LevelElements/StomachPart.tscn" id="4_0hdt1"]
-[ext_resource type="PackedScene" uid="uid://kqhbelslhml6" path="res://Assets/Nodes/LevelElements/bone.tscn" id="5_hg77k"]
-[ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_m2la3"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/bone.tscn" id="5_hg77k"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_m2la3"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="6_qqglk"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="9_xwf4j"]
 

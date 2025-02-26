@@ -13,6 +13,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		body.eat_food(food)
+		AudioManager.createAudioAtLocation(self.position, AudioEffectSettings.AudioEffectType.ON_FOOD_COLLECTED)
 		queue_free()
 
 	pass

@@ -31,6 +31,8 @@ func _on_body_entered(body: Node) -> void:
 			self
 		))
 
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED)
+
 		# Save the player to give back the speed after a cooldown
 		_collector = body
 		_cooldown_timer.start()

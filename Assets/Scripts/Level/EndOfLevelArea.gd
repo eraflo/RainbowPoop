@@ -23,9 +23,14 @@ func _on_body_entered(_body: Node2D) -> void:
 		Score.calculate_fiber(_body._fiber.value)
 
 		# TODO: Calculate final score with the food score
+		
+		# Play the end of level sound
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_LEVEL_FINISHED)
 
 		# Play the end of level animation
 
 		# Save the score for the level
 		var level_node = get_tree().root.get_node(level_name)
 		level_node.save_level_completed()
+
+		# TODO: Menu to go to the next level
