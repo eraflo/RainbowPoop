@@ -30,6 +30,7 @@ LevelManager="*res://Assets/Scripts/Level/LevelManager.gd"
 Score="*res://Assets/Nodes/Score/Score.tscn"
 Health="*res://Assets/Nodes/Health_System/HealthSystem.tscn"
 ObstacleManager="*res://Assets/Scripts/Traps/ObstacleManager.gd"
+ScoreDetail="*res://Assets/Scripts/Score/ScoreDetail.gd"
 
 [display]
 

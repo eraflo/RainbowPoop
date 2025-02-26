@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk1bvafvevx1g"]
+[gd_scene load_steps=6 format=3 uid="uid://dk1bvafvevx1g"]
 
 [ext_resource type="Texture2D" uid="uid://brmi2bj2nr6xb" path="res://Assets/Sprites/player.svg" id="1_yd3gk"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/PoopAnim.gd" id="2_50nbo"]
 [ext_resource type="FontFile" uid="uid://77fg2iv1oegh" path="res://Assets/Fonts/Fredoka/static/Fredoka-SemiBold.ttf" id="2_gbmsr"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/ScoreText.gd" id="3_5jgxk"]
 
@@ -36,7 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.04
 
-[node name="TitleGame" type="TextureRect" parent="CanvasLayer/Panel/Main/Right"]
+[node name="Animation" type="TextureRect" parent="CanvasLayer/Panel/Main/Right"]
 layout_mode = 2
 anchor_right = 1.011
 anchor_bottom = 1.0
@@ -44,6 +45,7 @@ offset_right = -0.125
 size_flags_vertical = 3
 texture = ExtResource("1_yd3gk")
 expand_mode = 1
+script = ExtResource("2_50nbo")
 
 [node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
