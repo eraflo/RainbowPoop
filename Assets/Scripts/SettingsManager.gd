@@ -5,6 +5,7 @@ class_name SettingsManager
 var userSettings: ConfigFile
 
 
+
 func _ready():
     userSettings = ConfigFile.new()
     userSettings.load("user://settings.cfg")
@@ -29,5 +30,4 @@ func saveValue(section: String, key: String, value: float) -> void:
 
 func loadValue(section: String, key: String) -> float:
     return userSettings.get_value(section, key)
-
 
