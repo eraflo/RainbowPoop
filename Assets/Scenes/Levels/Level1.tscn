@@ -27,7 +27,7 @@ position = Vector2(-1, 50)
 scale = Vector2(4, 4)
 texture = ExtResource("1_g4os0")
 
-[node name="LevelEnd" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(1982, 3715)
 polygon = PackedVector2Array(3503, 3032, 4233, 2493, 4810, 2497, 5668, 3073, 12411, 29643, -2976, 29583)
 
@@ -248,18 +248,6 @@ position = Vector2(7384, 2292)
 rotation = 0.236728
 scale = Vector2(1.41911, 1.29253)
 
-[node name="ColliderLine" parent="bones" instance=ExtResource("8_t7mup")]
-position = Vector2(6150, 2751)
-points = PackedVector2Array(155, 132, -253, 0, -374, -59, -481, -152, -557, -244, -654, -467, -722, -723, -706, -1189)
-
-[node name="ColliderLine2" parent="bones" instance=ExtResource("8_t7mup")]
-position = Vector2(6220, 3680)
-points = PackedVector2Array(383, 331, 263, 285, 54, 237, -134, 233, -322, 245, -440, 205, -508, 89, -496, -290, -576, -388, -691, -426, -807, -426)
-
-[node name="ColliderLine3" parent="bones" instance=ExtResource("8_t7mup")]
-position = Vector2(6396, 4734)
-points = PackedVector2Array(-87, 721, -74, 655, -5, 585, 426, 402, 469.116, 324.166, 472, 74, 489, 15, 541, -13, 625, -15, 669, -3, 713, 25, 758, 87, 819, 115, 906, 115)
-
 [node name="obstacles" type="Node2D" parent="."]
 
 [node name="FoodObstacle" parent="obstacles" instance=ExtResource("8_ptjve")]
@@ -284,7 +272,6 @@ scale = Vector2(10, -10)
 [node name="Guide" type="Path2D" parent="."]
 position = Vector2(0, -9)
 curve = SubResource("Curve2D_4j80l")
-
 
 [node name="InGameMenu" parent="." instance=ExtResource("10_jhqp6")]
 
