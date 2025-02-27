@@ -1,9 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://cgb745j0wqhet"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_aomkh"]
 [ext_resource type="Texture2D" uid="uid://1knwm3qgqabt" path="res://Assets/background/bg.jpg" id="1_g4os0"]
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_gbupg"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_3bx6f"]
-[ext_resource type="Resource" uid="uid://bndxa7ba0v1fu" path="res://Assets/Resources/Levels/Level1.tres" id="2_fl03k"]
+[ext_resource type="Resource" uid="uid://bndxa7ba0v1fu" path="res://Assets/Resources/Levels/Level1.tres" id="2_iit0a"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="4_vm41r"]
 [ext_resource type="PackedScene" uid="uid://co5jv1us78p52" path="res://Assets/Nodes/LevelElements/StomachPart.tscn" id="5_cmlly"]
 [ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_0i8mn"]
@@ -21,8 +22,8 @@ _data = {
 point_count = 6
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_gbupg")
-level_data = ExtResource("2_fl03k")
+script = ExtResource("1_aomkh")
+level_data = ExtResource("2_iit0a")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)

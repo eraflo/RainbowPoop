@@ -6,10 +6,13 @@ const Player = preload("res://Assets/Scripts/Player.gd")
 
 
 func _on_body_entered(_body: Node2D) -> void:
+	print("a")
 	if _body is Player:
+		print("b")
 		# Stop counting the time score
 		Score.stop_counting()
-
+		
+		print("c")
 		# Stop the player
 		_body.stop()
 
@@ -35,6 +38,7 @@ func _on_body_entered(_body: Node2D) -> void:
 
 		# TODO: Calculate final score with the food score
 		
+		print("h")
 		# Play the end of level sound
 		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_LEVEL_FINISHED, randi_range(0, AudioManager.getNumberOfAudioForType(AudioEffectSettings.AudioEffectType.ON_LEVEL_FINISHED) - 1))
 
@@ -59,6 +63,17 @@ func _on_body_entered(_body: Node2D) -> void:
 		
 		# Save the score for the level
 		level_node.save_level_completed()
-
+		
+		print("j")
+		# loads the food detail inside the ScoreDetail singleton
+		ScoreDetail.sugar = _body._sugar.value
+		ScoreDetail.fat = _body._fat.value
+		ScoreDetail.fiber = _body._fiber.value
+		ScoreDetail.protein = _body._protein.value
+		ScoreDetail.vitamin = _body._vitamin.value
+		ScoreDetail.water = _body._water.value
+		
+		
+		print("k")
 		# TODO: Menu to go to the next level
 		get_tree().change_scene_to_file("res://Assets/Scenes/EndAnimation.tscn")

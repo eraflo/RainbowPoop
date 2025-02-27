@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelManagerData" load_steps=5 format=3 uid="uid://be5w66f50ckie"]
+[gd_resource type="Resource" script_class="LevelManagerData" load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelManagerData.gd" id="1_qg3nb"]
 [ext_resource type="Resource" path="res://Assets/Resources/Levels/Level1.tres" id="1_qp5hw"]
@@ -8,4 +8,4 @@
 [resource]
 script = ExtResource("1_qg3nb")
 all_levels = Array[ExtResource("3_3x5ct")]([ExtResource("1_qp5hw"), ExtResource("2_xispb")])
-levels_completed = Array[ExtResource("3_3x5ct")]([])
+levels_completed = Array[ExtResource("3_3x5ct")]([ExtResource("1_qp5hw")])
