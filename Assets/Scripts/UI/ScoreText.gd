@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 	var coef = (Time.get_unix_time_from_system()-(startedAt+animationDelay))/animationSpeed
 	if coef<0:coef=0
 	elif coef>1:coef=1
-	text = defaultText + str(int(coef*1000))
+	text = defaultText + str(int(coef*Score.score))

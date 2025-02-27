@@ -82,8 +82,8 @@ func _process(_delta: float) -> void:
 
 	# TODO: Discuss if keep
 	weight.add_modifier(StatModifier.new(-health_weight_change[health_status] * _delta, StatModifier.StatModType.Flat, 100, self))
-	print("Weight: ", weight.value)
-	print("Status: ", healthStatusName[health_status])
+	#print("Weight: ", weight.value)
+	#print("Status: ", healthStatusName[health_status])
 	# print("Health Status: ", health_status)
 	# print("Health Weight Change: ", health_weight_change[health_status])
 

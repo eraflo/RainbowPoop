@@ -1,4 +1,4 @@
-extends TextureRect
+extends AnimationPlayer
 
 var anim = "Rainbow"
 var fps = 20
@@ -49,7 +49,13 @@ func _ready() -> void:
 			anim = "BigStinky"
 	# ew, what an awful spaghetti code that was...
 	
+	#play the correct animation
+	current_animation = anim
 	
+"""
+### this commented code is the old animation system, directly modifying the texture.
+### IT DOES NOT WORK ON MOBILE
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# let's load the animations now
@@ -100,3 +106,4 @@ func animate(path:String, loopBegin:int, loopEnd:int):
 		#	texture.unreference()
 		texture=load(file)
 		print(texture.get_reference_count())
+"""
