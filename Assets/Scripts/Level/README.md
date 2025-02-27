@@ -7,7 +7,8 @@ The game is divided in multiple level. The player needs to complete each level t
 Node for the level. 
 
 When you create a new level, you create a `Node2D` and you add the script `LevelNode` on it.
-Then, to modify the value of the level, you need to create a `LevelData`, which you store in the `Assets/Resources/Levels` folder. You name it `NameOfLevelLevel.tres`. (See example of `TestLevel.tres`).
+Then, to modify the value of the level, you need to create a `LevelData`,
+which you store in the `Assets/Resources/Levels` folder. You name it `NameOfLevelLevel.tres`. (See example of `TestLevel.tres`).
 
 PS : you can directly create the `LevelData` with the editor in the inspector of `LevelNode`.
 
