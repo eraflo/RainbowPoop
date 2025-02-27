@@ -11,7 +11,7 @@ func _on_collision_entered(_body: Node) -> void:
 		_body.velocity = knockback_dir * knockback_force
 
 		# Play sound
-		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED)
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED, 1)
 
 		# Stun the player
 		_body.stateManager.request_state("Stun")

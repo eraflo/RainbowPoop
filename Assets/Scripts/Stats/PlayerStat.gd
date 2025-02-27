@@ -19,6 +19,18 @@ var _is_dirty: bool = true
 var _value: float = 0.0 # Cache the final value
 var _last_base_value: float = GlobalAccess.MIN_FLOAT # The last base value used
 
+func has_modifier_from_source(source: Object) -> bool:
+	for i in range(_modifiers.size()):
+		if(_modifiers[i].source == source):
+			return true
+	return false
+
+func get_modifier_value_from_source(source: Object) -> float:
+	for i in range(_modifiers.size()):
+		if(_modifiers[i].source == source):
+			return _modifiers[i].value
+	return 0.0
+
 ## Add a new modifier
 func add_modifier(modifier: StatModifier):
 	_is_dirty = true

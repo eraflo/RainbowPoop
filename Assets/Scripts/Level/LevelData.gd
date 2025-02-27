@@ -16,3 +16,8 @@ class_name LevelData extends Resource
 @export var fat_decay: float = 0
 @export var water_decay: float = 0
 @export var vitamin_decay: float = 0
+
+@export_category("Level Clear Settings")
+@export var oneStarScore: float = 0
+@export var twoStarScore: float = 0
+@export var threeStarScore: float = 0

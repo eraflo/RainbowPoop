@@ -3,7 +3,11 @@ extends Resource
 class_name AudioEffectSettings
 
 enum AudioEffectType {
+    ON_MAIN_MUSIC,
+    ON_START_MENU_MUSIC,
+    ON_RAINBOW_POOP_SPEAK,
     ON_FOOD_COLLECTED,
+    ON_BAD_FOOD_COLLECTED,
     ON_TRAP_ACTIVATED,
     ON_RUN,
     ON_JUMP,
@@ -12,6 +16,9 @@ enum AudioEffectType {
     ON_HEALTHY_HEALTH_ENTERED,
     ON_LEVEL_STARTED,
     ON_LEVEL_FINISHED,
+    ON_LOSE,
+    ON_WIN,
+    ON_SPECIAL_WIN,
     ON_BUTTON_CLICK
 }
 

@@ -17,3 +17,6 @@ protein_decay = -0.1
 fat_decay = 0.0
 water_decay = 0.0
 vitamin_decay = 0.0
+oneStarScore = 300.0
+twoStarScore = 700.0
+threeStarScore = 1000.0

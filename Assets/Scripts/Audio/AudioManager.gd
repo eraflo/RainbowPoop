@@ -3,12 +3,17 @@ extends Node2D
 var audioEffectDict = {}
 var audioBusConfig: ConfigFile
 
+var audioStreamPool: Array[AudioStreamPlayer] = []
+var spatialAudioStreamPool: Array[AudioStreamPlayer2D] = []
+
 @export var audioEffectSettings : Array[AudioEffectSettings] = []
 
 
 func _ready() -> void:
 	for audioEffectSetting in audioEffectSettings:
-		audioEffectDict[audioEffectSetting.type] = audioEffectSetting
+		if not audioEffectDict.has(audioEffectSetting.type):
+			audioEffectDict[audioEffectSetting.type] = []
+		audioEffectDict[audioEffectSetting.type].append(audioEffectSetting)
 	
 	loadAudioBusesData()
 
@@ -16,13 +21,29 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_PAUSED:
 		saveAudioBusesData()
 
-func createAudioAtLocation(location, type: AudioEffectSettings.AudioEffectType) -> void:
+func getNumberOfAudioForType(type: AudioEffectSettings.AudioEffectType) -> int:
 	if audioEffectDict.has(type):
-		var audioEffectSetting = audioEffectDict[type]
+		var audioEffectSettingList = audioEffectDict[type]
+		return len(audioEffectSettingList)
+	return 0
+
+func createAudioAtLocation(location, type: AudioEffectSettings.AudioEffectType, index: int = 0) -> AudioStreamPlayer2D:
+	if audioEffectDict.has(type):
+		var audioEffectSettingList = audioEffectDict[type]
+
+		if index < 0 or index >= len(audioEffectSettingList):
+			push_error("Index out of range for type: " + str(type))
+			return
+
+		var audioEffectSetting = audioEffectSettingList[index]
+
 		if audioEffectSetting.hasOpenLimit():
 			audioEffectSetting.changeAudioCount(1)
-			var audioInstance = AudioStreamPlayer2D.new()
-			add_child(audioInstance)
+			var audioInstance = _getAudioStreamPlayer2D()
+
+			audioInstance.add_to_group(str(type))
+
+			audioInstance.finished.connect(func(): _returnAudioStreamPlayer2D(audioInstance))
 
 			audioInstance.position = location
 			audioInstance.bus = convertBusName(audioEffectSetting.busName)
@@ -31,19 +52,32 @@ func createAudioAtLocation(location, type: AudioEffectSettings.AudioEffectType) 
 			audioInstance.pitch_scale = audioEffectSetting.pitchScale
 			audioInstance.pitch_scale += randf_range(-audioEffectSetting.pitchRandomness, audioEffectSetting.pitchRandomness)
 			audioInstance.finished.connect(audioEffectSetting.onAudioFinished)
-			audioInstance.finished.connect(audioInstance.queue_free)
 
 			audioInstance.play()
+			return audioInstance
 	else:
 		push_error("AudioEffectSettings not found for type: " + str(type))
+		return null
+	
+	return null
 
-func createAudio(type: AudioEffectSettings.AudioEffectType) -> void:
+func createAudio(type: AudioEffectSettings.AudioEffectType, index: int = 0) -> AudioStreamPlayer:
 	if audioEffectDict.has(type):
-		var audioEffectSetting = audioEffectDict[type]
+		var audioEffectSettingList = audioEffectDict[type]
+
+		if index < 0 or index >= len(audioEffectSettingList):
+			push_error("Index out of range for type: " + str(type))
+			return
+
+		var audioEffectSetting = audioEffectSettingList[index]
+
 		if audioEffectSetting.hasOpenLimit():
 			audioEffectSetting.changeAudioCount(1)
-			var audioInstance = AudioStreamPlayer2D.new()
-			add_child(audioInstance)
+			var audioInstance = _getAudioStreamPlayer()
+
+			audioInstance.add_to_group(str(type))
+
+			audioInstance.finished.connect(func(): _returnAudioStreamPlayer(audioInstance))
 
 			audioInstance.bus = convertBusName(audioEffectSetting.busName)
 			audioInstance.stream = audioEffectSetting.soundEffect
@@ -51,11 +85,22 @@ func createAudio(type: AudioEffectSettings.AudioEffectType) -> void:
 			audioInstance.pitch_scale = audioEffectSetting.pitchScale
 			audioInstance.pitch_scale += randf_range(-audioEffectSetting.pitchRandomness, audioEffectSetting.pitchRandomness)
 			audioInstance.finished.connect(audioEffectSetting.onAudioFinished)
-			audioInstance.finished.connect(audioInstance.queue_free)
 
 			audioInstance.play()
+			return audioInstance
 	else:
 		push_error("AudioEffectSettings not found for type: " + str(type))
+		return null
+	
+	return null
+
+func stopAudio(type: AudioEffectSettings.AudioEffectType) -> void:
+	if audioEffectDict.has(type):
+		var audioEffectSettingList = audioEffectDict[type]
+		for audioEffectSetting in audioEffectSettingList:
+			for audioInstance in get_tree().get_nodes_in_group(str(type)):
+				audioInstance.stop()
+				audioEffectSetting.onAudioFinished()
 
 func convertBusName(busName: AudioEffectSettings.BusName) -> String:
 	match busName:
@@ -84,3 +129,66 @@ func saveAudioBusesData() -> void:
 				AudioServer.get_bus_index(busName)
 			)
 		)
+
+func isAudioPlayed(type: AudioEffectSettings.AudioEffectType) -> bool:
+	if audioEffectDict.has(type):
+		var audioEffectSettingList = audioEffectDict[type]
+		for audioEffectSetting in audioEffectSettingList:
+			for audioInstance in get_tree().get_nodes_in_group(str(type)):
+				if audioInstance.playing:
+					return true
+	return false
+
+# For Spatial Audio
+func _getAudioStreamPlayer2D() -> AudioStreamPlayer2D:
+	if len(spatialAudioStreamPool) > 0:
+		return spatialAudioStreamPool.pop_back()
+	else:
+		var newAudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		add_child(newAudioStreamPlayer2D)
+		return newAudioStreamPlayer2D
+
+
+# For Spatial Audio
+func _returnAudioStreamPlayer2D(audioStreamPlayer2D: AudioStreamPlayer2D) -> void:
+	print("Returning audio stream player 2D : " + str(audioStreamPlayer2D.name))
+	if audioStreamPlayer2D in spatialAudioStreamPool:
+		push_error("AudioStreamPlayer2D already in pool")
+	else:
+		audioStreamPlayer2D.stop()
+		audioStreamPlayer2D.bus = ""
+		audioStreamPlayer2D.stream = null
+		audioStreamPlayer2D.volume_db = 0
+		audioStreamPlayer2D.pitch_scale = 1.0
+		
+		for connection in audioStreamPlayer2D.finished.get_connections():
+			audioStreamPlayer2D.finished.disconnect(connection.callable)
+		
+		
+		spatialAudioStreamPool.append(audioStreamPlayer2D)
+
+# For Non-Spatial Audio
+func _getAudioStreamPlayer() -> AudioStreamPlayer:
+	if len(audioStreamPool) > 0:
+		return audioStreamPool.pop_back()
+	else:
+		var newAudioStreamPlayer = AudioStreamPlayer.new()
+		add_child(newAudioStreamPlayer)
+		return newAudioStreamPlayer
+
+# For Non-Spatial Audio
+func _returnAudioStreamPlayer(audioStreamPlayer: AudioStreamPlayer) -> void:
+	print("Returning audio stream player : " + str(audioStreamPlayer.name))
+	if audioStreamPlayer in audioStreamPool:
+		push_error("AudioStreamPlayer already in pool")
+	else:
+		audioStreamPlayer.stop()
+		audioStreamPlayer.bus = ""
+		audioStreamPlayer.stream = null
+		audioStreamPlayer.volume_db = 0
+		audioStreamPlayer.pitch_scale = 1.0
+		
+		for connection in audioStreamPlayer.finished.get_connections():
+			audioStreamPlayer.finished.disconnect(connection.callable)
+		
+		audioStreamPool.append(audioStreamPlayer)
