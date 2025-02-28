@@ -114,14 +114,15 @@ func _calculate_imc() -> void:
 
 # Calculate the health status based on the IMC
 func _calculate_health_status() -> void:
+	var oldStatus = health_status
 	for status in health_thresholds.keys():
 		if imc < health_thresholds[status]:
 			health_status = status
-			health_status_changed.emit(health_status)
-
-			_playAudioForHealthStatus()
-
 			break
+	
+	if oldStatus != health_status:
+		health_status_changed.emit(health_status)
+		_playAudioForHealthStatus()
 
 func add_weight(amount: float) -> void:
 	if weight == null:
