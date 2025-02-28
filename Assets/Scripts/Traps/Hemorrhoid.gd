@@ -12,7 +12,7 @@ func _on_collision_entered(_body: Node) -> void:
 		# TODO: Play animation
 
 		# Play sound
-		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED)
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED, 0)
 
 		queue_free()    # Destroy the obstacle
 

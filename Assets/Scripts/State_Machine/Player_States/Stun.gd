@@ -17,7 +17,8 @@ func enter(_stateManager: StateManager):
 		timer.set_one_shot(true)
 		timer.start()
 
-		AudioManager.createAudioAtLocation(player.global_position, AudioEffectSettings.AudioEffectType.ON_STUN)
+		if not AudioManager.isAudioPlayed(AudioEffectSettings.AudioEffectType.ON_STUN):
+			AudioManager.createAudioAtLocation(player.global_position, AudioEffectSettings.AudioEffectType.ON_STUN)
 
 	
 func exit(_stateManager: StateManager):

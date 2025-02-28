@@ -81,9 +81,11 @@ func _process(_delta: float) -> void:
 	# weight -= health_weight_change[health_status] * _delta
 
 	# TODO: Discuss if keep
-	weight.add_modifier(StatModifier.new(-health_weight_change[health_status] * _delta, StatModifier.StatModType.Flat, 100, self))
-	#print("Weight: ", weight.value)
-	#print("Status: ", healthStatusName[health_status])
+	add_weight(-health_weight_change[health_status] * _delta)
+
+	
+	print("Weight: ", weight.value)
+	print("Status: ", healthStatusName[health_status])
 	# print("Health Status: ", health_status)
 	# print("Health Weight Change: ", health_weight_change[health_status])
 
@@ -122,7 +124,19 @@ func _calculate_health_status() -> void:
 			break
 
 func add_weight(amount: float) -> void:
-	weight.add_modifier(StatModifier.new(-amount, StatModifier.StatModType.Flat, 100, self))
+	if weight == null:
+		return
+		
+	if weight.has_modifier_from_source(self):
+		var oldValue: float = weight.value
+		weight.remove_all_modifiers_from_source(self)
+		weight.add_modifier(StatModifier.new(oldValue + amount, StatModifier.StatModType.Flat, 100, self))
+	else:
+		weight.add_modifier(StatModifier.new(amount, StatModifier.StatModType.Flat, 100, self))
+
+func update_weight(weight: PlayerStat) -> void:
+	weight.remove_all_modifiers_from_source(self)	
+	self.weight = weight
 
 func _playAudioForHealthStatus() -> void:
 	# Play the audio effect based on the health status
@@ -137,3 +151,4 @@ func _playAudioForHealthStatus() -> void:
 			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
 		HealthStatus.NORMAL:
 			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_HEALTHY_HEALTH_ENTERED)
+

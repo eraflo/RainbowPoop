@@ -6,6 +6,8 @@ class_name LevelData extends Resource
 @export var level_scene_path: String = ""
 @export_range(0, 4) var completion_stars: int = 0
 @export var score: float = 0
+
+# This is the time the player has to complete the level
 @export var level_timer_countdown: float = 0
 @export var completed: bool = false
 
@@ -16,3 +18,8 @@ class_name LevelData extends Resource
 @export var fat_decay: float = 0
 @export var water_decay: float = 0
 @export var vitamin_decay: float = 0
+
+@export_category("Level Clear Settings")
+@export var oneStarScore: float = 0
+@export var twoStarScore: float = 0
+@export var threeStarScore: float = 0

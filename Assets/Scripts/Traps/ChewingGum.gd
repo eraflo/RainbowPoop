@@ -7,7 +7,7 @@ func _on_collision_entered(_body: Node) -> void:
 	if _body is Player:
 
 		# Play sound
-		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED)
+		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED, randi_range(0, AudioManager.getNumberOfAudioForType(AudioEffectSettings.AudioEffectType.ON_TRAP_ACTIVATED) - 1))
 		
 		# Add friction to the player
 		_body._add_modifier(_body.friction, frictionAdded, StatModifier.StatModType.Flat, 100, self)

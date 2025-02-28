@@ -1,13 +1,42 @@
-[gd_scene load_steps=13 format=3 uid="uid://6j3nudr3jj3n"]
+[gd_scene load_steps=59 format=3 uid="uid://dm0btx80qf62w"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Audio/AudioManager.gd" id="1_xr8xl"]
 [ext_resource type="Script" path="res://Assets/Scripts/Audio/AudioEffectSettings.gd" id="2_h0038"]
+[ext_resource type="AudioStream" uid="uid://bku440m5rg4wh" path="res://Assets/Audio/Music/OnMainMusic.mp3" id="3_wmcgc"]
+[ext_resource type="AudioStream" uid="uid://bx3dk5d2ucbcy" path="res://Assets/Audio/Music/OnMainMusic2.mp3" id="4_hb41d"]
+[ext_resource type="AudioStream" uid="uid://bblmo5dhk486o" path="res://Assets/Audio/Music/OnStartMenuMusic.mp3" id="5_h65uy"]
+[ext_resource type="AudioStream" uid="uid://dmu01ygt47084" path="res://Assets/Audio/SFX/OnFoodCollected.MP3" id="6_m3q7l"]
+[ext_resource type="AudioStream" uid="uid://c5fthjw2h5kfc" path="res://Assets/Audio/SFX/OnBadFoodCollected.MP3" id="7_fhha5"]
+[ext_resource type="AudioStream" uid="uid://c5xxlqie3aau" path="res://Assets/Audio/SFX/OnTrapActivated1.MP3" id="8_7ybj5"]
+[ext_resource type="AudioStream" uid="uid://bv26iv1ctvuqj" path="res://Assets/Audio/SFX/OnTrapActivated2.MP3" id="9_epda7"]
+[ext_resource type="AudioStream" uid="uid://chkpvt4edyn7r" path="res://Assets/Audio/SFX/OnRun1.MP3" id="10_al34k"]
+[ext_resource type="AudioStream" uid="uid://5toxiqnkuoh3" path="res://Assets/Audio/SFX/OnJump1.MP3" id="11_nnrcg"]
+[ext_resource type="AudioStream" uid="uid://c513cm03dspny" path="res://Assets/Audio/SFX/OnStun.MP3" id="12_ei1o0"]
+[ext_resource type="AudioStream" uid="uid://dqjfhed3pmjrg" path="res://Assets/Audio/SFX/OnUnhealthyHealthEntered.MP3" id="13_8w0uf"]
+[ext_resource type="AudioStream" uid="uid://1o808iyc116o" path="res://Assets/Audio/SFX/OnHealthyHealthEntered.MP3" id="14_qcmpq"]
+[ext_resource type="AudioStream" uid="uid://ckv6v1qr7uyq3" path="res://Assets/Audio/SFX/OnLevelStarted.MP3" id="15_mrq3d"]
+[ext_resource type="AudioStream" uid="uid://bwdns45ir3nng" path="res://Assets/Audio/SFX/OnLevelFinish1.MP3" id="16_5htc1"]
+[ext_resource type="AudioStream" uid="uid://byiysnfkkwrfk" path="res://Assets/Audio/SFX/OnLevelFinish2.MP3" id="17_jsisb"]
+[ext_resource type="AudioStream" uid="uid://coskdk6rkuwev" path="res://Assets/Audio/Music/OnLose1.MP3" id="18_r4im1"]
+[ext_resource type="AudioStream" uid="uid://cropwbupcu00i" path="res://Assets/Audio/Music/OnLose2.MP3" id="19_wvca4"]
+[ext_resource type="AudioStream" uid="uid://bu10vl1ctdnv7" path="res://Assets/Audio/Music/OnLose3.MP3" id="20_u8rhu"]
+[ext_resource type="AudioStream" uid="uid://bieus1ucr6f4u" path="res://Assets/Audio/Music/OnLose4.MP3" id="21_3eg4t"]
+[ext_resource type="AudioStream" uid="uid://cgaf37djctlpi" path="res://Assets/Audio/Music/OnLose5.MP3" id="22_31gcq"]
+[ext_resource type="AudioStream" uid="uid://1htaouq68h23" path="res://Assets/Audio/Music/OnWin1.MP3" id="23_iet18"]
+[ext_resource type="AudioStream" uid="uid://c5rd1i7txih7h" path="res://Assets/Audio/Music/OnWin2.MP3" id="24_bm73w"]
+[ext_resource type="AudioStream" uid="uid://br4843xk3emst" path="res://Assets/Audio/Music/OnWin3.MP3" id="25_qoaxo"]
+[ext_resource type="AudioStream" uid="uid://dtv1m32w1x2cb" path="res://Assets/Audio/UI/ButtonClick.MP3" id="26_05jht"]
+[ext_resource type="AudioStream" uid="uid://erv0paq7xmyf" path="res://Assets/Audio/SFX/OnRainbowPoopSpeak1.MP3" id="27_66pvn"]
+[ext_resource type="AudioStream" uid="uid://bw1fawxu8qmvk" path="res://Assets/Audio/SFX/OnRainbowPoopSpeak2.MP3" id="28_crc3s"]
+[ext_resource type="AudioStream" uid="uid://31fyg5fh5lhl" path="res://Assets/Audio/SFX/OnRainbowPoopSpeak3.MP3" id="29_1dy63"]
+[ext_resource type="AudioStream" uid="uid://c51gxm7n4jwum" path="res://Assets/Audio/SFX/OnRainbowPoopSpeak4.MP3" id="30_kewne"]
 
 [sub_resource type="Resource" id="Resource_cvbkb"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 2
+busName = 1
 type = 0
+soundEffect = ExtResource("3_wmcgc")
 volume = 1
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -15,8 +44,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_rgoi4"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 2
-type = 1
+busName = 1
+type = 0
+soundEffect = ExtResource("4_hb41d")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -24,8 +54,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_jq5tj"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 2
-type = 2
+busName = 1
+type = 1
+soundEffect = ExtResource("5_h65uy")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -35,6 +66,7 @@ script = ExtResource("2_h0038")
 limit = 5
 busName = 2
 type = 3
+soundEffect = ExtResource("6_m3q7l")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -44,6 +76,7 @@ script = ExtResource("2_h0038")
 limit = 5
 busName = 2
 type = 4
+soundEffect = ExtResource("7_fhha5")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -51,8 +84,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_jmvud"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 0
+busName = 2
 type = 5
+soundEffect = ExtResource("8_7ybj5")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -60,8 +94,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_pk28g"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 0
-type = 6
+busName = 2
+type = 5
+soundEffect = ExtResource("9_epda7")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -69,8 +104,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_8yqgg"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 0
-type = 7
+busName = 2
+type = 6
+soundEffect = ExtResource("10_al34k")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -78,8 +114,9 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_rwpm5"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 0
-type = 8
+busName = 2
+type = 7
+soundEffect = ExtResource("11_nnrcg")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
@@ -87,12 +124,193 @@ pitchRandomness = 0.0
 [sub_resource type="Resource" id="Resource_ufuc7"]
 script = ExtResource("2_h0038")
 limit = 5
-busName = 3
+busName = 2
+type = 8
+soundEffect = ExtResource("12_ei1o0")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_yco1v"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
 type = 9
+soundEffect = ExtResource("13_8w0uf")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_jj0r8"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 10
+soundEffect = ExtResource("14_qcmpq")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_xadbo"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 11
+soundEffect = ExtResource("15_mrq3d")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_74x7o"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 12
+soundEffect = ExtResource("16_5htc1")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_ajrjd"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 12
+soundEffect = ExtResource("17_jsisb")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_d0xsy"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 13
+soundEffect = ExtResource("18_r4im1")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_75cvl"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 13
+soundEffect = ExtResource("19_wvca4")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_a7vxo"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 13
+soundEffect = ExtResource("20_u8rhu")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_uw8ci"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 13
+soundEffect = ExtResource("21_3eg4t")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_c1ahh"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 13
+soundEffect = ExtResource("22_31gcq")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_ktxgm"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 14
+soundEffect = ExtResource("23_iet18")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_cqh33"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 14
+soundEffect = ExtResource("24_bm73w")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_r76sr"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 15
+soundEffect = ExtResource("25_qoaxo")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_xsrfb"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 3
+type = 16
+soundEffect = ExtResource("26_05jht")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_6ho0e"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 2
+soundEffect = ExtResource("27_66pvn")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_mklr7"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 2
+soundEffect = ExtResource("28_crc3s")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_48jwl"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 2
+soundEffect = ExtResource("29_1dy63")
+volume = 0
+pitchScale = 1.0
+pitchRandomness = 0.0
+
+[sub_resource type="Resource" id="Resource_fdyh4"]
+script = ExtResource("2_h0038")
+limit = 5
+busName = 2
+type = 2
+soundEffect = ExtResource("30_kewne")
 volume = 0
 pitchScale = 1.0
 pitchRandomness = 0.0
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_xr8xl")
-audioEffectSettings = Array[ExtResource("2_h0038")]([SubResource("Resource_cvbkb"), SubResource("Resource_rgoi4"), SubResource("Resource_jq5tj"), SubResource("Resource_3wp2h"), SubResource("Resource_hyfvn"), SubResource("Resource_jmvud"), SubResource("Resource_pk28g"), SubResource("Resource_8yqgg"), SubResource("Resource_rwpm5"), SubResource("Resource_ufuc7")])
+audioEffectSettings = Array[ExtResource("2_h0038")]([SubResource("Resource_cvbkb"), SubResource("Resource_rgoi4"), SubResource("Resource_jq5tj"), SubResource("Resource_3wp2h"), SubResource("Resource_hyfvn"), SubResource("Resource_jmvud"), SubResource("Resource_pk28g"), SubResource("Resource_8yqgg"), SubResource("Resource_rwpm5"), SubResource("Resource_ufuc7"), SubResource("Resource_yco1v"), SubResource("Resource_jj0r8"), SubResource("Resource_xadbo"), SubResource("Resource_74x7o"), SubResource("Resource_ajrjd"), SubResource("Resource_d0xsy"), SubResource("Resource_75cvl"), SubResource("Resource_a7vxo"), SubResource("Resource_uw8ci"), SubResource("Resource_c1ahh"), SubResource("Resource_ktxgm"), SubResource("Resource_cqh33"), SubResource("Resource_r76sr"), SubResource("Resource_xsrfb"), SubResource("Resource_6ho0e"), SubResource("Resource_mklr7"), SubResource("Resource_48jwl"), SubResource("Resource_fdyh4")])

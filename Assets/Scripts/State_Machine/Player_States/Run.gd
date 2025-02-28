@@ -11,7 +11,9 @@ func enter(_stateManager: StateManager) -> void:
 	player = _stateManager.get_parent() as Player
 	player.touchscreen_input.connect(_on_touchscreen_input)
 
-	AudioManager.createAudioAtLocation(player.global_position, AudioEffectSettings.AudioEffectType.ON_RUN)
+	if not AudioManager.isAudioPlayed(AudioEffectSettings.AudioEffectType.ON_RUN):
+		var music = AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_RUN, AudioManager.getNumberOfAudioForType(AudioEffectSettings.AudioEffectType.ON_RUN) - 1)
+		music.stream.loop = true
 
 func exit(_stateManager: StateManager) -> void:
 	player.touchscreen_input.disconnect(_on_touchscreen_input)

@@ -141,7 +141,8 @@ func eat_food(food: Food) -> void:
 	_add_modifier(_water, food.water, StatModifier.StatModType.Flat)
 	_add_modifier(_fiber, food.fiber, StatModifier.StatModType.Flat)
 	_add_modifier(_vitamin, food.vitamin, StatModifier.StatModType.Flat)
-	
+
+
 
 
 ## Handle the touchscreen input
@@ -282,7 +283,7 @@ func _init_weight() -> void:
 	_add_modifier(weight, _water.value, StatModifier.StatModType.Flat, 100, _water)
 	_add_modifier(weight, _fiber.value, StatModifier.StatModType.Flat, 100, _fiber)
 	_add_modifier(weight, _vitamin.value, StatModifier.StatModType.Flat, 100, _vitamin)
-	Health.weight = weight
+	Health.update_weight(weight)
 
 ## Update the stats
 
@@ -319,4 +320,4 @@ func _update_weight() -> void:
 	_update_modifier_from_source(weight, _water, _water.value)
 	_update_modifier_from_source(weight, _fiber, _fiber.value)
 	_update_modifier_from_source(weight, _vitamin, _vitamin.value)
-	Health.weight = weight
+	Health.update_weight(weight)

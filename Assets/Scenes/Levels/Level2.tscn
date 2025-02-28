@@ -1,16 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://df2m8m6dhfky2"]
+[gd_scene load_steps=16 format=3 uid="uid://df2m8m6dhfky2"]
 
 [ext_resource type="Texture2D" uid="uid://1knwm3qgqabt" path="res://Assets/background/bg.jpg" id="1_4vpb5"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="1_jrjey"]
-[ext_resource type="PackedScene" uid="uid://6in5lgb2og0i" path="res://Assets/Nodes/Health_System/HealthBar.tscn" id="2_p3pj7"]
+[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_q771s"]
+[ext_resource type="Resource" uid="uid://brlh4sm78rv53" path="res://Assets/Resources/Levels/Level2.tres" id="2_pvokv"]
 [ext_resource type="PackedScene" uid="uid://co5jv1us78p52" path="res://Assets/Nodes/LevelElements/StomachPart.tscn" id="3_j84xm"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="4_5mkda"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/bone.tscn" id="5_t2fo0"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_deuor"]
+[ext_resource type="PackedScene" uid="uid://kqhbelslhml6" path="res://Assets/Nodes/LevelElements/bone.tscn" id="5_t2fo0"]
+[ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="6_deuor"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="7_vh76b"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="8_l2fu3"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="10_bvqg1"]
+[ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="10_bvqg1"]
 [ext_resource type="PackedScene" uid="uid://lvrwlbmu2fy0" path="res://Assets/Nodes/Food/Candy1.tscn" id="11_r5mbr"]
+[ext_resource type="PackedScene" uid="uid://bppq73omdm7g8" path="res://Assets/Nodes/UI/InGameMenu.tscn" id="13_skg50"]
+[ext_resource type="FontFile" uid="uid://bi14y70xh8vlt" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="14_l48q3"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -19,6 +22,8 @@ _data = {
 point_count = 6
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_q771s")
+level_data = ExtResource("2_pvokv")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 visible = false
@@ -33,12 +38,6 @@ texture = ExtResource("1_4vpb5")
 [node name="TouchscreenCamera" parent="." instance=ExtResource("1_jrjey")]
 position_smoothing_enabled = true
 drag_vertical_enabled = true
-
-[node name="HealthBar" parent="." instance=ExtResource("2_p3pj7")]
-offset_left = 1344.0
-offset_top = 730.0
-offset_right = 1344.0
-offset_bottom = 730.0
 
 [node name="Player" parent="." instance=ExtResource("4_5mkda")]
 z_index = 10
@@ -245,6 +244,69 @@ position = Vector2(4516, -2797)
 
 [node name="Candy10" parent="." instance=ExtResource("11_r5mbr")]
 position = Vector2(4584, -2814)
+
+[node name="InGameMenu" parent="." instance=ExtResource("13_skg50")]
+
+[node name="InGameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Eat" type="Label" parent="InGameUI"]
+offset_left = 3709.0
+offset_top = -2351.0
+offset_right = 4303.0
+offset_bottom = -2272.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_l48q3")
+theme_override_font_sizes/font_size = 30
+text = "Eat Candy To Get Sugar
+It Boosts Your Speed And Affects Your Jump"
+horizontal_alignment = 1
+
+[node name="AdviceHealth1" type="Label" parent="InGameUI"]
+offset_left = 753.0
+offset_top = 1798.0
+offset_right = 1347.0
+offset_bottom = 1840.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_l48q3")
+theme_override_font_sizes/font_size = 30
+text = "See The Bar On Top Of Your Screen"
+horizontal_alignment = 1
+
+[node name="AdviceHealth2" type="Label" parent="InGameUI"]
+offset_left = 703.0
+offset_top = 1318.0
+offset_right = 1297.0
+offset_bottom = 1360.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_l48q3")
+theme_override_font_sizes/font_size = 30
+text = "From Now On, You Lose Stats, And So Health
+As Time Goes On"
+horizontal_alignment = 1
+
+[node name="AdviceHealth3" type="Label" parent="InGameUI"]
+offset_left = 460.0
+offset_top = 702.0
+offset_right = 1058.0
+offset_bottom = 781.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_l48q3")
+theme_override_font_sizes/font_size = 30
+text = "Maybe, You Will Find A Solution 
+To Be Healthy Later In This Level"
+horizontal_alignment = 1
 
 [editable path="Stomach/StomachPart2"]
 [editable path="Stomach/StomachPart3"]
