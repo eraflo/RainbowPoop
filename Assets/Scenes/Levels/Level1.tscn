@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgb745j0wqhet"]
+[gd_scene load_steps=16 format=3 uid="uid://cgb745j0wqhet"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_aomkh"]
 [ext_resource type="Texture2D" uid="uid://1knwm3qgqabt" path="res://Assets/background/bg.jpg" id="1_g4os0"]
-[ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_gbupg"]
 [ext_resource type="PackedScene" uid="uid://r4xkqnyygx5j" path="res://Assets/Nodes/TouchscreenCamera.tscn" id="2_3bx6f"]
 [ext_resource type="Resource" uid="uid://bndxa7ba0v1fu" path="res://Assets/Resources/Levels/Level1.tres" id="2_iit0a"]
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="4_vm41r"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="9_llbvs"]
 [ext_resource type="PackedScene" uid="uid://bppq73omdm7g8" path="res://Assets/Nodes/UI/InGameMenu.tscn" id="10_jhqp6"]
 [ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="11_38sqa"]
+[ext_resource type="FontFile" uid="uid://bi14y70xh8vlt" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="14_rvptr"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -298,6 +298,52 @@ scale = Vector2(32.065, 32.065)
 level_name = "Level1"
 
 [node name="InGameMenu" parent="." instance=ExtResource("10_jhqp6")]
+
+[node name="InGameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jump" type="Label" parent="InGameUI"]
+offset_left = 336.0
+offset_top = 1817.0
+offset_right = 828.0
+offset_bottom = 1855.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_rvptr")
+theme_override_font_sizes/font_size = 30
+text = "JUMP When You Touch The Screen"
+horizontal_alignment = 1
+
+[node name="WallJump" type="Label" parent="InGameUI"]
+offset_left = 1349.0
+offset_top = 1793.0
+offset_right = 1684.0
+offset_bottom = 1831.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_rvptr")
+theme_override_font_sizes/font_size = 30
+text = "JUMP Again On The Wall
+And Change Direction"
+horizontal_alignment = 1
+
+[node name="WallJump2" type="Label" parent="InGameUI"]
+offset_left = 3242.0
+offset_top = -2254.0
+offset_right = 3576.0
+offset_bottom = -2216.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_rvptr")
+theme_override_font_sizes/font_size = 30
+text = "Be Careful Of Traps"
+horizontal_alignment = 1
 
 [editable path="Stomach/StomachPart2"]
 [editable path="Stomach/StomachPart3"]

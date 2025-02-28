@@ -3,8 +3,6 @@ extends Node
 # Connects to the ScoreCounter script to receive score updates
 signal score_changed(score: float)
 
-const TIME_MULTIPLIER: int = 100
-
 @export var score: float = 0
 
 var _start_counting: bool = false
@@ -54,7 +52,7 @@ func calculate_health_score() -> void:
 func calculate_time_score() -> void:
 
 	# Formula : (level timer for good score - time spent to complete the level) * TIME_MULTIPLIER
-	score = round((current_countdown - _time) * TIME_MULTIPLIER)
+	score = round(current_countdown - _time)
 	score += _bonus_score
 	score = max(0, score)
 

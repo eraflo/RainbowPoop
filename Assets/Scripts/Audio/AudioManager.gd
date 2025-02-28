@@ -151,7 +151,6 @@ func _getAudioStreamPlayer2D() -> AudioStreamPlayer2D:
 
 # For Spatial Audio
 func _returnAudioStreamPlayer2D(audioStreamPlayer2D: AudioStreamPlayer2D) -> void:
-	print("Returning audio stream player 2D : " + str(audioStreamPlayer2D.name))
 	if audioStreamPlayer2D in spatialAudioStreamPool:
 		push_error("AudioStreamPlayer2D already in pool")
 	else:
@@ -178,7 +177,6 @@ func _getAudioStreamPlayer() -> AudioStreamPlayer:
 
 # For Non-Spatial Audio
 func _returnAudioStreamPlayer(audioStreamPlayer: AudioStreamPlayer) -> void:
-	print("Returning audio stream player : " + str(audioStreamPlayer.name))
 	if audioStreamPlayer in audioStreamPool:
 		push_error("AudioStreamPlayer already in pool")
 	else:

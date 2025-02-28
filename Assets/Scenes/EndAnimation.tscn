@@ -1,5 +1,6 @@
-[gd_scene load_steps=149 format=3 uid="uid://dk1bvafvevx1g"]
+[gd_scene load_steps=150 format=3 uid="uid://6k4i2fkx4dhj"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/UI/EndAnimationUI.gd" id="1_6s4ox"]
 [ext_resource type="Texture2D" uid="uid://dl1rj8pibt70w" path="res://Assets/Animation/Big/frame0000.png" id="1_dn8pj"]
 [ext_resource type="Texture2D" uid="uid://brmi2bj2nr6xb" path="res://Assets/Sprites/player.svg" id="1_yd3gk"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/PoopAnim.gd" id="2_50nbo"]
@@ -143,21 +144,6 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpsaa"]
 bg_color = Color(0.960784, 0.870588, 0.698039, 1)
 
-[sub_resource type="Animation" id="Animation_5ucrj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_yd3gk")]
-}
-
 [sub_resource type="Animation" id="Animation_afk3p"]
 resource_name = "Big"
 length = 1.6
@@ -190,6 +176,36 @@ tracks/0/keys = {
 "values": [ExtResource("20_am0wc"), ExtResource("21_k7w2x"), ExtResource("22_g3ilj"), ExtResource("23_iy6ep"), ExtResource("24_g1vo6"), ExtResource("25_4acwv"), ExtResource("26_tv3er"), ExtResource("27_yl40r"), ExtResource("28_cma10"), ExtResource("29_3ephy"), ExtResource("30_k5xyt"), ExtResource("31_n1cj8"), ExtResource("32_4v4bt"), ExtResource("33_xu6xr"), ExtResource("34_cn62r"), ExtResource("35_4fh5r"), ExtResource("36_twaff"), ExtResource("37_tvvoe"), ExtResource("38_pq86i"), ExtResource("39_rkk04"), ExtResource("40_xsqj5"), ExtResource("41_pls3k"), ExtResource("42_avonp"), ExtResource("43_sc3ia"), ExtResource("44_6yahm"), ExtResource("45_0nkk5"), ExtResource("46_ilhqd"), ExtResource("47_o4174"), ExtResource("48_r4qj5"), ExtResource("49_xhjg8"), ExtResource("50_oy75t"), ExtResource("51_26auc"), ExtResource("52_smek2"), ExtResource("53_gd6ng"), ExtResource("54_t2flq"), ExtResource("55_3s4dc"), ExtResource("56_th7er"), ExtResource("57_6alaq"), ExtResource("58_k0eqa"), ExtResource("59_whymi"), ExtResource("60_fi2bj"), ExtResource("61_ykh82"), ExtResource("62_8o0bv"), ExtResource("63_17pya"), ExtResource("64_d0qnf")]
 }
 
+[sub_resource type="Animation" id="Animation_ndd7o"]
+resource_name = "oily"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.166667, 0.233333, 0.3, 0.366667, 0.466667, 0.5, 0.566667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("92_1df4u"), ExtResource("93_tq4yg"), ExtResource("94_lo67i"), ExtResource("95_i8drw"), ExtResource("96_g6vy3"), ExtResource("97_e7ixn"), ExtResource("98_pp8hu"), ExtResource("99_0ofjq"), ExtResource("100_gv7r1"), ExtResource("101_yegla"), ExtResource("102_oevv6"), ExtResource("103_g0wqc")]
+}
+
+[sub_resource type="Animation" id="Animation_5ucrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yd3gk")]
+}
+
 [sub_resource type="Animation" id="Animation_4g5j3"]
 resource_name = "Rainbow"
 length = 2.0
@@ -204,21 +220,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("65_tus41"), ExtResource("66_m35l7"), ExtResource("67_cvl14"), ExtResource("68_14e5u"), ExtResource("69_vxly7"), ExtResource("70_0ajtn"), ExtResource("71_sldhb"), ExtResource("72_t0vkb"), ExtResource("73_2gb3i"), ExtResource("74_ut0pw"), ExtResource("75_lthby"), ExtResource("76_qn6xo"), ExtResource("77_evji8"), ExtResource("78_7gagt"), ExtResource("79_74jgc"), ExtResource("80_hr3lg"), ExtResource("81_nsna3"), ExtResource("82_jp2bn"), ExtResource("83_10b0q"), ExtResource("84_th0ue"), ExtResource("85_ntaii"), ExtResource("86_uqsm6"), ExtResource("87_4s78y"), ExtResource("88_wmq5t"), ExtResource("89_kfh0i"), ExtResource("90_6r6r6"), ExtResource("91_aufq2")]
-}
-
-[sub_resource type="Animation" id="Animation_ndd7o"]
-resource_name = "oily"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.166667, 0.233333, 0.3, 0.366667, 0.466667, 0.5, 0.566667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("92_1df4u"), ExtResource("93_tq4yg"), ExtResource("94_lo67i"), ExtResource("95_i8drw"), ExtResource("96_g6vy3"), ExtResource("97_e7ixn"), ExtResource("98_pp8hu"), ExtResource("99_0ofjq"), ExtResource("100_gv7r1"), ExtResource("101_yegla"), ExtResource("102_oevv6"), ExtResource("103_g0wqc")]
 }
 
 [sub_resource type="Animation" id="Animation_jqqti"]
@@ -265,6 +266,8 @@ _data = {
 }
 
 [node name="EndAnimation" type="Node2D"]
+script = ExtResource("1_6s4ox")
+nextLevelButtonPath = NodePath("CanvasLayer/Panel/Main/Right/HBoxContainer/NextLevel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -288,19 +291,19 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Right" type="Control" parent="CanvasLayer/Panel/Main"]
+[node name="Left" type="Control" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.04
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel/Main/Right"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel/Main/Left"]
 root_node = NodePath("../Animation")
 libraries = {
 "": SubResource("AnimationLibrary_6g4ri")
 }
 script = ExtResource("2_50nbo")
 
-[node name="Animation" type="TextureRect" parent="CanvasLayer/Panel/Main/Right"]
+[node name="Animation" type="TextureRect" parent="CanvasLayer/Panel/Main/Left"]
 layout_mode = 2
 anchor_right = 1.011
 anchor_bottom = 1.0
@@ -309,13 +312,13 @@ size_flags_vertical = 3
 texture = ExtResource("1_yd3gk")
 expand_mode = 1
 
-[node name="Left" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
+[node name="Right" type="VBoxContainer" parent="CanvasLayer/Panel/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = -3
 
-[node name="Results" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Left"]
+[node name="Results" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Right"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -332,7 +335,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="score" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Left"]
+[node name="score" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Right"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -350,7 +353,7 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("3_5jgxk")
 
-[node name="placeholder" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Left"]
+[node name="placeholder" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Right"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -366,7 +369,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="hint" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Left"]
+[node name="hint" type="RichTextLabel" parent="CanvasLayer/Panel/Main/Right"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -385,7 +388,12 @@ autowrap_mode = 0
 tab_size = 24
 script = ExtResource("137_lctni")
 
-[node name="Levels Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("5_7dro0")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/Main/Right"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="LevelSelection Button" parent="CanvasLayer/Panel/Main/Right/HBoxContainer" instance=ExtResource("5_7dro0")]
 custom_minimum_size = Vector2(120, 48)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -394,3 +402,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Levels"
 script = ExtResource("6_upjcp")
 scene_path = "res://Assets/Scenes/LevelSelectionMenu.tscn"
+
+[node name="NextLevel" parent="CanvasLayer/Panel/Main/Right/HBoxContainer" instance=ExtResource("5_7dro0")]
+custom_minimum_size = Vector2(120, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Next Level"
+script = ExtResource("6_upjcp")
