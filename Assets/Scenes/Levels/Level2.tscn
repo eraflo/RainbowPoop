@@ -254,6 +254,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Eat" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 3709.0
 offset_top = -2351.0
 offset_right = 4303.0
@@ -268,6 +269,7 @@ It Boosts Your Speed And Affects Your Jump"
 horizontal_alignment = 1
 
 [node name="AdviceHealth1" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 753.0
 offset_top = 1798.0
 offset_right = 1347.0
@@ -281,6 +283,7 @@ text = "See The Bar On Top Of Your Screen"
 horizontal_alignment = 1
 
 [node name="AdviceHealth2" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 703.0
 offset_top = 1318.0
 offset_right = 1297.0
@@ -295,6 +298,7 @@ As Time Goes On"
 horizontal_alignment = 1
 
 [node name="AdviceHealth3" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 460.0
 offset_top = 702.0
 offset_right = 1058.0

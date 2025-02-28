@@ -306,6 +306,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Jump" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 336.0
 offset_top = 1817.0
 offset_right = 828.0
@@ -319,6 +320,7 @@ text = "JUMP When You Touch The Screen"
 horizontal_alignment = 1
 
 [node name="WallJump" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 1349.0
 offset_top = 1793.0
 offset_right = 1684.0
@@ -333,6 +335,7 @@ And Change Direction"
 horizontal_alignment = 1
 
 [node name="WallJump2" type="Label" parent="InGameUI"]
+layout_mode = 0
 offset_left = 3242.0
 offset_top = -2254.0
 offset_right = 3576.0
