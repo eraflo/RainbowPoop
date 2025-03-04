@@ -102,6 +102,12 @@ func stopAudio(type: AudioEffectSettings.AudioEffectType) -> void:
 				audioInstance.stop()
 				audioEffectSetting.onAudioFinished()
 
+func stopAllAudio() -> void:
+	for audioEffectSettings in audioEffectDict.values():
+		for audioEffectSetting in audioEffectSettings:
+			if isAudioPlayed(audioEffectSetting.type):
+				stopAudio(audioEffectSetting.type)
+
 func convertBusName(busName: AudioEffectSettings.BusName) -> String:
 	match busName:
 		AudioEffectSettings.BusName.Master:

@@ -60,6 +60,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Levels"
 script = ExtResource("2_k24km")
 scene_path = "res://Assets/Scenes/LevelSelectionMenu.tscn"
+stop_music_on_click = false
 
 [node name="Settings Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
 custom_minimum_size = Vector2(120, 48)
@@ -70,6 +71,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Settings"
 script = ExtResource("2_k24km")
 scene_path = "res://Assets/Scenes/SettingsMenu.tscn"
+stop_music_on_click = false
 
 [node name="Quit Button" parent="CanvasLayer/Panel/Main/Left" instance=ExtResource("1_lp8cs")]
 custom_minimum_size = Vector2(120, 48)

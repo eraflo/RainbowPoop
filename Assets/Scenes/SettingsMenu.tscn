@@ -169,6 +169,7 @@ icon = ExtResource("5_0s1h5")
 icon_alignment = 1
 script = ExtResource("6_m6ivl")
 scene_path = "res://Assets/Scenes/MainMenu.tscn"
+stop_music_on_click = false
 
 [node name="PoopImage" type="TextureRect" parent="CanvasLayer/Panel"]
 layout_mode = 1

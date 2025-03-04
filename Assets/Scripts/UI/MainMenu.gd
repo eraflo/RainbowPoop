@@ -8,8 +8,17 @@ var play_button: ChangeSceneButton
 
 var main_music: AudioStreamPlayer
 
+var game_was_paused: bool = false
+
 func _ready() -> void:
+
+	if get_tree().paused:
+		game_was_paused = true
+
 	get_tree().paused = false
+
+	if game_was_paused:
+		AudioManager.stopAllAudio()
 	
 	play_button = get_node(play_button_path)
 

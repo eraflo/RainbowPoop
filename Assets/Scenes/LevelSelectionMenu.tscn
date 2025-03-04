@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cbgd4rvu75ye6"]
+[gd_scene load_steps=23 format=3 uid="uid://l8nvsh18m1r7"]
 
 [ext_resource type="PackedScene" uid="uid://m4vuio42gk88" path="res://Assets/Nodes/UI/BaseButton.tscn" id="1_m3vm8"]
 [ext_resource type="Texture2D" uid="uid://xq3wprrsu58q" path="res://Assets/Sprites/UI/background_level_selection.png" id="1_vdyuy"]
@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dyf8gjloqdxaq" path="res://Assets/Nodes/UI/ImageCompositeButton.tscn" id="5_xx8o6"]
 [ext_resource type="Texture2D" uid="uid://bfprys5ymp2r8" path="res://Assets/Sprites/UI/poopImage.png" id="6_k405g"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/LevelSelectionButton.gd" id="6_r7p42"]
-[ext_resource type="Resource" uid="uid://ql5jd554fjla" path="res://Assets/Resources/Levels/Level1.tres" id="7_5t6ua"]
+[ext_resource type="Resource" uid="uid://bndxa7ba0v1fu" path="res://Assets/Resources/Levels/Level1.tres" id="7_5t6ua"]
 [ext_resource type="Texture2D" uid="uid://bnxux1o0bpql6" path="res://Assets/Sprites/UI/LevelUI/Level1.png" id="7_v4c55"]
 [ext_resource type="Texture2D" uid="uid://43dwii5xykcv" path="res://Assets/Sprites/UI/LevelSelectedIcon.png" id="8_uh53y"]
 [ext_resource type="Texture2D" uid="uid://tqesgo74wust" path="res://Assets/Sprites/UI/LevelUI/Level2.png" id="9_cyhbh"]
-[ext_resource type="Resource" uid="uid://dleeqf3d2l1u3" path="res://Assets/Resources/Levels/Level3.tres" id="10_4gn0v"]
+[ext_resource type="Resource" path="res://Assets/Resources/Levels/Level3.tres" id="10_4gn0v"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/LevelTabUI.gd" id="10_gr81u"]
 [ext_resource type="Resource" uid="uid://brlh4sm78rv53" path="res://Assets/Resources/Levels/Level2.tres" id="11_6c7ht"]
 [ext_resource type="Texture2D" uid="uid://cdih0bne4tq28" path="res://Assets/Sprites/UI/LevelUI/Level3.png" id="11_naxh3"]
@@ -119,14 +119,14 @@ colorHue = 0.11
 [node name="Level3" parent="CanvasLayer/Main/Left/MarginContainer/Buttons" instance=ExtResource("5_xx8o6")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.121
-anchor_top = 0.15
-anchor_right = 0.121
-anchor_bottom = 0.15
-offset_left = 268.759
-offset_top = -3.75
-offset_right = 278.759
-offset_bottom = 6.25
+anchor_left = 0.501
+anchor_top = 0.153
+anchor_right = 0.501
+anchor_bottom = 0.153
+offset_left = -5.22104
+offset_top = -4.905
+offset_right = 4.77896
+offset_bottom = 5.09499
 script = ExtResource("6_r7p42")
 level_data = ExtResource("10_4gn0v")
 images = Array[Resource]([ExtResource("6_k405g"), ExtResource("11_naxh3")])
@@ -151,6 +151,7 @@ icon = ExtResource("2_1p56i")
 icon_alignment = 1
 script = ExtResource("2_pt6b7")
 scene_path = "res://Assets/Scenes/MainMenu.tscn"
+stop_music_on_click = false
 
 [node name="Right" type="Control" parent="CanvasLayer/Main" node_paths=PackedStringArray("allLevelUI", "titleLabel", "starsContainer", "bestScoreLabel", "startButton")]
 visible = false
