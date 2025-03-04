@@ -13,7 +13,8 @@ config_version=5
 config/name="RainbowPoop"
 run/main_scene="res://Assets/Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/image="res://Assets/Sprites/UI/Rainbow poop ICT Showroom.png"
+config/icon="res://Assets/Sprites/UI/LogoGame.png"
 <<<<<<<HEADrun/main_scene="res://Assets/Scenes/MainMenu.tscn"
 
 [audio]

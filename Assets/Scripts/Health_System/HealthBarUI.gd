@@ -9,7 +9,7 @@ func _ready():
 
 	# TODO: improve the way to set the min and max values
 	max_value = Health.health_thresholds[Health.HealthStatus.OBESE]
-	min_value = Health.health_thresholds[Health.HealthStatus.SEVERELY_UNDERWEIGHT]
+	min_value = 0.0
 
 	# Position the indicator
 	indicator = get_parent().get_node("Indicator") as TextureRect

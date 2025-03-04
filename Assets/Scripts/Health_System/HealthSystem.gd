@@ -23,7 +23,7 @@ signal imc_changed(imc: float)
 
 # Thresholds for each health status (IMC values)
 const health_thresholds: Dictionary = {
-	HealthStatus.SEVERELY_UNDERWEIGHT: 16.5,
+	HealthStatus.SEVERELY_UNDERWEIGHT: 5,
 	HealthStatus.UNDERWEIGHT: 18.5,
 	HealthStatus.NORMAL: 25.0,
 	HealthStatus.OVERWEIGHT: 30.0,
@@ -84,8 +84,8 @@ func _process(_delta: float) -> void:
 	add_weight(-health_weight_change[health_status] * _delta)
 
 	
-	print("Weight: ", weight.value)
-	print("Status: ", healthStatusName[health_status])
+	# print("Weight: ", weight.value)
+	# print("Status: ", healthStatusName[health_status])
 	# print("Health Status: ", health_status)
 	# print("Health Weight Change: ", health_weight_change[health_status])
 

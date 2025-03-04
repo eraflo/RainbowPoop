@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bb503oyjsigh1"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Traps/ChewingGum.gd" id="1_y4giw"]
-[ext_resource type="Texture2D" uid="uid://bg4igqkhv4g5t" path="res://Assets/Sprites/bacteria.svg" id="2_1ees0"]
+[ext_resource type="Texture2D" uid="uid://c6hhra5u45g7" path="res://Assets/Sprites/chewing_gum.png" id="2_cpsos"]
 
 [node name="ChewingGum" type="Area2D"]
 script = ExtResource("1_y4giw")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_1ees0")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_cpsos")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-14, -9, -11, -14, -5, -15, 0, -13, 3, -8, 5, -3, 11, 1, 14, 4, 15, 8, 11, 14, 4, 14, 1, 10, -2, 5, -7, 3, -12, 0, -14, -4)
+polygon = PackedVector2Array(-23, -4, -11, -12, -4, -13, 9, -13, 16, -8, 21, -5, 25, 1, 21, 6, 15, 8, 8, 8, 3, 11, -4, 11, -11, 12, -19, 8, -22, 5, -23, 2)
