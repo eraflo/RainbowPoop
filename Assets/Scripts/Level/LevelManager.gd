@@ -30,8 +30,8 @@ func get_next_level() -> LevelData:
 	sort_all_levels()
 
 	for level: LevelData in _levelManagerData.all_levels:
+		next_level = level
 		if not is_level_completed(level.level_name):
-			next_level = level
 			break
 	return next_level
 

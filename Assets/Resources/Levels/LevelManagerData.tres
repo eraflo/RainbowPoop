@@ -9,4 +9,4 @@
 [resource]
 script = ExtResource("1_qg3nb")
 all_levels = Array[ExtResource("3_3x5ct")]([ExtResource("1_qp5hw"), ExtResource("2_xispb"), ExtResource("4_u1e2e")])
-levels_completed = Array[ExtResource("3_3x5ct")]([ExtResource("1_qp5hw"), ExtResource("2_xispb")])
+levels_completed = Array[ExtResource("3_3x5ct")]([ExtResource("1_qp5hw"), ExtResource("2_xispb"), ExtResource("4_u1e2e")])

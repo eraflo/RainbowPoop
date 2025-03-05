@@ -152,4 +152,3 @@ func _playAudioForHealthStatus() -> void:
 			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_UNHEALTHY_HEALTH_ENTERED)
 		HealthStatus.NORMAL:
 			AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_HEALTHY_HEALTH_ENTERED)
-

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3 uid="uid://dleeqf3d2l1u3"]
+[gd_resource type="Resource" script_class="LevelData" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelData.gd" id="1_7ige1"]
 
@@ -7,16 +7,16 @@ script = ExtResource("1_7ige1")
 level_name = "Level 3"
 level_number = 3
 level_scene_path = "res://Assets/Scenes/Levels/Level3.tscn"
-completion_stars = 2
-score = 5140.0
+completion_stars = 4
+score = 5395.5
 level_timer_countdown = 300.0
 completed = true
-sugar_decay = 0.1
-fiber_decay = 0.1
-protein_decay = 0.1
-fat_decay = 0.1
-water_decay = 0.1
-vitamin_decay = 0.1
+sugar_decay = 0.07
+fiber_decay = 0.07
+protein_decay = 0.07
+fat_decay = 0.07
+water_decay = 0.07
+vitamin_decay = 0.07
 oneStarScore = 1000.0
 twoStarScore = 3000.0
 threeStarScore = 5000.0

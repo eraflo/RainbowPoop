@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cqlmkj1phytq8"]
+[gd_scene load_steps=31 format=3 uid="uid://cqlmkj1phytq8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_0w5vc"]
 [ext_resource type="Resource" uid="uid://dleeqf3d2l1u3" path="res://Assets/Resources/Levels/Level3.tres" id="2_j1j70"]
@@ -26,6 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://coh1br7r5vwfr" path="res://Assets/Nodes/Food/Tomato.tscn" id="17_2i5df"]
 [ext_resource type="PackedScene" uid="uid://bh3fbm0wqtt31" path="res://Assets/Nodes/Food/Watermelon.tscn" id="18_vu5o7"]
 [ext_resource type="PackedScene" uid="uid://b4tfhspk0jq5k" path="res://Assets/Nodes/Food/Apple.tscn" id="18_xsl7k"]
+[ext_resource type="PackedScene" uid="uid://f1qsoxfcrfws" path="res://Assets/Nodes/Food/ChickenLeg.tscn" id="24_gdx3j"]
+[ext_resource type="PackedScene" uid="uid://5s3l3a8qaeat" path="res://Assets/Nodes/Food/GreenVege.tscn" id="25_gpqo1"]
+[ext_resource type="PackedScene" uid="uid://d1evcp8w8kdu3" path="res://Assets/Nodes/Traps/EscherichiaColi.tscn" id="27_x5j5l"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -82,7 +85,7 @@ polygon = PackedVector2Array(1.329, 0.975, 0.9725, 1.1785, -0.0005, 1.005, 0.753
 polygon = PackedVector2Array(0.946868, 0.259872, 0.941905, 0.266299, 0.90024, 0.189276, 0.853153, 0.11972, 0.82901, 0.0934186, 0.80937, 0.075964, 0.794308, 0.0671832, 0.779144, 0.0586337, 0.726219, 0.0592555, 0.698813, 0.0688228, 0.676138, 0.086717, 0.630331, 0.123546, 0.589256, 0.168702, 0.523848, 0.249745, 0.247546, 0.654461, 0.18852, 0.754306, 0.159833, 0.809466, 0.138802, 0.866303, 0.125885, 0.923777, 0.1349, 0.974418, 0.154226, 0.997104, 0.197159, 1.02338, 0.261564, 1.04386, 0.331392, 1.05687, 0.326428, 1.0633, -0.0005, 1.005, 0.7535, -0.102)
 
 [node name="Rcol2" parent="Stomach/StomachPart3/StaticBody2D2" index="1"]
-polygon = PackedVector2Array(1.13563, 0.613128, 1.13171, 0.617185, 1.17801, 0.702766, 1.21158, 0.774248, 1.22684, 0.811033, 1.23759, 0.838972, 1.24377, 0.858237, 1.25165, 0.887861, 1.25675, 0.91894, 1.25738, 0.941114, 1.25533, 0.964511, 1.25151, 0.977722, 1.24491, 0.992387, 1.2298, 1.01182, 1.20067, 1.03887, 1.09996, 1.09788, 1.04982, 1.11993, 1.02528, 1.1275, 1.00339, 1.1339, 0.987206, 1.13705, 0.946894, 1.14231, 0.922618, 1.14476, 0.911931, 1.14512, 0.882773, 1.14444, 0.826902, 1.14239, 0.784876, 1.13765, 0.711561, 1.12771, 0.649493, 1.11615, 0.645572, 1.1202, 0.9725, 1.1785, 1.3336, 0.983616)
+polygon = PackedVector2Array(1.1465, 0.6345, 1.1445, 0.6355, 1.17801, 0.702766, 1.21158, 0.774248, 1.22684, 0.811033, 1.23759, 0.838972, 1.24377, 0.858237, 1.25165, 0.887861, 1.25675, 0.91894, 1.25738, 0.941114, 1.25533, 0.964511, 1.25151, 0.977722, 1.24491, 0.992387, 1.2298, 1.01182, 1.20067, 1.03887, 1.09996, 1.09788, 1.04982, 1.11993, 1.02528, 1.1275, 1.00339, 1.1339, 0.987206, 1.13705, 0.946894, 1.14231, 0.922618, 1.14476, 0.911931, 1.14512, 0.882773, 1.14444, 0.826902, 1.14239, 0.784876, 1.13765, 0.711561, 1.12771, 0.649493, 1.11615, 0.645572, 1.1202, 0.9725, 1.1785, 1.3336, 0.983616)
 
 [node name="StomachPart4" parent="Stomach" instance=ExtResource("6_5gtu5")]
 position = Vector2(4676, -4019)
@@ -152,45 +155,6 @@ polygon = PackedVector2Array(0.86653, -0.15668, 0.937895, 0.0148792, 0.930554, 0
 
 [node name="Rcol2" parent="Stomach/StomachPart10/StaticBody2D2" index="1"]
 polygon = PackedVector2Array(1.10785, 1.49641, 1.12641, 1.8133, 1.1293, 1.93996, 1.1304, 2.0455, 1.12803, 2.10876, 1.11562, 2.23516, 1.10555, 2.29831, 1.09965, 2.31931, 1.08022, 2.36118, 1.03954, 2.4238, 1.00309, 2.44427, 0.936092, 2.4642, 0.875111, 2.4631, 0.876624, 2.48429, 1.197, 2.49, 1.03289, 0.501879, 1.01801, 0.38017, 1.00969, 0.386454, 1.03446, 0.596777, 1.05909, 0.85845)
-
-[node name="Broccoli" parent="Stomach" instance=ExtResource("8_kdju4")]
-position = Vector2(6014, -2424)
-
-[node name="Candy1" parent="Stomach" instance=ExtResource("9_n06i4")]
-position = Vector2(6405, -2663)
-
-[node name="Egg" parent="Stomach" instance=ExtResource("10_pvd5t")]
-position = Vector2(6086, -2587)
-
-[node name="Orange" parent="Stomach" instance=ExtResource("11_cwos1")]
-position = Vector2(7185, -2952)
-
-[node name="Pizza" parent="Stomach" instance=ExtResource("12_yncvo")]
-position = Vector2(7154, -2901)
-
-[node name="Water" parent="Stomach" instance=ExtResource("13_b6nho")]
-position = Vector2(6035, -2519)
-
-[node name="Hamburger" parent="Stomach" instance=ExtResource("14_fwb7v")]
-position = Vector2(6421, -2737)
-
-[node name="Lemon" parent="Stomach" instance=ExtResource("15_iv7ok")]
-position = Vector2(6745, -2838)
-
-[node name="Mushroom" parent="Stomach" instance=ExtResource("16_12op7")]
-position = Vector2(6762, -2895)
-
-[node name="Tomato" parent="Stomach" instance=ExtResource("17_2i5df")]
-position = Vector2(8122, -2904)
-
-[node name="Water2" parent="Stomach" instance=ExtResource("13_b6nho")]
-position = Vector2(6006, -2510)
-
-[node name="Water3" parent="Stomach" instance=ExtResource("13_b6nho")]
-position = Vector2(6003, -2542)
-
-[node name="Watermelon" parent="Stomach" instance=ExtResource("18_vu5o7")]
-position = Vector2(7212, -3000)
 
 [node name="bones" type="Node2D" parent="."]
 
@@ -286,12 +250,13 @@ position = Vector2(8022, -2807)
 position = Vector2(8499, -2886)
 
 [node name="Bone23" parent="bones" instance=ExtResource("8_wwqtb")]
+z_index = 1
 position = Vector2(8968, -2758)
 rotation = 0.261799
 
 [node name="Bone24" parent="bones" instance=ExtResource("8_wwqtb")]
-position = Vector2(8831, -873)
-rotation = 0.523598
+position = Vector2(8941, -913)
+rotation = 1.7353
 
 [node name="Bone25" parent="bones" instance=ExtResource("8_wwqtb")]
 position = Vector2(9568, -761)
@@ -319,6 +284,10 @@ points = PackedVector2Array(383, 331, 263, 285, 54, 237, -134, 233, -322, 245, -
 position = Vector2(6396, 4734)
 points = PackedVector2Array(-87, 721, -74, 655, -5, 585, 426, 402, 469.116, 324.166, 472, 74, 489, 15, 541, -13, 625, -15, 669, -3, 713, 25, 758, 87, 819, 115, 906, 115)
 
+[node name="ColliderLine4" parent="bones" instance=ExtResource("9_yej8y")]
+position = Vector2(9058, -1818)
+points = PackedVector2Array(-28, 676, -117, 341, -91, -55, 46, -348, 125, -620, 89, -816)
+
 [node name="obstacles" type="Node2D" parent="."]
 
 [node name="FoodObstacle" parent="obstacles" instance=ExtResource("10_ubris")]
@@ -343,7 +312,64 @@ scale = Vector2(10, -10)
 [node name="foods" type="Node2D" parent="."]
 
 [node name="Apple" parent="foods" instance=ExtResource("18_xsl7k")]
-position = Vector2(4541, -2519)
+position = Vector2(2258, -2334)
+
+[node name="Broccoli" parent="foods" instance=ExtResource("8_kdju4")]
+position = Vector2(2448, -2255)
+
+[node name="Candy1" parent="foods" instance=ExtResource("9_n06i4")]
+position = Vector2(2299, -2782)
+
+[node name="Egg" parent="foods" instance=ExtResource("10_pvd5t")]
+position = Vector2(2410, -2331)
+
+[node name="Orange" parent="foods" instance=ExtResource("11_cwos1")]
+position = Vector2(4606, -2473)
+
+[node name="Pizza" parent="foods" instance=ExtResource("12_yncvo")]
+position = Vector2(4606, -2435)
+
+[node name="Water" parent="foods" instance=ExtResource("13_b6nho")]
+position = Vector2(2239, -2368)
+
+[node name="Hamburger" parent="foods" instance=ExtResource("14_fwb7v")]
+position = Vector2(2337, -2853)
+
+[node name="Lemon" parent="foods" instance=ExtResource("15_iv7ok")]
+position = Vector2(2318, -2820)
+
+[node name="Mushroom" parent="foods" instance=ExtResource("16_12op7")]
+position = Vector2(2372, -2853)
+
+[node name="Tomato" parent="foods" instance=ExtResource("17_2i5df")]
+position = Vector2(4452, -2668)
+
+[node name="Water2" parent="foods" instance=ExtResource("13_b6nho")]
+position = Vector2(2287, -2331)
+
+[node name="Water3" parent="foods" instance=ExtResource("13_b6nho")]
+position = Vector2(2280, -2369)
+
+[node name="Watermelon" parent="foods" instance=ExtResource("18_vu5o7")]
+position = Vector2(4606, -2511)
+
+[node name="ChickenLeg" parent="foods" instance=ExtResource("24_gdx3j")]
+position = Vector2(8618, -3025)
+
+[node name="GreenVege" parent="foods" instance=ExtResource("25_gpqo1")]
+position = Vector2(8681, -3084)
+
+[node name="Hamburger2" parent="foods" instance=ExtResource("14_fwb7v")]
+position = Vector2(9031, -1576)
+
+[node name="Mushroom2" parent="foods" instance=ExtResource("16_12op7")]
+position = Vector2(9041, -1476)
+
+[node name="Orange2" parent="foods" instance=ExtResource("11_cwos1")]
+position = Vector2(9063, -1394)
+
+[node name="Candy2" parent="foods" instance=ExtResource("9_n06i4")]
+position = Vector2(9087, -1287)
 
 [node name="Guide" type="Path2D" parent="."]
 position = Vector2(0, -9)
@@ -352,7 +378,7 @@ curve = SubResource("Curve2D_4j80l")
 [node name="EndOfLevelArea" parent="." instance=ExtResource("12_xmi13")]
 position = Vector2(6495, 6537)
 scale = Vector2(32.065, 32.065)
-level_name = "Level1"
+level_name = "Level3"
 
 [node name="InGameMenu" parent="." instance=ExtResource("13_kt58x")]
 
@@ -407,10 +433,10 @@ horizontal_alignment = 1
 
 [node name="food" type="Label" parent="InGameUI"]
 layout_mode = 0
-offset_left = 4363.0
-offset_top = -2700.0
-offset_right = 4697.0
-offset_bottom = -2621.0
+offset_left = 2107.0
+offset_top = -2491.0
+offset_right = 2441.0
+offset_bottom = -2412.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -419,6 +445,9 @@ theme_override_font_sizes/font_size = 30
 text = "Eat Food To
 Return To Normal"
 horizontal_alignment = 1
+
+[node name="EscherichiaColi" parent="." instance=ExtResource("27_x5j5l")]
+position = Vector2(8141, -2954)
 
 [editable path="Stomach/StomachPart2"]
 [editable path="Stomach/StomachPart3"]

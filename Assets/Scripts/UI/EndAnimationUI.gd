@@ -18,4 +18,5 @@ func _ready() -> void:
 		AudioManager.createAudio(AudioEffectSettings.AudioEffectType.ON_SPECIAL_WIN, randi_range(0, AudioManager.getNumberOfAudioForType(AudioEffectSettings.AudioEffectType.ON_SPECIAL_WIN) - 1))
 
 	nextLevel = LevelManager.get_next_level()
+
 	nextLevelButton.scene_path_to_use = nextLevel.level_scene_path
