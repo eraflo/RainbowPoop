@@ -6,7 +6,7 @@ var player
 var path
 var startedAt
 var pathLength
-const ANIMATION_DURATION = 0
+const ANIMATION_DURATION = 5
 
 func _ready() -> void:
 	var parent = get_parent()

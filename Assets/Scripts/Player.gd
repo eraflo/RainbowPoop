@@ -142,19 +142,20 @@ func stop() -> void:
 ## Eat a food
 func eat_food(food: Food) -> void:
 	food_eaten.append(food)
+	var mult = 3
 
 	if food.sugar > 0:
-		_add_modifier(_sugar, food.sugar, StatModifier.StatModType.Flat)
+		_add_modifier(_sugar, food.sugar*mult, StatModifier.StatModType.Flat)
 	if food.protein > 0:
-		_add_modifier(_protein, food.protein, StatModifier.StatModType.Flat)
+		_add_modifier(_protein, food.protein*mult, StatModifier.StatModType.Flat)
 	if food.fat > 0:
-		_add_modifier(_fat, food.fat, StatModifier.StatModType.Flat)
+		_add_modifier(_fat, food.fat*mult, StatModifier.StatModType.Flat)
 	if food.water > 0:
-		_add_modifier(_water, food.water, StatModifier.StatModType.Flat)
+		_add_modifier(_water, food.water*mult, StatModifier.StatModType.Flat)
 	if food.fiber > 0:
-		_add_modifier(_fiber, food.fiber, StatModifier.StatModType.Flat)
+		_add_modifier(_fiber, food.fiber*mult, StatModifier.StatModType.Flat)
 	if food.vitamin > 0:
-		_add_modifier(_vitamin, food.vitamin, StatModifier.StatModType.Flat)
+		_add_modifier(_vitamin, food.vitamin*mult, StatModifier.StatModType.Flat)
 
 
 ## Handle the touchscreen input

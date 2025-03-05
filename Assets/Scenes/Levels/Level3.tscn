@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqlmkj1phytq8"]
+[gd_scene load_steps=28 format=3 uid="uid://cqlmkj1phytq8"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Level/LevelNode.gd" id="1_0w5vc"]
 [ext_resource type="Resource" uid="uid://dleeqf3d2l1u3" path="res://Assets/Resources/Levels/Level3.tres" id="2_j1j70"]
@@ -7,13 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://s82l85h1atd5" path="res://Assets/Nodes/Player.tscn" id="5_gwynq"]
 [ext_resource type="PackedScene" uid="uid://co5jv1us78p52" path="res://Assets/Nodes/LevelElements/StomachPart.tscn" id="6_5gtu5"]
 [ext_resource type="PackedScene" uid="uid://qjlrveg8j1u8" path="res://Assets/Nodes/LevelElements/StomachEnd.tscn" id="7_1s5vf"]
+[ext_resource type="PackedScene" uid="uid://bggx540lvaqhd" path="res://Assets/Nodes/Food/Broccoli.tscn" id="8_kdju4"]
 [ext_resource type="PackedScene" uid="uid://kqhbelslhml6" path="res://Assets/Nodes/LevelElements/bone.tscn" id="8_wwqtb"]
+[ext_resource type="PackedScene" uid="uid://lvrwlbmu2fy0" path="res://Assets/Nodes/Food/Candy1.tscn" id="9_n06i4"]
 [ext_resource type="PackedScene" uid="uid://bl31xmy2runyo" path="res://Assets/Nodes/LevelElements/collider_line.tscn" id="9_yej8y"]
+[ext_resource type="PackedScene" uid="uid://cerd3wn7j8iu4" path="res://Assets/Nodes/Food/Egg.tscn" id="10_pvd5t"]
 [ext_resource type="PackedScene" uid="uid://c3l3p7hr7nfwx" path="res://Assets/Nodes/Traps/FoodObstacle.tscn" id="10_ubris"]
+[ext_resource type="PackedScene" uid="uid://depxjtjmwkor4" path="res://Assets/Nodes/Food/Orange.tscn" id="11_cwos1"]
 [ext_resource type="PackedScene" uid="uid://bam6e1sbqyg6w" path="res://Assets/Nodes/Traps/Hemorrhoid.tscn" id="11_tnq5a"]
 [ext_resource type="PackedScene" uid="uid://bw703uhgeaftx" path="res://Assets/Nodes/LevelElements/EndOfLevelArea.tscn" id="12_xmi13"]
+[ext_resource type="PackedScene" uid="uid://d2etdy1x073jk" path="res://Assets/Nodes/Food/Pizza.tscn" id="12_yncvo"]
+[ext_resource type="PackedScene" uid="uid://wdurrskpceut" path="res://Assets/Nodes/Food/Water.tscn" id="13_b6nho"]
 [ext_resource type="PackedScene" uid="uid://bppq73omdm7g8" path="res://Assets/Nodes/UI/InGameMenu.tscn" id="13_kt58x"]
+[ext_resource type="PackedScene" uid="uid://1ctflse546xe" path="res://Assets/Nodes/Food/Hamburger.tscn" id="14_fwb7v"]
 [ext_resource type="FontFile" uid="uid://bi14y70xh8vlt" path="res://Assets/Fonts/Fredoka/static/Fredoka-Bold.ttf" id="14_ybeoo"]
+[ext_resource type="PackedScene" uid="uid://b4uiup1njdgf3" path="res://Assets/Nodes/Food/Lemon.tscn" id="15_iv7ok"]
+[ext_resource type="PackedScene" uid="uid://cgv0gx0pdegun" path="res://Assets/Nodes/Food/Mushroom.tscn" id="16_12op7"]
+[ext_resource type="PackedScene" uid="uid://coh1br7r5vwfr" path="res://Assets/Nodes/Food/Tomato.tscn" id="17_2i5df"]
+[ext_resource type="PackedScene" uid="uid://bh3fbm0wqtt31" path="res://Assets/Nodes/Food/Watermelon.tscn" id="18_vu5o7"]
+[ext_resource type="PackedScene" uid="uid://b4tfhspk0jq5k" path="res://Assets/Nodes/Food/Apple.tscn" id="18_xsl7k"]
 
 [sub_resource type="Curve2D" id="Curve2D_4j80l"]
 _data = {
@@ -141,6 +153,45 @@ polygon = PackedVector2Array(0.86653, -0.15668, 0.937895, 0.0148792, 0.930554, 0
 [node name="Rcol2" parent="Stomach/StomachPart10/StaticBody2D2" index="1"]
 polygon = PackedVector2Array(1.10785, 1.49641, 1.12641, 1.8133, 1.1293, 1.93996, 1.1304, 2.0455, 1.12803, 2.10876, 1.11562, 2.23516, 1.10555, 2.29831, 1.09965, 2.31931, 1.08022, 2.36118, 1.03954, 2.4238, 1.00309, 2.44427, 0.936092, 2.4642, 0.875111, 2.4631, 0.876624, 2.48429, 1.197, 2.49, 1.03289, 0.501879, 1.01801, 0.38017, 1.00969, 0.386454, 1.03446, 0.596777, 1.05909, 0.85845)
 
+[node name="Broccoli" parent="Stomach" instance=ExtResource("8_kdju4")]
+position = Vector2(6014, -2424)
+
+[node name="Candy1" parent="Stomach" instance=ExtResource("9_n06i4")]
+position = Vector2(6405, -2663)
+
+[node name="Egg" parent="Stomach" instance=ExtResource("10_pvd5t")]
+position = Vector2(6086, -2587)
+
+[node name="Orange" parent="Stomach" instance=ExtResource("11_cwos1")]
+position = Vector2(7185, -2952)
+
+[node name="Pizza" parent="Stomach" instance=ExtResource("12_yncvo")]
+position = Vector2(7154, -2901)
+
+[node name="Water" parent="Stomach" instance=ExtResource("13_b6nho")]
+position = Vector2(6035, -2519)
+
+[node name="Hamburger" parent="Stomach" instance=ExtResource("14_fwb7v")]
+position = Vector2(6421, -2737)
+
+[node name="Lemon" parent="Stomach" instance=ExtResource("15_iv7ok")]
+position = Vector2(6745, -2838)
+
+[node name="Mushroom" parent="Stomach" instance=ExtResource("16_12op7")]
+position = Vector2(6762, -2895)
+
+[node name="Tomato" parent="Stomach" instance=ExtResource("17_2i5df")]
+position = Vector2(8122, -2904)
+
+[node name="Water2" parent="Stomach" instance=ExtResource("13_b6nho")]
+position = Vector2(6006, -2510)
+
+[node name="Water3" parent="Stomach" instance=ExtResource("13_b6nho")]
+position = Vector2(6003, -2542)
+
+[node name="Watermelon" parent="Stomach" instance=ExtResource("18_vu5o7")]
+position = Vector2(7212, -3000)
+
 [node name="bones" type="Node2D" parent="."]
 
 [node name="Bone" parent="bones" instance=ExtResource("8_wwqtb")]
@@ -251,6 +302,7 @@ position = Vector2(9241, 601)
 rotation = -0.261799
 
 [node name="Bone27" parent="bones" instance=ExtResource("8_wwqtb")]
+top_level = true
 position = Vector2(7384, 2292)
 rotation = 0.236728
 scale = Vector2(1.41911, 1.29253)
@@ -279,14 +331,19 @@ position = Vector2(7268, -2952)
 position = Vector2(8218, -2954)
 
 [node name="Hemorrhoid" parent="obstacles" instance=ExtResource("11_tnq5a")]
-position = Vector2(7137, 5220)
-rotation = -1.50467
+position = Vector2(6986, 3042)
+rotation = -1.65373
 scale = Vector2(10, 10)
 
 [node name="Hemorrhoid2" parent="obstacles" instance=ExtResource("11_tnq5a")]
 position = Vector2(5694, 4676)
 rotation = -1.66106
 scale = Vector2(10, -10)
+
+[node name="foods" type="Node2D" parent="."]
+
+[node name="Apple" parent="foods" instance=ExtResource("18_xsl7k")]
+position = Vector2(4541, -2519)
 
 [node name="Guide" type="Path2D" parent="."]
 position = Vector2(0, -9)
@@ -346,6 +403,21 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("14_ybeoo")
 theme_override_font_sizes/font_size = 30
 text = "Be Careful Of Traps"
+horizontal_alignment = 1
+
+[node name="food" type="Label" parent="InGameUI"]
+layout_mode = 0
+offset_left = 4363.0
+offset_top = -2700.0
+offset_right = 4697.0
+offset_bottom = -2621.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_ybeoo")
+theme_override_font_sizes/font_size = 30
+text = "Eat Food To
+Return To Normal"
 horizontal_alignment = 1
 
 [editable path="Stomach/StomachPart2"]
